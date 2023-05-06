@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             BuildingSeeder::class,
             ApartmentSeeder::class,
+            ReviewSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 
