@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class EvaluationCriteria extends Model
 {
     use HasFactory;
+
+    protected $table = 'evaluation_criteria';
 }
