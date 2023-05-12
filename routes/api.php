@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BuildingController;
 use App\Http\Controllers\EvaluationCriteriaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,8 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware(['client'])->group(function () {
+    Route::get('evaluation-criteria', [EvaluationCriteriaController::class, 'get']);
+    Route::post('buildings', [BuildingController::class, 'findOrCreate']);
 });
-
-Route::get('evaluation-criteria', [EvaluationCriteriaController::class, 'get']);
