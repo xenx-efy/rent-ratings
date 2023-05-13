@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('pros')->comment('Positive aspects of apartment');
             $table->text('cons')->comment('Negative aspects of apartment');
             $table->text('advice_to_owner')->comment('Advice of ex renter to apartment owner');
+            $table->float('rating', 8, 1)->comment('Average evaluation criteria rating of comment');
             $table->timestamps();
         });
     }

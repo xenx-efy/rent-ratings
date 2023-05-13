@@ -18,5 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['client'])->group(function () {
     Route::get('evaluation-criteria', [EvaluationCriteriaController::class, 'get']);
+
     Route::post('buildings', [BuildingController::class, 'findOrCreate']);
+
+    Route::get('buildings/{id}/apartments', [BuildingController::class, 'getBuildingApartments']);
 });
