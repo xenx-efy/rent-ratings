@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->foreignId('apartment_id');
+            $table->string('title')->comment('Subject or main point of review');
             $table->text('pros')->comment('Positive aspects of apartment');
             $table->text('cons')->comment('Negative aspects of apartment');
             $table->text('advice_to_owner')->comment('Advice of ex renter to apartment owner');

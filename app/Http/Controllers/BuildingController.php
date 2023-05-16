@@ -24,7 +24,7 @@ class BuildingController extends Controller
 
     public function getApartments(Request $request, int $id): ApartmentCollection
     {
-       $apartments = Building::find($id)->apartments;
+       $apartments = Building::findOrFail($id)->apartments;
 
        return new ApartmentCollection($apartments);
     }

@@ -25,4 +25,6 @@ Route::middleware(['client'])->group(function () {
     Route::get('buildings/{id}/apartments', [BuildingController::class, 'getApartments']);
 
     Route::get('apartments/{id}', [ApartmentController::class, 'get']);
+    Route::get('apartments/{id}/reviews', [ApartmentController::class, 'getReviews']);
+
 });
