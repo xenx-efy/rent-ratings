@@ -7,6 +7,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class ApartmentResource extends JsonResource
 {
+    public static $wrap = null;
+
     /**
      * Transform the resource into an array.
      *
@@ -19,7 +21,8 @@ class ApartmentResource extends JsonResource
             'number' => $this->number,
             'amountOfRooms' => $this->amount_of_rooms,
             'floor' => $this->floor,
-            'rating' => $this->rating() ?: null
+            'rating' => $this->rating()
         ];
     }
+
 }

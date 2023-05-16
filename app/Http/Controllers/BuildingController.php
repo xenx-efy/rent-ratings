@@ -22,7 +22,7 @@ class BuildingController extends Controller
         );
     }
 
-    public function getBuildingApartments(Request $request, int $id): ApartmentCollection
+    public function getApartments(Request $request, int $id): ApartmentCollection
     {
        $apartments = Building::find($id)->apartments;
 

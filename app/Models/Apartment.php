@@ -31,6 +31,7 @@ class Apartment extends Model
 
         $reviewsCount = $this->reviews()->count();
 
-        return $reviewsCount > 0 ? number_format($reviewRatingSum / $reviewsCount) : null;
+        // 3.5 format. with 1 digit after dot
+        return $reviewsCount > 0 ? number_format($reviewRatingSum / $reviewsCount, 1) : null;
     }
 }

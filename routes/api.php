@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApartmentController;
 use App\Http\Controllers\BuildingController;
 use App\Http\Controllers\EvaluationCriteriaController;
 use Illuminate\Http\Request;
@@ -21,5 +22,7 @@ Route::middleware(['client'])->group(function () {
 
     Route::post('buildings', [BuildingController::class, 'findOrCreate']);
 
-    Route::get('buildings/{id}/apartments', [BuildingController::class, 'getBuildingApartments']);
+    Route::get('buildings/{id}/apartments', [BuildingController::class, 'getApartments']);
+
+    Route::get('apartments/{id}', [ApartmentController::class, 'get']);
 });
