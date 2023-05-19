@@ -18,16 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['client'])->group(function () {
-    Route::get('evaluation-criteria', [EvaluationCriteriaController::class, 'get']);
+Route::get('evaluation-criteria', [EvaluationCriteriaController::class, 'get']);
 
-    Route::post('buildings', [BuildingController::class, 'findOrCreate']);
+Route::post('buildings', [BuildingController::class, 'findOrCreate']);
 
-    Route::get('buildings/{id}/apartments', [BuildingController::class, 'getApartments']);
+Route::get('buildings/{id}/apartments', [BuildingController::class, 'getApartments']);
 
-    Route::get('apartments/{id}', [ApartmentController::class, 'get']);
+Route::get('apartments/{id}', [ApartmentController::class, 'get']);
 
-    Route::get('apartments/{id}/reviews', [ApartmentController::class, 'getReviews']);
+Route::get('apartments/{id}/reviews', [ApartmentController::class, 'getReviews']);
 
-    Route::post('reviews', [ReviewController::class, 'post']);
-});
+Route::post('reviews', [ReviewController::class, 'post']);
