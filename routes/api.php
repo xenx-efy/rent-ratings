@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApartmentController;
 use App\Http\Controllers\BuildingController;
 use App\Http\Controllers\EvaluationCriteriaController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,8 @@ Route::middleware(['client'])->group(function () {
     Route::get('buildings/{id}/apartments', [BuildingController::class, 'getApartments']);
 
     Route::get('apartments/{id}', [ApartmentController::class, 'get']);
+
     Route::get('apartments/{id}/reviews', [ApartmentController::class, 'getReviews']);
 
+    Route::post('reviews', [ReviewController::class, 'post']);
 });
