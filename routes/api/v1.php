@@ -1,10 +1,10 @@
 <?php
 
+use App\Actions\v1\FindOrCreateBuildingAction;
 use App\Actions\v1\GetEvaluationCriteriaAction;
 use App\Http\Controllers\ApartmentController;
 use App\Http\Controllers\BuildingController;
 use App\Http\Controllers\ReviewController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('evaluation-criteria', GetEvaluationCriteriaAction::class);
 
-Route::post('buildings', [BuildingController::class, 'findOrCreate']);
+Route::post('buildings', FindOrCreateBuildingAction::class);
 
 Route::get('buildings/{id}/apartments', [BuildingController::class, 'getApartments']);
 
