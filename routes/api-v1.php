@@ -1,12 +1,11 @@
 <?php
 
-use App\Actions\v1\GetApartment;
+use App\Actions\v1\CreateReviewAction;
+use App\Actions\v1\GetApartmentAction;
 use App\Actions\v1\FindOrCreateBuildingAction;
-use App\Actions\v1\GetApartmentReviews;
-use App\Actions\v1\GetBuildingApartments;
+use App\Actions\v1\GetApartmentReviewsAction;
+use App\Actions\v1\GetBuildingApartmentsAction;
 use App\Actions\v1\GetEvaluationCriteriaAction;
-use App\Http\Controllers\ApartmentController;
-use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,10 +23,10 @@ Route::get('evaluation-criteria', GetEvaluationCriteriaAction::class);
 
 Route::post('buildings', FindOrCreateBuildingAction::class);
 
-Route::get('buildings/{id}/apartments', GetBuildingApartments::class);
+Route::get('buildings/{id}/apartments', GetBuildingApartmentsAction::class);
 
-Route::get('apartments/{id}', GetApartment::class);
+Route::get('apartments/{id}', GetApartmentAction::class);
 
-Route::get('apartments/{id}/reviews', GetApartmentReviews::class);
+Route::get('apartments/{id}/reviews', GetApartmentReviewsAction::class);
 
-Route::post('reviews', [ReviewController::class, 'post']);
+Route::post('reviews', CreateReviewAction::class);

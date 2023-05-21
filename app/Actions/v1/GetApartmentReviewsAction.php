@@ -6,7 +6,7 @@ use App\Http\Resources\ReviewCollection;
 use App\Models\Apartment;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class GetApartmentReviews
+class GetApartmentReviewsAction
 {
     use AsAction;
 
