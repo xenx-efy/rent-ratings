@@ -1,7 +1,9 @@
 <?php
 
+use App\Actions\v1\GetApartment;
 use App\Actions\v1\FindOrCreateBuildingAction;
-use App\Actions\v1\GetApartments;
+use App\Actions\v1\GetApartmentReviews;
+use App\Actions\v1\GetBuildingApartments;
 use App\Actions\v1\GetEvaluationCriteriaAction;
 use App\Http\Controllers\ApartmentController;
 use App\Http\Controllers\ReviewController;
@@ -22,10 +24,10 @@ Route::get('evaluation-criteria', GetEvaluationCriteriaAction::class);
 
 Route::post('buildings', FindOrCreateBuildingAction::class);
 
-Route::get('buildings/{id}/apartments', GetApartments::class);
+Route::get('buildings/{id}/apartments', GetBuildingApartments::class);
 
-Route::get('apartments/{id}', [ApartmentController::class, 'get']);
+Route::get('apartments/{id}', GetApartment::class);
 
-Route::get('apartments/{id}/reviews', [ApartmentController::class, 'getReviews']);
+Route::get('apartments/{id}/reviews', GetApartmentReviews::class);
 
 Route::post('reviews', [ReviewController::class, 'post']);
