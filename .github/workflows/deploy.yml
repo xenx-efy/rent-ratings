@@ -14,6 +14,7 @@ jobs:
           local: .scripts/deploy.sh
           remote: /var/www/html/.scripts/deploy.sh
           host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           privateKey: ${{ secrets.SSHKEY }}
       - name: Deploy to server
