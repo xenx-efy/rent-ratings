@@ -3,12 +3,12 @@ set -e
 
 echo "Deployment started ..."
 
-# Install composer dependencies
-composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
-
 # Enter maintenance mode or return true
 # if already is in maintenance mode
 (php artisan down) || true
+
+# Install composer dependencies
+composer install --no-interaction --prefer-dist --optimize-autoloader
 
 # Pull the latest version of the app
 git pull origin develop
