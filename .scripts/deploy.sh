@@ -7,11 +7,11 @@ echo "Deployment started ..."
 # if already is in maintenance mode
 (php artisan down) || true
 
-# Install composer dependencies
-composer install --no-interaction --prefer-dist --optimize-autoloader
-
 # Pull the latest version of the app
 git pull origin develop
+
+# Install composer dependencies
+composer install --no-interaction --prefer-dist --optimize-autoloader
 
 # Clear the old cache
 php artisan clear-compiled
