@@ -15,6 +15,8 @@ git pull origin develop
 # Install composer dependencies
 composer install --no-interaction --prefer-dist --optimize-autoloader
 
+php artisan scribe:generate
+
 # Clear the old cache
 php artisan clear-compiled
 
