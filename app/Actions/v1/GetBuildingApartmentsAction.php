@@ -15,6 +15,7 @@ class GetBuildingApartmentsAction
         return Building::findOrFail($buildingId)->apartments;
     }
 
+    /** @group Show Apartments */
     public function asController(int $id): ApartmentCollection
     {
         return new ApartmentCollection($this->handle($id));

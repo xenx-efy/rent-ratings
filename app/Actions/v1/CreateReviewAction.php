@@ -62,6 +62,7 @@ class CreateReviewAction
     }
 
     /**
+     * @group Create Review
      * @param CreateReviewRequest $request
      * @return Application|Response|\Illuminate\Contracts\Foundation\Application|ResponseFactory
      */

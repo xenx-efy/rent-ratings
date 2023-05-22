@@ -1,0 +1,178 @@
+name: 'Create Review'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/evaluation-criteria
+    metadata:
+      groupName: 'Create Review'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - PEa8Zvda34bf16DghV6e5kc
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/reviews
+    metadata:
+      groupName: 'Create Review'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      apartmentId:
+        name: apartmentId
+        description: ''
+        required: true
+        example: 2
+        type: integer
+        custom: []
+      apartmentMeta:
+        name: apartmentMeta
+        description: ''
+        required: false
+        example: null
+        type: object
+        custom: []
+      apartmentMeta.amountOfRooms:
+        name: apartmentMeta.amountOfRooms
+        description: ''
+        required: false
+        example: 19
+        type: integer
+        custom: []
+      apartmentMeta.floor:
+        name: apartmentMeta.floor
+        description: ''
+        required: false
+        example: 14
+        type: integer
+        custom: []
+      evaluationCriteriaItems:
+        name: evaluationCriteriaItems
+        description: ''
+        required: true
+        example:
+          - vitae
+        type: 'integer[]'
+        custom: []
+      review:
+        name: review
+        description: ''
+        required: true
+        example: []
+        type: object
+        custom: []
+      review.title:
+        name: review.title
+        description: ''
+        required: true
+        example: autem
+        type: string
+        custom: []
+      review.pros:
+        name: review.pros
+        description: ''
+        required: true
+        example: dolorum
+        type: string
+        custom: []
+      review.cons:
+        name: review.cons
+        description: ''
+        required: true
+        example: autem
+        type: string
+        custom: []
+      review.adviceToOwner:
+        name: review.adviceToOwner
+        description: ''
+        required: true
+        example: similique
+        type: string
+        custom: []
+      'evaluationCriteriaItems[].id':
+        name: 'evaluationCriteriaItems[].id'
+        description: ''
+        required: true
+        example: 19
+        type: integer
+        custom: []
+      'evaluationCriteriaItems[].rating':
+        name: 'evaluationCriteriaItems[].rating'
+        description: ''
+        required: true
+        example: 6
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      apartmentId: 2
+      apartmentMeta:
+        amountOfRooms: 19
+        floor: 14
+      evaluationCriteriaItems:
+        - vitae
+      review:
+        title: autem
+        pros: dolorum
+        cons: autem
+        adviceToOwner: similique
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - Zv35adcaDE6fP8641Vkbhge
+    controller: null
+    method: null
+    route: null
+    custom: []

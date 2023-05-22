@@ -22,18 +22,20 @@ class CreateReviewRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'apartmentId' => ['required', 'numeric'],
+            'apartmentId' => ['required_without:buildingId', 'missing_with:buildingId', 'integer'],
+
+            'buildingId' => ['required_without:apartmentId', 'required_with:apartmentNumber', 'missing_with:apartmentId', 'integer'],
+            'apartmentNumber' => ['required_with:apartmentId', 'missing_with:apartmentId', 'integer'],
 
             # Apartment Meta
             'apartmentMeta' => ['array'],
-            'apartmentMeta.amountOfRooms' => ['numeric'],
-            'apartmentMeta.floor' => ['numeric'],
-
+            'apartmentMeta.amountOfRooms' => ['integer'],
+            'apartmentMeta.floor' => ['integer'],
 
             # Evaluation criteria items
             'evaluationCriteriaItems' => ['required', 'array'],
-            'evaluationCriteriaItems.*.id' => ['required', 'numeric'],
-            'evaluationCriteriaItems.*.rating' => ['required', 'numeric'],
+            'evaluationCriteriaItems.*.id' => ['required', 'integer'],
+            'evaluationCriteriaItems.*.rating' => ['required', 'integer'],
 
             # Review
             'review' => ['required', 'array'],

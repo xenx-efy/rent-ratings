@@ -15,6 +15,7 @@ class GetApartmentAction
         return Apartment::findOrFail($apartmentId);
     }
 
+    /** @group Show Reviews */
     public function asController(int $id): ApartmentResource
     {
         return new ApartmentResource($this->handle($id));
