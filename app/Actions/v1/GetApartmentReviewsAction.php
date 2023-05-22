@@ -15,6 +15,7 @@ class GetApartmentReviewsAction
         return Apartment::findOrFail($apartmentId)->reviews;
     }
 
+    /** @group Show Reviews */
     public function asController(int $id): ReviewCollection
     {
         return new ReviewCollection($this->handle($id));

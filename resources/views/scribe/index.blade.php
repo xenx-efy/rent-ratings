@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Laravel Documentation</title>
+    <title>Rent Ratings API Doc</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
-    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+    <link rel="stylesheet" href="{{ asset("/vendor/scribe/css/theme-default.style.css") }}" media="screen">
+    <link rel="stylesheet" href="{{ asset("/vendor/scribe/css/theme-default.print.css") }}" media="print">
 
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
 
@@ -30,9 +30,9 @@
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
-    <script src="../docs/js/tryitout-4.19.1.js"></script>
+    <script src="{{ asset("/vendor/scribe/js/tryitout-4.19.1.js") }}"></script>
 
-    <script src="../docs/js/theme-default-4.19.1.js"></script>
+    <script src="{{ asset("/vendor/scribe/js/theme-default-4.19.1.js") }}"></script>
 
 </head>
 
@@ -41,7 +41,7 @@
 <a href="#" id="nav-button">
     <span>
         MENU
-        <img src="../docs/images/navbar.png" alt="navbar-image"/>
+        <img src="{{ asset("/vendor/scribe/images/navbar.png") }}" alt="navbar-image"/>
     </span>
 </a>
 <div class="tocify-wrapper">
@@ -66,41 +66,55 @@
                     <a href="#authenticating-requests">Authenticating requests</a>
                 </li>
                             </ul>
-                    <ul id="tocify-header-endpoints" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="endpoints">
-                    <a href="#endpoints">Endpoints</a>
+                    <ul id="tocify-header-create-review" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="create-review">
+                    <a href="#create-review">Create Review</a>
                 </li>
-                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-evaluation-criteria">
-                                <a href="#endpoints-GETapi-v1-evaluation-criteria">GET api/v1/evaluation-criteria</a>
+                                    <ul id="tocify-subheader-create-review" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="create-review-GETapi-v1-evaluation-criteria">
+                                <a href="#create-review-GETapi-v1-evaluation-criteria">GET api/v1/evaluation-criteria</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-buildings">
-                                <a href="#endpoints-POSTapi-v1-buildings">POST api/v1/buildings</a>
+                                                                                <li class="tocify-item level-2" data-unique="create-review-POSTapi-v1-reviews">
+                                <a href="#create-review-POSTapi-v1-reviews">POST api/v1/reviews</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-buildings--id--apartments">
-                                <a href="#endpoints-GETapi-v1-buildings--id--apartments">GET api/v1/buildings/{id}/apartments</a>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-show-apartments" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="show-apartments">
+                    <a href="#show-apartments">Show Apartments</a>
+                </li>
+                                    <ul id="tocify-subheader-show-apartments" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="show-apartments-POSTapi-v1-buildings">
+                                <a href="#show-apartments-POSTapi-v1-buildings">POST api/v1/buildings</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-apartments--id-">
-                                <a href="#endpoints-GETapi-v1-apartments--id-">GET api/v1/apartments/{id}</a>
+                                                                                <li class="tocify-item level-2" data-unique="show-apartments-GETapi-v1-buildings--id--apartments">
+                                <a href="#show-apartments-GETapi-v1-buildings--id--apartments">GET api/v1/buildings/{id}/apartments</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-apartments--id--reviews">
-                                <a href="#endpoints-GETapi-v1-apartments--id--reviews">GET api/v1/apartments/{id}/reviews</a>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-show-reviews" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="show-reviews">
+                    <a href="#show-reviews">Show Reviews</a>
+                </li>
+                                    <ul id="tocify-subheader-show-reviews" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="show-reviews-GETapi-v1-apartments--id-">
+                                <a href="#show-reviews-GETapi-v1-apartments--id-">GET api/v1/apartments/{id}</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-reviews">
-                                <a href="#endpoints-POSTapi-v1-reviews">POST api/v1/reviews</a>
+                                                                                <li class="tocify-item level-2" data-unique="show-reviews-GETapi-v1-apartments--id--reviews">
+                                <a href="#show-reviews-GETapi-v1-apartments--id--reviews">GET api/v1/apartments/{id}/reviews</a>
                             </li>
                                                                         </ul>
                             </ul>
             </div>
 
     <ul class="toc-footer" id="toc-footer">
-                    <li style="padding-bottom: 5px;"><a href="../docs/collection.json">View Postman collection</a></li>
-                            <li style="padding-bottom: 5px;"><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                    <li style="padding-bottom: 5px;"><a href="{{ route("scribe.postman") }}">View Postman collection</a></li>
+                            <li style="padding-bottom: 5px;"><a href="{{ route("scribe.openapi") }}">View OpenAPI spec</a></li>
                 <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: May 21, 2023</li>
+        <li>Last updated: May 22, 2023</li>
     </ul>
 </div>
 
@@ -120,11 +134,11 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
 
-        <h1 id="endpoints">Endpoints</h1>
+        <h1 id="create-review">Create Review</h1>
 
     
 
-                                <h2 id="endpoints-GETapi-v1-evaluation-criteria">GET api/v1/evaluation-criteria</h2>
+                                <h2 id="create-review-GETapi-v1-evaluation-criteria">GET api/v1/evaluation-criteria</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -164,7 +178,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-evaluation-criteria">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -173,37 +187,12 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 55
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 1,
-            &quot;name&quot;: &quot;Отопление&quot;
-        },
-        {
-            &quot;id&quot;: 2,
-            &quot;name&quot;: &quot;Соседи&quot;
-        },
-        {
-            &quot;id&quot;: 3,
-            &quot;name&quot;: &quot;Уровень шума&quot;
-        },
-        {
-            &quot;id&quot;: 4,
-            &quot;name&quot;: &quot;Отзывчивость хозяев&quot;
-        },
-        {
-            &quot;id&quot;: 5,
-            &quot;name&quot;: &quot;Тараканы&quot;
-        },
-        {
-            &quot;id&quot;: 6,
-            &quot;name&quot;: &quot;Чистота&quot;
-        }
-    ]
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
 }</code>
  </pre>
     </span>
@@ -289,7 +278,301 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="endpoints-POSTapi-v1-buildings">POST api/v1/buildings</h2>
+                    <h2 id="create-review-POSTapi-v1-reviews">POST api/v1/reviews</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-reviews">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/reviews" \
+    --header "Authorization: {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"apartmentId\": 2,
+    \"apartmentMeta\": {
+        \"amountOfRooms\": 19,
+        \"floor\": 14
+    },
+    \"evaluationCriteriaItems\": [
+        \"vitae\"
+    ],
+    \"review\": {
+        \"title\": \"autem\",
+        \"pros\": \"dolorum\",
+        \"cons\": \"autem\",
+        \"adviceToOwner\": \"similique\"
+    }
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/reviews"
+);
+
+const headers = {
+    "Authorization": "{YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "apartmentId": 2,
+    "apartmentMeta": {
+        "amountOfRooms": 19,
+        "floor": 14
+    },
+    "evaluationCriteriaItems": [
+        "vitae"
+    ],
+    "review": {
+        "title": "autem",
+        "pros": "dolorum",
+        "cons": "autem",
+        "adviceToOwner": "similique"
+    }
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-reviews">
+</span>
+<span id="execution-results-POSTapi-v1-reviews" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-reviews"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-reviews"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-reviews" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-reviews">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-reviews" data-method="POST"
+      data-path="api/v1/reviews"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-reviews', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-reviews"
+                    onclick="tryItOut('POSTapi-v1-reviews');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-reviews"
+                    onclick="cancelTryOut('POSTapi-v1-reviews');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-reviews"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/reviews</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-reviews"
+               value="{YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-v1-reviews"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-v1-reviews"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>apartmentId</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="apartmentId"                data-endpoint="POSTapi-v1-reviews"
+               value="2"
+               data-component="body">
+    <br>
+<p>Example: <code>2</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>apartmentMeta</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>amountOfRooms</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               name="apartmentMeta.amountOfRooms"                data-endpoint="POSTapi-v1-reviews"
+               value="19"
+               data-component="body">
+    <br>
+<p>Example: <code>19</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>floor</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               name="apartmentMeta.floor"                data-endpoint="POSTapi-v1-reviews"
+               value="14"
+               data-component="body">
+    <br>
+<p>Example: <code>14</code></p>
+                    </div>
+                                    </details>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>evaluationCriteriaItems</code></b>&nbsp;&nbsp;
+<small>integer[]</small>&nbsp;
+ &nbsp;
+<br>
+
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="evaluationCriteriaItems.0.id"                data-endpoint="POSTapi-v1-reviews"
+               value="19"
+               data-component="body">
+    <br>
+<p>Example: <code>19</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>rating</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="evaluationCriteriaItems.0.rating"                data-endpoint="POSTapi-v1-reviews"
+               value="6"
+               data-component="body">
+    <br>
+<p>Example: <code>6</code></p>
+                    </div>
+                                    </details>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>review</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
+<br>
+
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="review.title"                data-endpoint="POSTapi-v1-reviews"
+               value="autem"
+               data-component="body">
+    <br>
+<p>Example: <code>autem</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>pros</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="review.pros"                data-endpoint="POSTapi-v1-reviews"
+               value="dolorum"
+               data-component="body">
+    <br>
+<p>Example: <code>dolorum</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>cons</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="review.cons"                data-endpoint="POSTapi-v1-reviews"
+               value="autem"
+               data-component="body">
+    <br>
+<p>Example: <code>autem</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>adviceToOwner</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="review.adviceToOwner"                data-endpoint="POSTapi-v1-reviews"
+               value="similique"
+               data-component="body">
+    <br>
+<p>Example: <code>similique</code></p>
+                    </div>
+                                    </details>
+        </div>
+        </form>
+
+                <h1 id="show-apartments">Show Apartments</h1>
+
+    
+
+                                <h2 id="show-apartments-POSTapi-v1-buildings">POST api/v1/buildings</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -308,7 +591,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"address\": \"fuga\"
+    \"address\": \"accusantium\"
 }"
 </code></pre></div>
 
@@ -325,7 +608,7 @@ const headers = {
 };
 
 let body = {
-    "address": "fuga"
+    "address": "accusantium"
 };
 
 fetch(url, {
@@ -425,14 +708,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="address"                data-endpoint="POSTapi-v1-buildings"
-               value="fuga"
+               value="accusantium"
                data-component="body">
     <br>
-<p>Example: <code>fuga</code></p>
+<p>Example: <code>accusantium</code></p>
         </div>
         </form>
 
-                    <h2 id="endpoints-GETapi-v1-buildings--id--apartments">GET api/v1/buildings/{id}/apartments</h2>
+                    <h2 id="show-apartments-GETapi-v1-buildings--id--apartments">GET api/v1/buildings/{id}/apartments</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -472,7 +755,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-buildings--id--apartments">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -481,20 +764,12 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 54
+x-ratelimit-remaining: 58
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 1,
-            &quot;number&quot;: 12,
-            &quot;amountOfRooms&quot;: 2,
-            &quot;floor&quot;: 4,
-            &quot;rating&quot;: &quot;1.4&quot;
-        }
-    ]
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
 }</code>
  </pre>
     </span>
@@ -592,7 +867,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="endpoints-GETapi-v1-apartments--id-">GET api/v1/apartments/{id}</h2>
+                <h1 id="show-reviews">Show Reviews</h1>
+
+    
+
+                                <h2 id="show-reviews-GETapi-v1-apartments--id-">GET api/v1/apartments/{id}</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -632,7 +911,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-apartments--id-">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -641,16 +920,12 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 53
+x-ratelimit-remaining: 57
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 1,
-    &quot;number&quot;: 12,
-    &quot;amountOfRooms&quot;: 2,
-    &quot;floor&quot;: 4,
-    &quot;rating&quot;: &quot;1.4&quot;
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
 }</code>
  </pre>
     </span>
@@ -748,7 +1023,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="endpoints-GETapi-v1-apartments--id--reviews">GET api/v1/apartments/{id}/reviews</h2>
+                    <h2 id="show-reviews-GETapi-v1-apartments--id--reviews">GET api/v1/apartments/{id}/reviews</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -788,7 +1063,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-apartments--id--reviews">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -797,76 +1072,12 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 52
+x-ratelimit-remaining: 56
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;title&quot;: &quot;Бывало и лучше, но пойдет&quot;,
-            &quot;rating&quot;: 2.3,
-            &quot;pros&quot;: &quot;Просторная и функциональная, с удобной планировкой и просторная. В квартире есть кухня со всей необходимой бытовой техникой и удобная мебель.&quot;,
-            &quot;cons&quot;: &quot;Отсутствие звукоизоляции, плохое качество сантехники.&quot;,
-            &quot;adviceToOwner&quot;: &quot;Было бы просто великолепно обновить сантехнику, кран и душ в ванне. Они постоянно ломаются и их надо докручивать.&quot;
-        },
-        {
-            &quot;title&quot;: &quot;Неплохая квартирка&quot;,
-            &quot;rating&quot;: 3.7,
-            &quot;pros&quot;: &quot;Хорошая планировка. Мебель и бытовая техника находятся в отличном состоянии, и арендодатель всегда быстро реагирует на любые проблемы.&quot;,
-            &quot;cons&quot;: &quot;Недостаточная освещенность, шумные соседи, высокие расходы на коммунальные услуги.&quot;,
-            &quot;adviceToOwner&quot;: &quot;Выровнять полы, они кривые. Постоянно ходишь по квартире и проваливаешься в небольшие ямки под линолеумом.&quot;
-        },
-        {
-            &quot;title&quot;: &quot;hola&quot;,
-            &quot;rating&quot;: 1,
-            &quot;pros&quot;: &quot;hola&quot;,
-            &quot;cons&quot;: &quot;hola&quot;,
-            &quot;adviceToOwner&quot;: &quot;string&quot;
-        },
-        {
-            &quot;title&quot;: &quot;hola&quot;,
-            &quot;rating&quot;: 1,
-            &quot;pros&quot;: &quot;hola&quot;,
-            &quot;cons&quot;: &quot;hola&quot;,
-            &quot;adviceToOwner&quot;: &quot;string&quot;
-        },
-        {
-            &quot;title&quot;: &quot;hola&quot;,
-            &quot;rating&quot;: 1,
-            &quot;pros&quot;: &quot;hola&quot;,
-            &quot;cons&quot;: &quot;hola&quot;,
-            &quot;adviceToOwner&quot;: &quot;string&quot;
-        },
-        {
-            &quot;title&quot;: &quot;hola&quot;,
-            &quot;rating&quot;: 1,
-            &quot;pros&quot;: &quot;hola&quot;,
-            &quot;cons&quot;: &quot;hola&quot;,
-            &quot;adviceToOwner&quot;: &quot;string&quot;
-        },
-        {
-            &quot;title&quot;: &quot;hola&quot;,
-            &quot;rating&quot;: 1,
-            &quot;pros&quot;: &quot;hola&quot;,
-            &quot;cons&quot;: &quot;hola&quot;,
-            &quot;adviceToOwner&quot;: &quot;string&quot;
-        },
-        {
-            &quot;title&quot;: &quot;Не заезжайте сюда&quot;,
-            &quot;rating&quot;: 1,
-            &quot;pros&quot;: &quot;тараканы были вежливыми&quot;,
-            &quot;cons&quot;: &quot;тараканов было много&quot;,
-            &quot;adviceToOwner&quot;: &quot;убейте тараканов&quot;
-        },
-        {
-            &quot;title&quot;: &quot;Не заезжайте сюда&quot;,
-            &quot;rating&quot;: 1,
-            &quot;pros&quot;: &quot;тараканы были вежливыми&quot;,
-            &quot;cons&quot;: &quot;тараканов было много&quot;,
-            &quot;adviceToOwner&quot;: &quot;убейте тараканов&quot;
-        }
-    ]
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
 }</code>
  </pre>
     </span>
@@ -963,296 +1174,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>The ID of the apartment. Example: <code>1</code></p>
             </div>
                     </form>
-
-                    <h2 id="endpoints-POSTapi-v1-reviews">POST api/v1/reviews</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-POSTapi-v1-reviews">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/v1/reviews" \
-    --header "Authorization: {YOUR_AUTH_KEY}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"apartmentId\": 378.4878673,
-    \"apartmentMeta\": {
-        \"amountOfRooms\": 2527.756677,
-        \"floor\": 75227707.995
-    },
-    \"evaluationCriteriaItems\": [
-        \"consequatur\"
-    ],
-    \"review\": {
-        \"title\": \"ipsa\",
-        \"pros\": \"corporis\",
-        \"cons\": \"alias\",
-        \"adviceToOwner\": \"earum\"
-    }
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/reviews"
-);
-
-const headers = {
-    "Authorization": "{YOUR_AUTH_KEY}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "apartmentId": 378.4878673,
-    "apartmentMeta": {
-        "amountOfRooms": 2527.756677,
-        "floor": 75227707.995
-    },
-    "evaluationCriteriaItems": [
-        "consequatur"
-    ],
-    "review": {
-        "title": "ipsa",
-        "pros": "corporis",
-        "cons": "alias",
-        "adviceToOwner": "earum"
-    }
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-reviews">
-</span>
-<span id="execution-results-POSTapi-v1-reviews" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-reviews"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-reviews"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-reviews" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-reviews">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-v1-reviews" data-method="POST"
-      data-path="api/v1/reviews"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-reviews', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-reviews"
-                    onclick="tryItOut('POSTapi-v1-reviews');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-reviews"
-                    onclick="cancelTryOut('POSTapi-v1-reviews');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-reviews"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/reviews</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-reviews"
-               value="{YOUR_AUTH_KEY}"
-               data-component="header">
-    <br>
-<p>Example: <code>{YOUR_AUTH_KEY}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="POSTapi-v1-reviews"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Accept"                data-endpoint="POSTapi-v1-reviews"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>apartmentId</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               name="apartmentId"                data-endpoint="POSTapi-v1-reviews"
-               value="378.4878673"
-               data-component="body">
-    <br>
-<p>Example: <code>378.4878673</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-        <details>
-            <summary style="padding-bottom: 10px;">
-                <b style="line-height: 2;"><code>apartmentMeta</code></b>&nbsp;&nbsp;
-<small>object</small>&nbsp;
-<i>optional</i> &nbsp;
-<br>
-
-            </summary>
-                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>amountOfRooms</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="number" style="display: none"
-               name="apartmentMeta.amountOfRooms"                data-endpoint="POSTapi-v1-reviews"
-               value="2527.756677"
-               data-component="body">
-    <br>
-<p>Example: <code>2527.756677</code></p>
-                    </div>
-                                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>floor</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="number" style="display: none"
-               name="apartmentMeta.floor"                data-endpoint="POSTapi-v1-reviews"
-               value="75227707.995"
-               data-component="body">
-    <br>
-<p>Example: <code>75227707.995</code></p>
-                    </div>
-                                    </details>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-        <details>
-            <summary style="padding-bottom: 10px;">
-                <b style="line-height: 2;"><code>evaluationCriteriaItems</code></b>&nbsp;&nbsp;
-<small>number[]</small>&nbsp;
- &nbsp;
-<br>
-
-            </summary>
-                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               name="evaluationCriteriaItems.0.id"                data-endpoint="POSTapi-v1-reviews"
-               value="18749349"
-               data-component="body">
-    <br>
-<p>Example: <code>18749349</code></p>
-                    </div>
-                                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>rating</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               name="evaluationCriteriaItems.0.rating"                data-endpoint="POSTapi-v1-reviews"
-               value="588"
-               data-component="body">
-    <br>
-<p>Example: <code>588</code></p>
-                    </div>
-                                    </details>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-        <details>
-            <summary style="padding-bottom: 10px;">
-                <b style="line-height: 2;"><code>review</code></b>&nbsp;&nbsp;
-<small>object</small>&nbsp;
- &nbsp;
-<br>
-
-            </summary>
-                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="review.title"                data-endpoint="POSTapi-v1-reviews"
-               value="ipsa"
-               data-component="body">
-    <br>
-<p>Example: <code>ipsa</code></p>
-                    </div>
-                                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>pros</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="review.pros"                data-endpoint="POSTapi-v1-reviews"
-               value="corporis"
-               data-component="body">
-    <br>
-<p>Example: <code>corporis</code></p>
-                    </div>
-                                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>cons</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="review.cons"                data-endpoint="POSTapi-v1-reviews"
-               value="alias"
-               data-component="body">
-    <br>
-<p>Example: <code>alias</code></p>
-                    </div>
-                                                                <div style="margin-left: 14px; clear: unset;">
-                        <b style="line-height: 2;"><code>adviceToOwner</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="review.adviceToOwner"                data-endpoint="POSTapi-v1-reviews"
-               value="earum"
-               data-component="body">
-    <br>
-<p>Example: <code>earum</code></p>
-                    </div>
-                                    </details>
-        </div>
-        </form>
 
             
 

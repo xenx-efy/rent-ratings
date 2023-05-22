@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('evaluation-criteria', GetEvaluationCriteriaAction::class);
 
+
 Route::post('buildings', FindOrCreateBuildingAction::class);
 
 Route::get('buildings/{id}/apartments', GetBuildingApartmentsAction::class);

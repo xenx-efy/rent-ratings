@@ -16,6 +16,7 @@ class GetEvaluationCriteriaAction
         return EvaluationCriteria::all();
     }
 
+    /** @group Create Review */
     public function asController(): EvaluationCriteriaCollection
     {
         return new EvaluationCriteriaCollection($this->handle());

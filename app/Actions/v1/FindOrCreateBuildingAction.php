@@ -19,6 +19,7 @@ class FindOrCreateBuildingAction
         ]);
     }
 
+    /** @group Show Apartments */
     public function asController(Request $request): BuildingResource
     {
         $validated = $request->validate([
