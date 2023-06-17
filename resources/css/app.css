@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    h1 {
+        @apply text-2xl;
+        @apply font-extrabold;
+        @apply leading-none;
+        font-family: "Nunito Sans", sans-serif;
+    }
+    h2 {
+        @apply text-xl;
+        @apply font-extrabold;
+        @apply leading-none;
+        font-family: "Nunito Sans", sans-serif;
+    }
+    h3 {
+        @apply font-extrabold;
+        @apply leading-none;
+        @apply font-normal;
+        font-family: "Nunito Sans", sans-serif;
+    }
+    h4 {
+        font-size: 1.5rem;
+    }
+}

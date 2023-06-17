@@ -16,11 +16,21 @@ export default {
                 sans: ['Roboto', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                'slate-grey': '#1F3238', // text color
-                'hippie-blue': '#4895AD', // main color
+                'cloud-burst': '#252D4F', // text color
+                'soft-blue': '#5786FF', // main color
                 'shadow-green': '#A3BBC3',
                 'titan-white': '#E6F1F9'
             },
+            fontSize: {
+                sm: '0.8rem',
+                base: '1rem',
+                xl: '1.375rem',
+                '2xl': '1.75rem',
+                '3xl': '1.953rem',
+                '4xl': '2.441rem',
+                '5xl': '3.052rem',
+            }
+
         },
     },
 

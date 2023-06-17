@@ -8,8 +8,7 @@
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=roboto:400,500,700" rel="stylesheet" />
-
+        <link href="https://fonts.bunny.net/css?family=nunito-sans:800|roboto:400,500,700" rel="stylesheet" />
         <!-- Scripts -->
         @routes
         @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
