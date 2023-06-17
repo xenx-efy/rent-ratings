@@ -26,6 +26,10 @@ php artisan optimize
 # Run database migrations
 php artisan migrate --force
 
+npm install
+
+npm run build
+
 # Exit maintenance mode
 php artisan up
 
