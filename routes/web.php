@@ -27,6 +27,14 @@ use Inertia\Inertia;
 
 Route::get('/', static function () {
     return Inertia::render('Home');
+})->name('home');
+
+Route::get('/building', static function () {
+    return Inertia::render('Building');
+});
+
+Route::get('/apartment', static function () {
+    return Inertia::render('Apartment');
 });
 
 Route::get('/dashboard', function () {

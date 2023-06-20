@@ -4,7 +4,7 @@
 
 @layer base {
     h1 {
-        @apply text-2xl;
+        @apply text-[28px];
         @apply font-extrabold;
         @apply leading-none;
         font-family: "Nunito Sans", sans-serif;
@@ -23,5 +23,19 @@
     }
     h4 {
         font-size: 1.5rem;
+    }
+
+    p {
+        @apply text-cloud-burst;
+    }
+}
+
+@layer components {
+    .btn-link {
+        @apply block text-center text-cloud-burst font-medium bg-white py-2.5 w-full rounded-[8px]  transition duration-100 active:ring active:ring-2 active:ring-cloud-burst;
+    }
+
+    .btn-outline {
+        @apply block border border-silver text-center text-soft-blue font-medium bg-white py-2.5 w-full rounded-[8px] transition duration-100 active:ring active:ring-2 active:ring-soft-blue active:bg-periwinkle;
     }
 }
