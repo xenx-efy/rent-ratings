@@ -117,15 +117,13 @@
             </div>
         </div>
 
-
-        <div class="flex ml-4 mt-4 ">
+        <div class="flex ml-4 mt-4">
             <p class="flex before:block before:mr-2 before:h-full before:w-2 before:bg-soft-blue before:rounded-full">
                 Если отзывов на интересующую вас квартиру нет, вы можете написать его 😉
             </p>
         </div>
 
-
-        <a class="btn-link bg-soft-blue text-white absolute bottom-1 w-11/12 left-1/2 -translate-x-1/2" href="#">Оставить отзыв</a>
+        <a class="btn-link bg-soft-blue text-white sticky bottom-2 w-11/12 self-center mt-4" href="#">Оставить отзыв</a>
     </div>
 </template>
 
