@@ -37,6 +37,10 @@ Route::get('/apartment', static function () {
     return Inertia::render('Apartment');
 });
 
+Route::get('/create-review', static function() {
+   return Inertia::render('CreateReview');
+});
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
