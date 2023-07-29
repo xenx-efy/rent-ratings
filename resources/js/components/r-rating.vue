@@ -53,6 +53,7 @@ const getWidth = (star: number) => {
 const emits = defineEmits(['click']);
 
 const setRating = (rating: number) => {
+  if (!props.canSelect) return;
   emits('click', rating);
 };
 </script>
