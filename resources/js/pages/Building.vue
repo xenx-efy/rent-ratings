@@ -41,7 +41,7 @@
 <script>
 import ArrowIcon from '@/shared/icon/ArrowIcon.vue';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
-import BuildingCard from '@/components/Cards/BuildingCard.vue';
+import BuildingCard from '@/components/cards/BuildingCard.vue';
 import ApplicationLogo from '@/shared/ui/deprecated-ui/ApplicationLogo.vue';
 
 export default {

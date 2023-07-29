@@ -63,7 +63,7 @@ import 'vue-dadata/dist/style.css';
 import ArrowIcon from '@/shared/icon/ArrowIcon.vue';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
 import StarIcon from '@/shared/icon/StarIcon.vue';
-import ApartmentCard from '@/components/Cards/ApartmentCard.vue';
+import ApartmentCard from '@/components/cards/ApartmentCard.vue';
 import ApplicationLogo from '@/shared/ui/deprecated-ui/ApplicationLogo.vue';
 
 export default {
