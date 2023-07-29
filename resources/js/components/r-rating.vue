@@ -1,24 +1,26 @@
 <template>
   <div class="flex">
     <div class="flex space-x-2">
-      <div
+      <button
         v-for="star in 5"
         :key="star"
         class="relative"
+        :disabled="!canSelect"
+        @click="setRating(star)"
       >
         <star-icon />
-        <div
+        <span
           class="absolute left-0 top-0 w-0 overflow-hidden"
           :style="{
             width: getWidth(star),
           }"
         >
           <star-icon color="#FFD80F" />
-        </div>
-      </div>
+        </span>
+      </button>
     </div>
     <p class="ml-2">
-      {{ rating }} ({{ count }}})
+      {{ rating }} ({{ count }})
     </p>
   </div>
 </template>
@@ -27,7 +29,7 @@
 import StarIcon from '@/shared/icon/StarIcon.vue';
 
 interface Props {
-  disabled?: boolean;
+  canSelect?: boolean;
   count?: number;
   rating?: number;
 }
@@ -35,7 +37,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   rating: 0,
   count: 0,
-  disabled: false
+  canSelect: false
 });
 
 const getWidth = (star: number) => {
@@ -46,5 +48,11 @@ const getWidth = (star: number) => {
     const residueWidth = residue * 100;
     return `${residueWidth}%`;
   }
+};
+
+const emits = defineEmits(['click']);
+
+const setRating = (rating: number) => {
+  emits('click', rating);
 };
 </script>
