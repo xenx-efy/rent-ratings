@@ -18,11 +18,12 @@ interface Props {
   color?: string;
   width?: number | string;
   height?: number | string;
+  isActive?: boolean;
 }
 
 withDefaults(defineProps<Props>(), {
   width: 22,
   height: 20,
-  color: '#FFD80F'
+  color: '#CACACA'
 });
 </script>
