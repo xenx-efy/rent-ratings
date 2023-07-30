@@ -21,6 +21,11 @@ class Apartment extends Model
         return $this->hasMany(Review::class);
     }
 
+    public function reviewsCount(): int
+    {
+        return $this->reviews()->count() ?: 1;
+    }
+
     public function rating(): ?string
     {
         $reviewRatingSum = 0;
@@ -32,6 +37,6 @@ class Apartment extends Model
         $reviewsCount = $this->reviews()->count();
 
         // 3.5 format. with 1 digit after dot
-        return $reviewsCount > 0 ? number_format($reviewRatingSum / $reviewsCount, 1) : null;
+        return $reviewsCount > 0 ? number_format($reviewRatingSum / $this->reviewsCount(), 1) : null;
     }
 }

@@ -9,9 +9,7 @@
         <arrow-icon color="#D8E5FF" />
       </a>
 
-      <h2 class="text-white">
-        Ул. Гая 3, кв. 87
-      </h2>
+      <h2 class="text-white">Ул. Гая 3, кв. 87</h2>
 
       <search-icon
         width="18"
@@ -30,9 +28,7 @@
         <star-icon />
         <star-icon color="#CACACA" />
       </div>
-      <p class="ml-2 block">
-        4.3 (13)
-      </p>
+      <p class="ml-2 block">4.3 (13)</p>
     </div>
 
     <a
@@ -42,38 +38,20 @@
       Оставить отзыв
     </a>
 
-    <p class="mt-5 text-xl font-bold">
-      Отзывы
-    </p>
-
-    <apartment-card
-      v-for="card in 2"
-      :key="card"
-    />
-
+    <p class="mt-5 text-xl font-bold">Отзывы</p>
     <a
       class="btn-outline mt-2"
       href="#"
-    >Ещё</a>
+    >
+      Ещё
+    </a>
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import 'vue-dadata/dist/style.css';
 import ArrowIcon from '@/shared/icon/ArrowIcon.vue';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
 import StarIcon from '@/shared/icon/StarIcon.vue';
-import ApartmentCard from '@/components/cards/ApartmentCard.vue';
 import ApplicationLogo from '@/shared/ui/deprecated-ui/ApplicationLogo.vue';
-
-export default {
-  name: 'Apartment',
-  components: {
-    ApartmentCard,
-    StarIcon,
-    SearchIcon,
-    ArrowIcon,
-    ApplicationLogo
-  }
-};
 </script>

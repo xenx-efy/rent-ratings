@@ -2,9 +2,9 @@
 
 use App\Actions\v1\CreateReviewAction;
 use App\Actions\v1\GetApartmentAction;
-use App\Actions\v1\FindOrCreateBuildingAction;
+use App\Actions\v1\FindOrCreateHouse;
 use App\Actions\v1\GetApartmentReviewsAction;
-use App\Actions\v1\GetBuildingApartmentsAction;
+use App\Actions\v1\GetHouseApartments;
 use App\Actions\v1\GetEvaluationCriteriaAction;
 use Illuminate\Support\Facades\Route;
 
@@ -21,10 +21,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('evaluation-criteria', GetEvaluationCriteriaAction::class);
 
+Route::post('buildings', FindOrCreateHouse::class);
 
-Route::post('buildings', FindOrCreateBuildingAction::class);
-
-Route::get('buildings/{id}/apartments', GetBuildingApartmentsAction::class);
+Route::get('buildings/{id}/apartments', GetHouseApartments::class);
 
 Route::get('apartments/{id}', GetApartmentAction::class);
 

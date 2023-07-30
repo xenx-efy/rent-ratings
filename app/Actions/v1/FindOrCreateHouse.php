@@ -8,7 +8,7 @@ use App\Models\Building;
 use Illuminate\Http\Request;
 use Lorisleiva\Actions\Concerns\AsAction;
 
-class FindOrCreateBuildingAction
+class FindOrCreateHouse
 {
     use AsAction;
 

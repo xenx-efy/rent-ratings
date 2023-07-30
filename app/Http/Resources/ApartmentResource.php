@@ -21,7 +21,8 @@ class ApartmentResource extends JsonResource
             'number' => $this->number,
             'amountOfRooms' => $this->amount_of_rooms,
             'floor' => $this->floor,
-            'rating' => $this->rating()
+            'rating' => $this->rating(),
+            'reviewsCount' => $this->reviewsCount()
         ];
     }
 

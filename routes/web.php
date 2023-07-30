@@ -1,5 +1,6 @@
 <?php
 
+use App\Actions\v1\GetHouseApartments;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,9 +29,7 @@ Route::get('/', static function () {
     return Inertia::render('Home');
 })->name('home');
 
-Route::get('/building', static function () {
-    return Inertia::render('Building');
-});
+Route::get('/house', GetHouseApartments::class);
 
 Route::get('/apartment', static function () {
     return Inertia::render('Apartment');
