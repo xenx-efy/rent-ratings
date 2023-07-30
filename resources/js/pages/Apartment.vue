@@ -60,11 +60,11 @@
 
 <script>
 import 'vue-dadata/dist/style.css';
-import ApplicationLogo from '@/components/ui-default-component/ApplicationLogo.vue';
 import ArrowIcon from '@/shared/icon/ArrowIcon.vue';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
 import StarIcon from '@/shared/icon/StarIcon.vue';
-import ApartmentCard from '@/components/ApartmentCard.vue';
+import ApartmentCard from '@/components/cards/ApartmentCard.vue';
+import ApplicationLogo from '@/shared/ui/deprecated-ui/ApplicationLogo.vue';
 
 export default {
   name: 'Apartment',

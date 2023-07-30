@@ -14,9 +14,6 @@
     },
     "allowJs": true,
     "strict": false,
-    "types": [
-      "vite/client"
-    ],
     "noImplicitAny": false
   },
   "exclude": [

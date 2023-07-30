@@ -114,8 +114,8 @@
 
 <script>
 import 'vue-dadata/dist/style.css';
-import ApplicationLogo from '../components/ui-default-component/ApplicationLogo.vue';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
+import ApplicationLogo from '@/shared/ui/deprecated-ui/ApplicationLogo.vue';
 
 export default {
   name: 'Home',

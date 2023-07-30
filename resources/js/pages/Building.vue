@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import ApplicationLogo from '@/components/ui-default-component/ApplicationLogo.vue';
 import ArrowIcon from '@/shared/icon/ArrowIcon.vue';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
-import BuildingCard from '@/components/BuildingCard.vue';
+import BuildingCard from '@/components/cards/BuildingCard.vue';
+import ApplicationLogo from '@/shared/ui/deprecated-ui/ApplicationLogo.vue';
 
 export default {
   name: 'Building',
