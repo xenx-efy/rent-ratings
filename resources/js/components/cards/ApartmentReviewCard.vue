@@ -12,28 +12,46 @@
     <div class="w-full border-t border-silver" />
 
     <p class="mt-2.5 font-medium leading-none">Плюсы</p>
-    <p class="mt-1 line-clamp-2 text-sm">
+    <p
+      class="mt-1 text-sm"
+      :class="{ 'line-clamp-2': !expanded }"
+    >
       {{ pros }}
     </p>
 
     <p class="mt-2.5 font-medium leading-none">Минусы</p>
-    <p class="mt-1 line-clamp-2 text-sm">
+    <p
+      class="mt-1 text-sm"
+      :class="{ 'line-clamp-2': !expanded }"
+    >
       {{ cons }}
     </p>
 
     <p class="mt-2.5 font-medium leading-none">Совет владельцу</p>
-    <p class="mt-1 line-clamp-2 text-sm">
+    <p
+      class="mt-1 text-sm"
+      :class="{ 'line-clamp-2': !expanded }"
+    >
       {{ adviceToOwner }}
     </p>
 
-    <p class="mt-2.5 text-sm opacity-75">
-      {{ date }}
-    </p>
+    <div class="mt-2.5 flex justify-between">
+      <p class="text-sm opacity-75">
+        {{ date }}
+      </p>
+      <button
+        v-if="isNeedCollapse()"
+        class="text-sm leading-none text-soft-blue"
+        @click="expanded = !expanded"
+      >
+        {{ expanded ? 'Свернуть' : 'Развернуть' }}
+      </button>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
 import RRating from '@/components/r-rating.vue';
-import { defineProps } from 'vue';
+import { defineProps, ref } from 'vue';
 
 interface Props {
   title: string;
@@ -44,5 +62,14 @@ interface Props {
   date: string;
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
+
+const expanded = ref(false);
+
+const isNeedCollapse = function () {
+  for (let text of [props.pros, props.cons, props.adviceToOwner]) {
+    if (text?.length > 90) return true;
+  }
+  return false;
+};
 </script>
