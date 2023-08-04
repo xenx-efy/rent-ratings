@@ -4,6 +4,7 @@ namespace App\Actions\v1;
 
 use App\Http\Resources\ApartmentResource;
 use App\Models\Apartment;
+use Inertia\Inertia;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class GetApartmentAction
@@ -16,8 +17,14 @@ class GetApartmentAction
     }
 
     /** @group Show Reviews */
-    public function asController(int $id): ApartmentResource
+    public function asController(int $id): \Inertia\Response
     {
-        return new ApartmentResource($this->handle($id));
+        $apartment = $this->handle($id);
+
+        return Inertia::render('Apartment', [
+            'apartment' => new ApartmentResource($apartment),
+            'address' => $apartment->building->address,
+            'reviews' => GetApartmentReviewsAction::run($apartment->id)
+        ]);
     }
 }

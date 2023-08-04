@@ -3,7 +3,6 @@
 namespace App\Actions\v1;
 
 use App\Http\Resources\BuildingResource;
-use App\Http\Resources\EvaluationCriteriaCollection;
 use App\Models\Building;
 use Illuminate\Http\Request;
 use Lorisleiva\Actions\Concerns\AsAction;

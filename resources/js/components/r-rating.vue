@@ -19,7 +19,10 @@
         </span>
       </button>
     </div>
-    <p class="ml-2">{{ rating }} ({{ count }})</p>
+    <p class="ml-2">
+      {{ rating }}
+      <span v-if="count">({{ count }})</span>
+    </p>
   </div>
 </template>
 
@@ -30,7 +33,7 @@ import { defineEmits, defineProps, withDefaults } from 'vue';
 interface Props {
   canSelect?: boolean;
   count?: number;
-  rating?: number;
+  rating?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {

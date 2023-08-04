@@ -18,12 +18,18 @@ class GetHouseApartments
     }
 
     /** @group Show Apartments */
-    public function asController(Request $request)
+    public function asController(Request $request): \Inertia\Response
     {
-        $house = FindOrCreateHouse::run($request->address);
+        # TODO: make validation to string, not numbers
+        $validated = $request->validate([
+            'address' => ['required', 'string']
+        ]);
+
+        $house = FindOrCreateHouse::run($validated['address']);
 
         return Inertia::render('House', [
-            'apartments' => new ApartmentCollection($this->handle($house->id))
+            'apartments' => new ApartmentCollection($this->handle($house->id)),
+            'address' => $request->address,
         ]);
     }
 }

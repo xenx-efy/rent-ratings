@@ -1,34 +1,54 @@
+<script setup lang="ts">
+import 'vue-dadata/dist/style.css';
+import ArrowIcon from '@/shared/icon/ArrowIcon.vue';
+import SearchIcon from '@/shared/icon/SearchIcon.vue';
+import RRating from '@/components/r-rating.vue';
+import ApplicationLogo from '@/shared/ui/deprecated-ui/ApplicationLogo.vue';
+import { defineProps } from 'vue';
+import ApartmentReviewCard from '@/components/cards/ApartmentReviewCard.vue';
+
+defineProps({
+  apartment: Object,
+  reviews: Array,
+  address: String,
+});
+</script>
+
 <template>
-  <header
-    class="relative z-20 flex w-screen flex-col rounded-b-[24px] bg-soft-blue pb-4 drop-shadow-lg"
-  >
+  <header class="relative z-20 flex w-screen flex-col rounded-b-[24px] bg-soft-blue pb-4 drop-shadow-lg">
     <application-logo />
 
     <div class="flex justify-between px-5 pt-5">
-      <a href="#">
+      <a
+        class="flex items-center"
+        href="#"
+      >
         <arrow-icon color="#D8E5FF" />
       </a>
 
-      <h2 class="text-white">Ул. Гая 3, кв. 87</h2>
+      <h2
+        class="px-4 text-center text-white"
+        :class="{ 'text-base': address.length > 10 }"
+      >
+        {{ address }}, кв. {{ apartment.number }}
+      </h2>
 
-      <search-icon
-        width="18"
-        height="18"
-        color="#D8E5FF"
-      />
+      <button class="flex items-center">
+        <search-icon
+          width="18"
+          height="18"
+          color="#D8E5FF"
+        />
+      </button>
     </div>
   </header>
 
   <div class="relative m-2 flex flex-1 flex-col">
-    <div class="my-3 flex self-center">
-      <div class="flex space-x-2">
-        <star-icon />
-        <star-icon />
-        <star-icon />
-        <star-icon />
-        <star-icon color="#CACACA" />
-      </div>
-      <p class="ml-2 block">4.3 (13)</p>
+    <div class="flex flex-col items-center pb-4 pt-2">
+      <r-rating
+        :rating="apartment.rating"
+        :count="apartment.reviewsCount"
+      />
     </div>
 
     <a
@@ -38,7 +58,24 @@
       Оставить отзыв
     </a>
 
-    <p class="mt-5 text-xl font-bold">Отзывы</p>
+    <p class="mt-5 pl-5 text-xl font-bold">Отзывы</p>
+
+    <div class="flex flex-col space-y-1.5">
+      <div
+        v-for="r in reviews"
+        :key="r.id"
+        class=""
+      >
+        <apartment-review-card
+          :title="r.title"
+          :pros="r.pros"
+          :cons="r.cons"
+          :advice-to-owner="r.adviceToOwner"
+          :rating="r.rating"
+        />
+      </div>
+    </div>
+
     <a
       class="btn-outline mt-2"
       href="#"
@@ -47,11 +84,3 @@
     </a>
   </div>
 </template>
-
-<script setup lang="ts">
-import 'vue-dadata/dist/style.css';
-import ArrowIcon from '@/shared/icon/ArrowIcon.vue';
-import SearchIcon from '@/shared/icon/SearchIcon.vue';
-import StarIcon from '@/shared/icon/StarIcon.vue';
-import ApplicationLogo from '@/shared/ui/deprecated-ui/ApplicationLogo.vue';
-</script>
