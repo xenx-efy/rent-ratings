@@ -62,7 +62,7 @@ defineProps({
 
     <div class="flex flex-col space-y-1.5">
       <div
-        v-for="r in reviews"
+        v-for="r in reviews.data"
         :key="r.id"
         class=""
       >
@@ -72,6 +72,7 @@ defineProps({
           :cons="r.cons"
           :advice-to-owner="r.adviceToOwner"
           :rating="r.rating"
+          :date="r.date"
         />
       </div>
     </div>

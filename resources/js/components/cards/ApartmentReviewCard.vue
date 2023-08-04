@@ -35,12 +35,14 @@
 import RRating from '@/components/r-rating.vue';
 import { defineProps } from 'vue';
 
-defineProps({
-  title: String,
-  pros: String,
-  cons: String,
-  adviceToOwner: String,
-  rating: String,
-  date: String,
-});
+interface Props {
+  title: string;
+  pros: string;
+  cons: string;
+  adviceToOwner?: string;
+  rating: string | number;
+  date: string;
+}
+
+defineProps<Props>();
 </script>

@@ -19,7 +19,8 @@ class ReviewResource extends JsonResource
             'rating' => $this->rating,
             'pros' => $this->pros,
             'cons' => $this->cons,
-            'adviceToOwner' => $this->advice_to_owner
+            'adviceToOwner' => $this->advice_to_owner,
+            'date' => $this->created_at->isoFormat('D MMMM YYYY')
         ];
     }
 }

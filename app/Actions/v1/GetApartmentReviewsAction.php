@@ -12,7 +12,7 @@ class GetApartmentReviewsAction
 
     public function handle(int $apartmentId)
     {
-        return Apartment::findOrFail($apartmentId)->reviews;
+        return new ReviewCollection(Apartment::findOrFail($apartmentId)->reviews);
     }
 
     /** @group Show Reviews */

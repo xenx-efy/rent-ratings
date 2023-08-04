@@ -33,7 +33,7 @@ import { defineEmits, defineProps, withDefaults } from 'vue';
 interface Props {
   canSelect?: boolean;
   count?: number;
-  rating?: string;
+  rating?: string | number;
 }
 
 const props = withDefaults(defineProps<Props>(), {

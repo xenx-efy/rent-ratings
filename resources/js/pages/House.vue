@@ -4,6 +4,7 @@ import SearchIcon from '@/shared/icon/SearchIcon.vue';
 import ApplicationLogo from '@/shared/ui/deprecated-ui/ApplicationLogo.vue';
 import ApartmentCard from '@/components/cards/ApartmentCard.vue';
 import { defineProps } from 'vue';
+import { Link } from '@inertiajs/vue3';
 
 interface Apartment {
   id: number;
@@ -35,9 +36,10 @@ withDefaults(defineProps<Props>(), {
     <application-logo />
 
     <div class="flex justify-between px-5 pt-5">
-      <a href="#">
+      <!--  eslint-disable-next-line -->
+      <Link :href="back">
         <arrow-icon color="#D8E5FF" />
-      </a>
+      </Link>
 
       <h2
         class="px-4 text-center text-white"

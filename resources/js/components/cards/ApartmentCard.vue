@@ -1,5 +1,4 @@
 <template>
-  <!--  todo change route to apartment single page-->
   <!--  eslint-disable-next-line -->
   <Link :href="$route('apartment', id)">
     <div class="mt-2 flex rounded-2xl border-2 border-silver p-[5px]">
@@ -28,7 +27,7 @@ import { Link } from '@inertiajs/vue3';
 interface Props {
   id: number;
   number: number;
-  rating: string;
+  rating: string | number;
   floor: number | string;
   roomsAmount: number | string;
   reviewsCount: number;
