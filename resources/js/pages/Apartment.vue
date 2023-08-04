@@ -9,7 +9,7 @@ import ApartmentReviewCard from '@/components/cards/ApartmentReviewCard.vue';
 
 defineProps({
   apartment: Object,
-  reviews: Array,
+  reviews: Object,
   address: String,
 });
 </script>
