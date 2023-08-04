@@ -58,6 +58,7 @@ withDefaults(defineProps<Props>(), {
         class="flex flex-col"
       >
         <apartment-card
+          :id="ap.id"
           :number="ap.number"
           :rating="ap.rating"
           :floor="ap.floor"
