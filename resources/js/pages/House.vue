@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import ArrowIcon from '@/shared/icon/ArrowIcon.vue';
-import SearchIcon from '@/shared/icon/SearchIcon.vue';
-import ApplicationLogo from '@/shared/ui/deprecated-ui/ApplicationLogo.vue';
 import ApartmentCard from '@/components/cards/ApartmentCard.vue';
+import AddressHeader from '@/shared/components/AddressHeader.vue';
 import { defineProps } from 'vue';
-import { Link } from '@inertiajs/vue3';
 
 interface Apartment {
   id: number;
@@ -22,7 +19,6 @@ interface Props {
   address: string;
 }
 
-// defineProps<Props>();
 withDefaults(defineProps<Props>(), {
   apartments: {
     data: [],
@@ -32,25 +28,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <header class="relative z-20 flex w-screen flex-col rounded-b-[24px] bg-soft-blue pb-4 drop-shadow-lg">
-    <application-logo />
-
-    <div class="flex justify-between px-5 pt-5">
-      <!--  eslint-disable-next-line -->
-      <Link :href="back">
-        <arrow-icon color="#D8E5FF" />
-      </Link>
-
-      <h2
-        class="px-4 text-center text-white"
-        :class="{ 'text-base': address.length > 10 }"
-      >
-        {{ address }}
-      </h2>
-
-      <search-icon color="#D8E5FF" />
-    </div>
-  </header>
+  <address-header :address="address" />
 
   <div class="relative m-2 mb-3 flex flex-1 flex-col">
     <template v-if="apartments.data.length > 0">
@@ -67,13 +45,6 @@ withDefaults(defineProps<Props>(), {
           :rooms-amount="ap.amountOfRooms"
           :reviews-count="ap.reviewsCount"
         />
-        <!--        <apartment-card-->
-        <!--          :number="ap?.number"-->
-        <!--          :rating="ap?.rating"-->
-        <!--          :floor="ap?.floor"-->
-        <!--          :rooms-amount="ap?.amountOfRooms"-->
-        <!--          :reviews-count="ap?.reviewsCount"-->
-        <!--        />-->
       </div>
     </template>
 
