@@ -20,12 +20,18 @@
     </p>
 
     <p class="mt-2.5 font-medium leading-none">Минусы</p>
-    <p class="mt-1 line-clamp-2 text-sm">
+    <p
+      class="mt-1 text-sm"
+      :class="{ 'line-clamp-2': !expanded }"
+    >
       {{ cons }}
     </p>
 
     <p class="mt-2.5 font-medium leading-none">Совет владельцу</p>
-    <p class="mt-1 line-clamp-2 text-sm">
+    <p
+      class="mt-1 text-sm"
+      :class="{ 'line-clamp-2': !expanded }"
+    >
       {{ adviceToOwner }}
     </p>
 
