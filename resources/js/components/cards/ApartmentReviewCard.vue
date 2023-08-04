@@ -40,7 +40,7 @@
         {{ date }}
       </p>
       <button
-        v-if="isNeedCollapse()"
+        v-if="isNeedCollapse"
         class="text-sm leading-none text-soft-blue"
         @click="expanded = !expanded"
       >
@@ -51,7 +51,7 @@
 </template>
 <script setup lang="ts">
 import RRating from '@/components/r-rating.vue';
-import { defineProps, ref } from 'vue';
+import { computed, defineProps, ref } from 'vue';
 
 interface Props {
   title: string;
@@ -66,10 +66,10 @@ const props = defineProps<Props>();
 
 const expanded = ref(false);
 
-const isNeedCollapse = function () {
+const isNeedCollapse = computed(() => {
   for (let text of [props.pros, props.cons, props.adviceToOwner]) {
     if (text?.length > 90) return true;
   }
   return false;
-};
+});
 </script>
