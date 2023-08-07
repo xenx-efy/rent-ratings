@@ -55,7 +55,7 @@ withDefaults(defineProps<Props>(), {
     </div>
 
     <a
-      class="btn-link sticky bottom-2 mt-4 w-11/12 self-center bg-soft-blue text-white"
+      class="btn-secondary sticky bottom-2 mt-4 w-11/12 self-center bg-soft-blue text-white"
       href="#"
     >
       Оставить отзыв

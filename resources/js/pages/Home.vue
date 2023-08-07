@@ -57,7 +57,7 @@
       </p>
 
       <a
-        class="btn-link mt-6"
+        class="btn-secondary mt-6"
         href="#"
       >Оставить отзыв</a>
     </div>
@@ -115,7 +115,7 @@
 <script>
 import 'vue-dadata/dist/style.css';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
-import ApplicationLogo from '@/shared/ui/deprecated-ui/ApplicationLogo.vue';
+import ApplicationLogo from '@/shared/icon/ApplicationLogo.vue';
 
 export default {
   name: 'Home',
