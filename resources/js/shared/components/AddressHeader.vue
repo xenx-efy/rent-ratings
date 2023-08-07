@@ -32,8 +32,9 @@
 import ArrowIcon from '@/shared/icon/ArrowIcon.vue';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
 import ApplicationLogo from '@/shared/icon/ApplicationLogo.vue';
-import { computed, defineProps, withDefaults } from 'vue';
 import { AddressHeaderTheme } from '@/types/enums';
+import { computed } from 'vue';
+import { router } from '@inertiajs/vue3';
 
 interface Props {
   address: string;
@@ -47,14 +48,11 @@ const props = withDefaults(defineProps<Props>(), {
   theme: AddressHeaderTheme.Blue,
 });
 
-// eslint-disable-next-line vue/return-in-computed-property
 const logoColor = computed(() => {
-  switch (props.theme) {
-    case AddressHeaderTheme.Blue:
-      return '#FFF';
-    case AddressHeaderTheme.Light:
-      return '#252D4F';
-  }
+  return {
+    [AddressHeaderTheme.Blue]: '#FFF',
+    [AddressHeaderTheme.Light]: '#252D4F',
+  };
 });
 
 const headerClass = computed(() => {
@@ -76,7 +74,7 @@ const goBack = () => {
   // Check sessionStorage
   if (!sessionStorage.getItem('prev')) {
     // This page was navigated off-site
-    this.$inertia.visit(this.href);
+    router.visit('/');
   } else {
     window.history.back();
   }

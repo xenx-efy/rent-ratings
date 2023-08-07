@@ -1,27 +1,5 @@
 <template>
-  <header
-    class="relative z-20 flex w-screen flex-col rounded-b-[24px] bg-soft-blue pb-4 drop-shadow-lg"
-  >
-    <application-logo />
-
-    <h2 class="mb-4 ml-7 mt-4 text-white">
-      Посмотри отзывы на
-      <br>
-      выбранную квартиру
-    </h2>
-
-    <div
-      class="mx-4 flex items-center justify-between overflow-hidden rounded-[8px] bg-white pl-[14px]"
-    >
-      <search-icon />
-
-      <input
-        class="font-cloud-burst w-full border-0 px-4 py-[10px] text-black focus:ring-0"
-        type="text"
-        placeholder="Найди квартиру в Гродно"
-      >
-    </div>
-  </header>
+  <r-header />
 
   <div class="relative -mt-7 flex flex-col">
     <img
@@ -112,16 +90,8 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import 'vue-dadata/dist/style.css';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
-import ApplicationLogo from '@/shared/ui/deprecated-ui/ApplicationLogo.vue';
-
-export default {
-  name: 'Home',
-  components: {
-    SearchIcon,
-    ApplicationLogo
-  }
-};
+import RHeader from '@/shared/components/r-header.vue';
 </script>
