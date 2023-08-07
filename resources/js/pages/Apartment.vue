@@ -24,13 +24,15 @@ defineProps({
     </div>
 
     <a
-      class="btn-link w-3/4 self-center bg-soft-blue text-white"
+      class="btn-secondary w-3/4 self-center bg-soft-blue text-white"
       href="#"
     >
       Оставить отзыв
     </a>
 
-    <p class="mt-5 pl-5 text-xl font-bold">Отзывы</p>
+    <p class="mt-5 pl-5 text-xl font-bold">
+      Отзывы
+    </p>
 
     <div class="flex flex-col space-y-1.5">
       <div
@@ -50,7 +52,7 @@ defineProps({
     </div>
 
     <a
-      class="btn-outline mt-2"
+      class="btn-secondary-outlined mt-2"
       href="#"
     >
       Ещё

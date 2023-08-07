@@ -35,7 +35,7 @@
       </p>
 
       <a
-        class="btn-link mt-6"
+        class="btn-secondary mt-6"
         href="#"
       >Оставить отзыв</a>
     </div>

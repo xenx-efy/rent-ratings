@@ -22,7 +22,9 @@ export default {
         'shadow-green': '#A3BBC3',
         'titan-white': '#E6F1F9',
         silver: '#CACACA',
+        'silver-chalice': '#A9A9A9',
         'link-water': '#D8E5FF',
+        grapefruit: '#DC362E',
       },
       fontSize: {
         sm: '0.8rem',
