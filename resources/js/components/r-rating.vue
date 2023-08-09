@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import StarIcon from '@/shared/icon/StarIcon.vue';
-import { defineEmits, defineProps, withDefaults } from 'vue';
+import {defineEmits, defineProps, withDefaults} from 'vue';
 
 interface Props {
   canSelect?: boolean;
@@ -43,12 +43,14 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const getWidth = (star: number) => {
+  const fractionalPart = +(props.rating % 1).toFixed(2)
   if (star <= props.rating) {
     return '100%';
+  } else if ((star - props.rating).toFixed(2) > (1 - fractionalPart)) {
+    return '0%';
   } else {
-    const residue = +(props.rating - star + 1).toFixed(2);
-    const residueWidth = residue * 100;
-    return `${residueWidth}%`;
+    const residue = fractionalPart * 100;
+    return `${residue}%`;
   }
 };
 
