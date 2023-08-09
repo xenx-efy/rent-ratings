@@ -3,7 +3,7 @@
   "include": [
     "resources/**/*.ts",
     "resources/**/*.d.ts",
-    "resources/**/*.vue",
+    "resources/**/*.vue"
   ],
   "compilerOptions": {
     "baseUrl": ".",
@@ -14,7 +14,10 @@
     },
     "allowJs": true,
     "strict": false,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "types": [
+      "vite/client"
+    ]
   },
   "exclude": [
     "node_modules",
