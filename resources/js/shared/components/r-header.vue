@@ -22,16 +22,16 @@
 </template>
 
 <script setup lang="ts">
-import SearchIcon from "@/shared/icon/SearchIcon.vue";
-import { ref, watch } from "vue";
-import debounce from "@/utils/debounce";
-import Dropdown from "@/shared/ui/r-dropdown.vue";
-import { router } from "@inertiajs/vue3";
-import ApplicationLogo from "@/shared/icon/ApplicationLogo.vue";
-import type { ISuggestions } from "@/types/suggestions";
-import { getAddressHints } from "@/requests/getAddressHints";
+import SearchIcon from '@/shared/icon/SearchIcon.vue';
+import { ref, watch } from 'vue';
+import debounce from '@/utils/debounce';
+import Dropdown from '@/shared/ui/r-dropdown.vue';
+import { router } from '@inertiajs/vue3';
+import ApplicationLogo from '@/shared/icon/ApplicationLogo.vue';
+import type { ISuggestions } from '@/types/suggestions';
+import { getAddressHints } from '@/requests/getAddressHints';
 
-const searchValue = ref("");
+const searchValue = ref('');
 const suggestions = ref<ISuggestions[]>([]);
 const currentOption = ref({});
 
@@ -43,15 +43,15 @@ const controller = new AbortController();
 
 const handleSearch = debounce(() => {
   getAddressHints(searchValue.value, controller.signal)
-    .then(res => {
+    .then((res) => {
       suggestions.value = res;
     });
 }, 500);
 
-const handleSelect = option => {
+const handleSelect = (option) => {
   if (option.data.house) {
-    router.visit("house", {
-      data: { address: option.value }
+    router.visit('house', {
+      data: { address: option.value },
     });
     controller.abort();
   }

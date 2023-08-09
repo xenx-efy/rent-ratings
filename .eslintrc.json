@@ -17,6 +17,23 @@
     "@typescript-eslint"
   ],
   "rules": {
+    "quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "always-multiline"
+      }
+    ],
     "@typescript-eslint/no-explicit-any": "off",
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",
@@ -169,22 +186,14 @@
       "error",
       "unix"
     ],
-    //стиль разрыва строки linebreak-style: ["error", "unix || windows"]
     "no-console": "error",
-    // без console.log
     "no-debugger": "error",
-    // без debugger
     "arrow-parens": [
-      "error",
-      "as-needed"
+      "error"
     ],
-    // скобки в стрелочной функции
     "no-plusplus": "off",
-    //запрещает унарные операторы ++и --
     "constructor-super": "off",
-    // конструкторы производных классов должны вызывать super(). Конструкторы не производных классов не должны вызывать super().
     "no-mixed-operators": [
-      //Заключение сложных выражений в круглые скобки проясняет замысел разработчика
       "error",
       {
         "groups": [
@@ -228,17 +237,12 @@
       }
     ],
     "import/extensions": "off",
-    // обеспечить согласованное использование расширения файла в пути импорта
     "import/prefer-default-export": "off",
-    // ESLint предпочитает экспорт по умолчанию импорт/предпочитает экспорт по умолчанию
     "no-unused-expressions": "error",
-    //нет неиспользуемых выражений
     "no-param-reassign": "off",
-    //без переназначения параметров
     "prefer-destructuring": [
       "error",
       {
-        // требуется деструктуризация массивов и/или объектов.
         "array": true,
         "object": true
       },
@@ -254,7 +258,6 @@
         ]
       }
     ],
-    // запрещает неиспользуемые переменные.
     "object-curly-newline": [
       "error",
       {
@@ -268,7 +271,6 @@
         }
       }
     ],
-    // применяет согласованные разрывы строк после открытия и перед закрытием фигурных скобок.
     "lines-between-class-members": [
       "error",
       "always",
@@ -276,7 +278,6 @@
         "exceptAfterSingleLine": true
       }
     ]
-    // требует или запрещает пустую строку между членами класса.
   }
 }
 

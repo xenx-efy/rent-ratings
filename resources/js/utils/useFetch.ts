@@ -1,5 +1,5 @@
 const useFetch = (
-  method: "GET" | "PUT" | "POST" | "PATCH" | "DELETE",
+  method: 'GET' | 'PUT' | 'POST' | 'PATCH' | 'DELETE',
   url: string,
   body?: any,
   params?: {
@@ -7,15 +7,15 @@ const useFetch = (
     headers?: {
       Accept?: string,
       Authorization?: string,
-      "Content-Type"?: string
+      'Content-Type'?: string
     },
     signal?: AbortSignal
-  }
+  },
 ) => {
   const {
     headers,
     mode,
-    signal
+    signal,
   } = params;
 
   return fetch(
@@ -25,15 +25,15 @@ const useFetch = (
       signal,
       mode,
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        ...headers
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        ...headers,
       },
-      body: JSON.stringify(body)
-    }
+      body: JSON.stringify(body),
+    },
   )
-    .then(response => response.text())
-    .then(response => JSON.parse(response));
+    .then((response) => response.text())
+    .then((response) => JSON.parse(response));
 };
 
 export default useFetch;
