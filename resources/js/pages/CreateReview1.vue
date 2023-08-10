@@ -1,3 +1,12 @@
+<script setup lang="ts">
+import AddressHeader from "@/shared/components/AddressHeader.vue";
+import StepProgress from "@/components/RStepProgress.vue"
+import {ref} from "vue";
+import RApartmentInfoForm from "@/components/review-forms/RApartmentInfoForm.vue"
+import RApartmentEstimationForm from "@/components/review-forms/RApartmentEstimationForm.vue"
+
+const step = ref(1)
+</script>
 <template>
   <address-header
     :address="'Ул. Гая, 3, кв. 87'"
@@ -5,37 +14,34 @@
     :theme="'Light'"
   />
 
-  <div class="mx-auto mt-4 flex w-3/4 justify-around space-x-1">
-    <div class="h-1 w-3/4 rounded-l-full bg-soft-blue" />
-    <div class="h-1 w-3/4 bg-link-water" />
-    <div class="h-1 w-3/4 rounded-r-full bg-link-water" />
-  </div>
-  <p
-    class="mx-auto mt-4 max-w-[220px] text-center text-2xl font-medium leading-normal"
-  >
-    Информация о квартире
-  </p>
+  <step-progress :step="step" />
 
   <div class="mx-4">
-    <input-label required>
-      Этаж
-    </input-label>
-    <text-input />
-
-    <input-label required>
-      Количество комнат
-    </input-label>
-    <text-input />
+    <r-apartment-info-form v-if="step===1" />
+    <r-apartment-estimation-form v-if="step===2" />
 
     <div class="flex justify-between">
-      <button class="mt-4 ml-auto w-32 btn-primary">
+      <button
+        v-if="step > 1"
+        class="mt-4 w-32 btn-secondary-outlined"
+        @click="step--"
+      >
+        Назад
+      </button>
+      <button
+        v-if="step!==3"
+        class="mt-4 ml-auto w-32 btn-primary"
+        @click="step++"
+      >
         Далее
+      </button>
+      <button
+        v-if="step===3"
+        class="mt-4 ml-auto w-48 btn-primary"
+        @click="step++"
+      >
+        Отправить отзыв
       </button>
     </div>
   </div>
 </template>
-<script setup lang="ts">
-import AddressHeader from "@/shared/components/AddressHeader.vue";
-import InputLabel from "@/components/InputLabel.vue";
-import TextInput from "@/components/TextInput.vue";
-</script>

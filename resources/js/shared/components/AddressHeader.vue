@@ -3,7 +3,7 @@
     class="relative z-20 flex w-screen flex-col rounded-b-[24px] pb-4 drop-shadow-lg"
     :class="headerClass"
   >
-    <application-logo :color="logoColor" />
+    <application-logo :color="logoColor[theme]" />
 
     <div class="flex justify-between px-5 pt-5">
       <button @click="goBack">

@@ -19,7 +19,10 @@
         </span>
       </button>
     </div>
-    <p class="ml-2">
+    <p
+      v-if="!canSelect"
+      class="ml-2"
+    >
       {{ rating }}
       <span v-if="count">({{ count }})</span>
     </p>
