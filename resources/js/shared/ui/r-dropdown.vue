@@ -2,8 +2,7 @@
   <div class="dropdown relative w-full">
     <input
       ref="dropdownInput"
-      class="font-cloud-burst w-full border-0 pl-11 pr-4 py-[10px] text-black outline-0 focus:ring-0"
-      :class="[modelValue.length ? 'rounded-t-[8px]': 'rounded-[8px]']"
+      class="font-cloud-burst w-full border-0 pl-11 pr-4 py-[10px] text-black outline-0 focus:ring-0 rounded-[8px]"
       :value="modelValue"
       :disabled="disabled"
       :placeholder="placeholder"
@@ -15,20 +14,20 @@
       <div
         v-if="optionsShown"
         :ref="optionList"
-        class="absolute max-h-80 w-full overflow-auto rounded-b-md bg-white"
+        class="absolute max-h-80 w-full overflow-auto rounded-b-md bg-white -mt-4 pt-4 z-0"
       >
         <template v-if="options.length">
           <div
             v-for="(option, index) in options"
             :key="index"
-            class="dropdown-item w-full border border-gray-200 p-2"
+            class="dropdown-item w-full border border-gray-200 pl-4 p-2"
             @mousedown="selectOption(option)"
           >
             {{ option.value }}
           </div>
         </template>
         <template v-else-if="modelValue.length">
-          <div class="dropdown-item w-full border border-gray-200 p-2">
+          <div class="dropdown-item w-full border border-gray-200 pl-4 p-2">
             Адрес не найден
           </div>
         </template>
