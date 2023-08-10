@@ -1,6 +1,6 @@
 <template>
   <header
-    class="relative z-20 flex w-screen flex-col rounded-b-[24px] bg-soft-blue pb-4 drop-shadow-lg"
+    class="relative z-20 flex flex-col rounded-b-[24px] bg-soft-blue pb-4 drop-shadow-lg"
   >
     <application-logo />
 
