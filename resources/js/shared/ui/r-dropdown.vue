@@ -14,13 +14,13 @@
       <div
         v-if="optionsShown"
         :ref="optionList"
-        class="absolute max-h-80 w-full overflow-auto rounded-b-md bg-white -mt-4 pt-4 z-0"
+        class="absolute max-h-80 w-full overflow-auto rounded-b-md bg-white -mt-1.5 pt-1.5 z-0"
       >
         <template v-if="options.length">
           <div
             v-for="(option, index) in options"
             :key="index"
-            class="dropdown-item w-full border border-gray-200 pl-4 p-2"
+            class="dropdown-item w-full border-t border-gray-200 pl-4 p-2"
             @mousedown="selectOption(option)"
           >
             {{ option.value }}
