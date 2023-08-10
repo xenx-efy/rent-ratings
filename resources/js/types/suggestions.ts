@@ -7,3 +7,4 @@ export interface ISuggestions {
 export interface ISearchRequest {
   suggestions: ISuggestions[];
 }
+

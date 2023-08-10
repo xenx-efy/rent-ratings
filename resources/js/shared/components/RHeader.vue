@@ -2,14 +2,14 @@
   <header class="relative z-20 flex flex-col rounded-b-[24px] bg-soft-blue pb-4 drop-shadow-lg">
     <application-logo />
 
-    <h2 class="mb-4 ml-7 mt-4 text-white">
+    <h2 class="my-4 ml-7 text-white">
       Посмотри отзывы на
       <br>
       выбранную квартиру
     </h2>
 
-    <div class="mx-4 flex items-center justify-between rounded-[8px] bg-white relative">
-      <search-icon class="absolute z-10 left-3.5" />
+    <div class="relative mx-4 flex items-center justify-between rounded-[8px] bg-white">
+      <search-icon class="absolute left-3.5 z-10" />
 
       <dropdown
         v-model="searchValue"
@@ -21,11 +21,11 @@
   </header>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
 import { ref, watch } from 'vue';
 import debounce from '@/utils/debounce';
-import Dropdown from '@/shared/ui/r-dropdown.vue';
+import Dropdown from '@/shared/ui/RDropdown.vue';
 import { router } from '@inertiajs/vue3';
 import ApplicationLogo from '@/shared/icon/ApplicationLogo.vue';
 import type { ISuggestions } from '@/types/suggestions';
@@ -45,15 +45,17 @@ const handleSearch = debounce(() => {
   getAddressHints(searchValue.value, controller.signal)
     .then((res) => {
       suggestions.value = res;
-    }).catch((err) => {
-    if (err.name != 'AbortError') { // обработать ошибку от вызова abort()
-      throw err;
-    }
-  });
+    })
+    .catch((err) => {
+      if (err.name != 'AbortError') {
+        // обработать ошибку от вызова abort()
+        throw err;
+      }
+    });
 }, 500);
 
-const handleSelect = (option) => {
-  if (option.data.house) {
+const handleSelect = (option: any) => {
+  if (option.data?.house) {
     router.visit('house', {
       data: { address: option.value },
     });

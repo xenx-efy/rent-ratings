@@ -1,7 +1,5 @@
 <template>
-  <p
-    class="mx-auto mt-4 max-w-[220px] text-center text-2xl font-medium leading-normal"
-  >
+  <p class="mx-auto mt-4 max-w-[220px] text-center text-2xl font-medium leading-normal">
     Информация о квартире
   </p>
 
@@ -17,6 +15,6 @@
 </template>
 
 <script setup lang="ts">
-import InputLabel from "@/components/InputLabel.vue";
-import TextInput from "@/components/TextInput.vue";
+import InputLabel from '@/components/RInputLabel.vue';
+import TextInput from '@/components/RTextInput.vue';
 </script>

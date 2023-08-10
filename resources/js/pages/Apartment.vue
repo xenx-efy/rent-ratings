@@ -1,17 +1,3 @@
-<script setup lang="ts">
-import 'vue-dadata/dist/style.css';
-import RRating from '@/components/RRating.vue';
-import { defineProps } from 'vue';
-import ApartmentReviewCard from '@/components/cards/ApartmentReviewCard.vue';
-import AddressHeader from '@/shared/components/AddressHeader.vue';
-
-defineProps({
-  apartment: Object,
-  reviews: Object,
-  address: String,
-});
-</script>
-
 <template>
   <address-header :address="address" />
 
@@ -59,3 +45,17 @@ defineProps({
     </a>
   </div>
 </template>
+
+<script setup lang="ts">
+import 'vue-dadata/dist/style.css';
+import RRating from '@/components/RRating.vue';
+import { defineProps } from 'vue';
+import ApartmentReviewCard from '@/components/cards/RApartmentReviewCard.vue';
+import AddressHeader from '@/shared/components/RAddressHeader.vue';
+
+defineProps({
+  apartment: Object,
+  reviews: Object,
+  address: String,
+});
+</script>

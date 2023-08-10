@@ -1,32 +1,3 @@
-<script setup lang="ts">
-import ApartmentCard from '@/components/cards/ApartmentCard.vue';
-import AddressHeader from '@/shared/components/AddressHeader.vue';
-import { defineProps } from 'vue';
-
-interface Apartment {
-  id: number;
-  number: number;
-  floor: number;
-  rating: string;
-  amountOfRooms: number;
-  reviewsCount: number;
-}
-
-interface Props {
-  apartments: {
-    data: Apartment[] | [];
-  };
-  address: string;
-}
-
-withDefaults(defineProps<Props>(), {
-  apartments: {
-    data: [],
-  },
-  address: '',
-});
-</script>
-
 <template>
   <address-header :address="address" />
 
@@ -62,3 +33,32 @@ withDefaults(defineProps<Props>(), {
     </a>
   </div>
 </template>
+
+<script setup lang="ts">
+import ApartmentCard from '@/components/cards/RApartmentCard.vue';
+import AddressHeader from '@/shared/components/RAddressHeader.vue';
+import { defineProps } from 'vue';
+
+interface Apartment {
+  id: number;
+  number: number;
+  floor: number;
+  rating: string;
+  amountOfRooms: number;
+  reviewsCount: number;
+}
+
+interface Props {
+  apartments: {
+    data: Apartment[] | [];
+  };
+  address: string;
+}
+
+withDefaults(defineProps<Props>(), {
+  apartments: {
+    data: [],
+  },
+  address: '',
+});
+</script>

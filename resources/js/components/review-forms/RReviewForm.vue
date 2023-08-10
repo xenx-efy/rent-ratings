@@ -1,7 +1,5 @@
 <template>
-  <p
-    class="mx-auto mt-4 max-w-[220px] text-center text-2xl font-medium leading-normal"
-  >
+  <p class="mx-auto mt-4 max-w-[220px] text-center text-2xl font-medium leading-normal">
     Отзыв
   </p>
 
@@ -12,7 +10,6 @@
     Заголовок отзыва
   </input-label>
   <text-input :placeholder="'Что-то краткое, но ёмкое'" />
-
 
   <input-label
     class="mt-2.5"
@@ -40,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import TextInput from '@/components/TextInput.vue'
-import InputLabel from '@/components/InputLabel.vue'
-import TextArea from '@/components/TextArea.vue'
+import TextInput from '@/components/RTextInput.vue';
+import InputLabel from '@/components/RInputLabel.vue';
+import TextArea from '@/components/RTextArea.vue';
 </script>

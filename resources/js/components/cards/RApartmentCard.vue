@@ -14,7 +14,7 @@
           :count="reviewsCount"
         />
 
-        <p class="text- mt-2 block leading-none">
+        <p class="mt-2 block leading-none">
           Этаж: {{ floor }}
         </p>
         <p class="mt-2 block leading-none">
@@ -27,7 +27,6 @@
 
 <script setup lang="ts">
 import RRating from '@/components/RRating.vue';
-import { defineProps } from 'vue';
 import { Link } from '@inertiajs/vue3';
 
 interface Props {
