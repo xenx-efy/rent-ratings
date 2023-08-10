@@ -3,7 +3,7 @@
   "include": [
     "resources/**/*.ts",
     "resources/**/*.d.ts",
-    "resources/**/*.vue",
+    "resources/**/*.vue"
   ],
   "compilerOptions": {
     "baseUrl": ".",
@@ -15,9 +15,8 @@
     "allowJs": true,
     "strict": false,
     "noImplicitAny": false,
-    "lib": [
-      "esnext.full",
-      "dom"
+    "types": [
+      "vite/client"
     ]
   },
   "exclude": [
