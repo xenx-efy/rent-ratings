@@ -65,13 +65,13 @@
 <script setup lang="ts">
 import RApartmentCriteria from '@/components/RApartmentCriteria.vue'
 
-import {reactive} from "vue";
+import {reactive} from 'vue';
 const estimations = reactive({
   cleanliness: 0,
   neighbours: 0,
   heating: 0,
   loudLevel: 0,
   insects: 0,
-  landlordEstimation: 0
+  landlordEstimation: 0,
 })
 </script>

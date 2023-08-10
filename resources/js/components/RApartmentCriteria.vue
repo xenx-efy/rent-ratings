@@ -1,10 +1,12 @@
 <template>
   <div class="flex justify-between pb-4">
     <div class="flex space-x-2">
-      <p>{{ title }}</p>
+      <p :class="{'w-min': title.length > 15}">
+        {{ title }}
+      </p>
 
       <button
-        class="group relative inline-block"
+        class="group relative flex"
       >
         <question-mark-icon />
         <span
@@ -16,18 +18,21 @@
       </button>
     </div>
 
-    <r-rating
-      :can-select="true"
-      :rating="rating"
-      @click="changeRating"
-    />
+    <div class="flex items-start">
+      <r-rating
+        class="mt-0.5"
+        :can-select="true"
+        :rating="rating"
+        @click="changeRating"
+      />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import QuestionMarkIcon from '@/shared/icon/QuestionMarkIcon.vue'
 import RRating from '@/components/RRating.vue'
-import {defineEmits, defineProps, withDefaults} from "vue";
+import {defineEmits, defineProps, withDefaults} from 'vue';
 
 interface Props {
   title: string,
@@ -38,7 +43,7 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   title: '',
   rating: 0,
-  tooltipText: ''
+  tooltipText: '',
 })
 
 const emits = defineEmits(['changeRating'])

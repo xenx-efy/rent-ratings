@@ -10,7 +10,7 @@
       >
         <star-icon />
         <span
-          class="absolute left-0 top-0.5 w-0 overflow-hidden"
+          class="absolute left-0 top-0 w-0 overflow-hidden"
           :style="{
             width: getWidth(star),
           }"
