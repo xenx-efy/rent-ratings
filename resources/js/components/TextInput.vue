@@ -1,19 +1,25 @@
-<script setup>
-import {ref} from 'vue';
+<script setup lang="ts">
+import { defineEmits, defineExpose, defineProps, ref, withDefaults } from 'vue';
 
-defineProps({
+interface Props {
+  placeholder: string;
+}
+
+withDefaults(defineProps<Props>(), {
+  placeholder: '',
 });
 
 defineEmits(['update:modelValue']);
 
 const input = ref(null);
 
-defineExpose({focus: () => input.value.focus()});
+defineExpose({ focus: () => input.value.focus() });
 </script>
 
 <template>
   <input
     ref="input"
-    class="w-full rounded-lg border border-silver-chalice px-4 py-2.5 focus:border-2 focus:ring-soft-blue"
-  >
+    class="w-full rounded-lg border border-silver-chalice px-4 py-2.5 placeholder:text-silver-chalice focus:outline-soft-blue"
+    :placeholder="placeholder"
+  />
 </template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import 'vue-dadata/dist/style.css';
-import RRating from '@/components/r-rating.vue';
+import RRating from '@/components/RRating.vue';
 import { defineProps } from 'vue';
 import ApartmentReviewCard from '@/components/cards/ApartmentReviewCard.vue';
 import AddressHeader from '@/shared/components/AddressHeader.vue';

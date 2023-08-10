@@ -35,7 +35,7 @@
 
 @layer components {
   .btn-secondary-outlined {
-    @apply block border border-silver text-center text-soft-blue font-medium bg-white py-2.5 w-full rounded-[8px] transition duration-100 active:ring active:ring-2 active:ring-soft-blue active:bg-periwinkle;
+    @apply block border border-silver text-center text-soft-blue font-medium bg-white py-2.5 w-full rounded-[8px] transition duration-100 active:ring active:ring-2 active:ring-soft-blue active:bg-periwinkle focus-visible:outline-soft-blue;
   }
 
   .btn-secondary {
@@ -43,6 +43,6 @@
   }
 
   .btn-primary {
-    @apply block text-center text-white font-medium bg-soft-blue py-2.5 w-full rounded-[8px] transition duration-100 active:bg-[#4663B8];
+    @apply block text-center text-white font-medium bg-soft-blue py-2.5 w-full rounded-[8px] transition duration-100 active:bg-[#4663B8] focus-visible:outline-[#4663B8];
   }
 }

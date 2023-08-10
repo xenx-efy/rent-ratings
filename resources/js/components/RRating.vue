@@ -10,7 +10,7 @@
       >
         <star-icon />
         <span
-          class="absolute left-0 top-0.5 w-0 overflow-hidden"
+          class="absolute left-0 top-0 w-0 overflow-hidden"
           :style="{
             width: getWidth(star),
           }"
@@ -19,7 +19,10 @@
         </span>
       </button>
     </div>
-    <p class="ml-2">
+    <p
+      v-if="!canSelect"
+      class="ml-2"
+    >
       {{ rating }}
       <span v-if="count">({{ count }})</span>
     </p>
