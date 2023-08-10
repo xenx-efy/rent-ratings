@@ -8,8 +8,8 @@
       выбранную квартиру
     </h2>
 
-    <div class="mx-4 flex items-center justify-between rounded-[8px] bg-white pl-[14px]">
-      <search-icon />
+    <div class="mx-4 flex items-center justify-between rounded-[8px] bg-white relative">
+      <search-icon class="absolute z-10 left-3.5" />
 
       <dropdown
         v-model="searchValue"

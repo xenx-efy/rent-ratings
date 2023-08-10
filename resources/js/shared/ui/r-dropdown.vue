@@ -2,7 +2,8 @@
   <div class="dropdown relative w-full">
     <input
       ref="dropdownInput"
-      class="font-cloud-burst w-full border-0 px-4 py-[10px] text-black outline-0 focus:ring-0"
+      class="font-cloud-burst w-full border-0 pl-11 pr-4 py-[10px] text-black outline-0 focus:ring-0"
+      :class="[modelValue.length ? 'rounded-t-[8px]': 'rounded-[8px]']"
       :value="modelValue"
       :disabled="disabled"
       :placeholder="placeholder"
@@ -36,7 +37,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang='ts'>
 import { ref } from 'vue';
 
 interface Props {
@@ -57,7 +58,7 @@ const optionsShown = ref(false);
 const optionList = ref(null);
 const dropdownInput = ref(null);
 
-const selectOption = option => {
+const selectOption = (option) => {
   selected.value = option;
   emits('select', selected.value);
   setTimeout(() => {

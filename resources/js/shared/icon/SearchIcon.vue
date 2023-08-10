@@ -13,7 +13,7 @@
   </svg>
 </template>
 
-<script setup lang="ts">
+<script setup lang='ts'>
 interface Props {
   color?: string;
   width?: number | string;
@@ -21,8 +21,8 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  width: 24,
-  height: 24,
-  color: '#4895AD'
+  width: 17,
+  height: 17,
+  color: '#5786FF',
 });
 </script>
