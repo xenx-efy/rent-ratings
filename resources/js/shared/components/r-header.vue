@@ -21,7 +21,7 @@
   </header>
 </template>
 
-<script setup lang="ts">
+<script setup lang='ts'>
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
 import { ref, watch } from 'vue';
 import debounce from '@/utils/debounce';
@@ -45,7 +45,11 @@ const handleSearch = debounce(() => {
   getAddressHints(searchValue.value, controller.signal)
     .then((res) => {
       suggestions.value = res;
-    });
+    }).catch((err) => {
+    if (err.name != 'AbortError') { // обработать ошибку от вызова abort()
+      throw err;
+    }
+  });
 }, 500);
 
 const handleSelect = (option) => {
