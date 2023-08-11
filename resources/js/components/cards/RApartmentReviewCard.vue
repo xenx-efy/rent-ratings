@@ -57,7 +57,7 @@
 </template>
 <script setup lang="ts">
 import RRating from '@/components/RRating.vue';
-import { computed, defineProps, ref } from 'vue';
+import { computed, ref } from 'vue';
 
 interface Props {
   title: string;

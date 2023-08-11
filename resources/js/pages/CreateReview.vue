@@ -1,16 +1,12 @@
 <template>
-  <header
-    class="relative z-20 flex flex-col rounded-b-[24px] bg-soft-blue pb-4 drop-shadow-lg"
-  >
+  <header class="relative z-20 flex flex-col rounded-b-[24px] bg-soft-blue pb-4 drop-shadow-lg">
     <application-logo />
 
-    <h2 class="mb-4 ml-7 mt-4 text-white">
+    <h2 class="my-4 ml-7 text-white">
       Напиши отзыв на квартиру
     </h2>
 
-    <div
-      class="mx-4 flex items-center justify-between overflow-hidden rounded-[8px] bg-white pl-[14px]"
-    >
+    <div class="mx-4 flex items-center justify-between overflow-hidden rounded-[8px] bg-white pl-[14px]">
       <search-icon />
 
       <input
@@ -30,15 +26,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import ApplicationLogo from '@/shared/icon/ApplicationLogo.vue';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
-import ApplicationLogo from '@/shared/ui/deprecated-ui/ApplicationLogo.vue';
-
-export default {
-  name: 'CreateReview',
-  components: {
-    SearchIcon,
-    ApplicationLogo
-  }
-};
 </script>

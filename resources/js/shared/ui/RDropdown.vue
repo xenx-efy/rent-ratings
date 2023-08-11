@@ -1,8 +1,8 @@
 <template>
-  <div class="dropdown relative w-full">
+  <div class="relative w-full">
     <input
       ref="dropdownInput"
-      class="font-cloud-burst w-full border-0 pl-11 pr-4 py-[10px] text-black outline-0 focus:ring-0 rounded-[8px]"
+      class="font-cloud-burst w-full rounded-[8px] border-0 py-[10px] pl-11 pr-4 text-black outline-0 focus:ring-0"
       :value="modelValue"
       :disabled="disabled"
       :placeholder="placeholder"
@@ -14,20 +14,20 @@
       <div
         v-if="optionsShown"
         :ref="optionList"
-        class="absolute max-h-80 w-full overflow-auto rounded-b-md bg-white -mt-1.5 pt-1.5 z-0"
+        class="absolute z-0 -mt-1.5 max-h-80 w-full overflow-auto rounded-b-md bg-white pt-1.5"
       >
         <template v-if="options.length">
           <div
             v-for="(option, index) in options"
             :key="index"
-            class="dropdown-item w-full border-t border-gray-200 pl-4 p-2"
+            class="w-full border-t border-gray-200 p-2 pl-4"
             @mousedown="selectOption(option)"
           >
             {{ option.value }}
           </div>
         </template>
         <template v-else-if="modelValue.length">
-          <div class="dropdown-item w-full border border-gray-200 pl-4 p-2">
+          <div class="w-full border border-gray-200 p-2 pl-4">
             Адрес не найден
           </div>
         </template>
@@ -36,7 +36,7 @@
   </div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 interface Props {
@@ -57,7 +57,7 @@ const optionsShown = ref(false);
 const optionList = ref(null);
 const dropdownInput = ref(null);
 
-const selectOption = (option) => {
+const selectOption = (option: number) => {
   selected.value = option;
   emits('select', selected.value);
   setTimeout(() => {

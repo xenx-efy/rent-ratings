@@ -8,7 +8,7 @@
       alt="карта города Гродно"
     >
     <search-icon
-      class="scale-y-1 absolute left-[-20px] top-[23%] scale-x-[-1] transform"
+      class="scale-y-1 absolute left-[-20px] top-[23%] scale-x-[-1]"
       color="#5786FF"
       width="182"
       height="182"
@@ -16,8 +16,8 @@
     <div class="bg-white p-7 text-cloud-burst">
       <h2>Найди квартиру по адресу</h2>
       <p class="mt-3">
-        Введи адрес дома, найди интересующую квартиру и посмотри отзывы на неё.
-        Если отзывов нет, вы можете его создать 😉
+        Введи адрес дома, найди интересующую квартиру и посмотри отзывы на неё. Если отзывов нет, вы можете его создать
+        😉
       </p>
     </div>
   </div>
@@ -37,7 +37,9 @@
       <a
         class="btn-secondary mt-6"
         href="#"
-      >Оставить отзыв</a>
+      >
+        Оставить отзыв
+      </a>
     </div>
   </div>
 
@@ -93,5 +95,5 @@
 <script setup lang="ts">
 import 'vue-dadata/dist/style.css';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
-import RHeader from '@/shared/components/r-header.vue';
+import RHeader from '@/shared/components/RHeader.vue';
 </script>

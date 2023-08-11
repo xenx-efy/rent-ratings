@@ -28,12 +28,12 @@
   </header>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 import ArrowIcon from '@/shared/icon/ArrowIcon.vue';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
 import ApplicationLogo from '@/shared/icon/ApplicationLogo.vue';
 import { AddressHeaderTheme } from '@/types/enums';
-import {computed, defineProps, withDefaults} from 'vue';
+import { computed, defineProps, withDefaults } from 'vue';
 import { router } from '@inertiajs/vue3';
 
 interface Props {

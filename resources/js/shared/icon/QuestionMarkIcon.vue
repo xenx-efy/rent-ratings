@@ -13,7 +13,7 @@
   </svg>
 </template>
 <script setup lang="ts">
-import {defineProps, withDefaults} from "vue";
+import { defineProps, withDefaults } from 'vue';
 
 interface Props {
   color?: string;
@@ -24,6 +24,6 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   width: 24,
   height: 25,
-  color: '#A9A9A9'
+  color: '#A9A9A9',
 });
 </script>

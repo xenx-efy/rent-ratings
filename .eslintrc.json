@@ -11,10 +11,47 @@
     "eslint:recommended",
     "prettier",
     "plugin:vue/vue3-recommended",
+    "plugin:tailwindcss/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
   "plugins": [
     "@typescript-eslint"
+  ],
+  "settings": {
+    "tailwindcss": {
+      "callees": [
+        "classnames",
+        "clsx",
+        "ctl"
+      ],
+      "config": "tailwind.config.js",
+      "cssFiles": [
+        "**/*.css",
+        "!**/node_modules",
+        "!**/.*",
+        "!**/dist",
+        "!**/build"
+      ],
+      "cssFilesRefreshRate": "5_000",
+      "removeDuplicates": true,
+      "skipClassAttribute": false,
+      // Тут кастомные классы
+      "whitelist": [
+        "btn-primary",
+        "btn-secondary",
+        "btn-secondary-outlined"
+      ],
+      "tags": [],
+      "classRegex": "^class(Name)?$"
+    }
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.vue"
+      ],
+      "parser": "vue-eslint-parser"
+    }
   ],
   "rules": {
     "quotes": [
@@ -38,12 +75,6 @@
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "vue/multi-word-component-names": "off",
-    "max-len": [
-      "error",
-      {
-        "code": 120
-      }
-    ],
     "vue/attributes-order": [
       "error",
       {
@@ -269,13 +300,6 @@
           "multiline": true,
           "consistent": true
         }
-      }
-    ],
-    "lines-between-class-members": [
-      "error",
-      "always",
-      {
-        "exceptAfterSingleLine": true
       }
     ]
   }

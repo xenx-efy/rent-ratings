@@ -1,14 +1,13 @@
 <template>
   <button
-    :class="{ block: true }"
     id="btn-back-to-top"
+    :class="{ block: true }"
     type="button"
     data-mdb-ripple="true"
     data-mdb-ripple-color="light"
     class="bottom-5 right-5 rounded-full bg-red-600 p-3 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg"
     @click="backToTop"
   >
-    asdf
     <svg
       aria-hidden="true"
       focusable="false"
@@ -30,15 +29,12 @@
 export default {
   watch: {
     showOnScroll: function () {
-      if (
-        document.body.scrollTop > 20 ||
-        document.documentElement.scrollTop > 20
-      ) {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         console.log('hola');
       } else {
         console.log('not hola');
       }
-    }
+    },
   },
   methods: {
     backToTop: function () {
@@ -47,11 +43,9 @@ export default {
     },
 
     showOnScroll: function () {
-      return (
-        document.body.scrollTop > 20 || document.documentElement.scrollTop > 20
-      );
-    }
-  }
+      return document.body.scrollTop > 20 || document.documentElement.scrollTop > 20;
+    },
+  },
 };
 </script>
 

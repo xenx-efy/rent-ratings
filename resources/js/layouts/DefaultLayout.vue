@@ -6,5 +6,5 @@
 </template>
 
 <script setup>
-import Footer from '@/shared/components/Footer.vue';
+import Footer from '@/shared/components/RFooter.vue';
 </script>
