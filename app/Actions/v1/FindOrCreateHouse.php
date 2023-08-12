@@ -2,7 +2,6 @@
 
 namespace App\Actions\v1;
 
-use App\Http\Resources\BuildingResource;
 use App\Models\Building;
 use Illuminate\Http\Request;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -19,12 +18,14 @@ class FindOrCreateHouse
     }
 
     /** @group Show Apartments */
-    public function asController(Request $request): BuildingResource
+    public function asController(Request $request): \Illuminate\Http\RedirectResponse
     {
         $validated = $request->validate([
             'address' => ['required', 'string']
         ]);
 
-        return new BuildingResource($this->handle($validated['address']));
+        $house = $this->handle($validated['address']);
+
+        return to_route('house', ['address' => $validated['address']]);
     }
 }

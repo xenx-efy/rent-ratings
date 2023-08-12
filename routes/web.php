@@ -1,5 +1,6 @@
 <?php
 
+use App\Actions\v1\FindOrCreateHouse;
 use App\Actions\v1\GetApartmentAction;
 use App\Actions\v1\GetHouseApartments;
 use App\Http\Controllers\ProfileController;
@@ -21,6 +22,7 @@ Route::get('/', static function () {
     return Inertia::render('Home');
 })->name('home');
 
+Route::post('/house', FindOrCreateHouse::class);
 Route::get('/house', GetHouseApartments::class)->name('house');
 
 Route::get('/apartment/{id}', GetApartmentAction::class)->name('apartment');

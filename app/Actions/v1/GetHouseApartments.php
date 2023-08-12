@@ -12,9 +12,9 @@ class GetHouseApartments
 {
     use AsAction;
 
-    public function handle(int $houseId)
+    public function handle(string $houseAddress)
     {
-        return Building::findOrFail($houseId)->apartments;
+        return Building::where('address', $houseAddress)->firstOrFail()->apartments;
     }
 
     /** @group Show Apartments */
@@ -25,11 +25,9 @@ class GetHouseApartments
             'address' => ['required', 'string']
         ]);
 
-        $house = FindOrCreateHouse::run($validated['address']);
-
         return Inertia::render('House', [
-            'apartments' => new ApartmentCollection($this->handle($house->id)),
-            'address' => $request->address,
+            'apartments' => new ApartmentCollection($this->handle($validated['address'])),
+            'address' => $validated['address'],
         ]);
     }
 }
