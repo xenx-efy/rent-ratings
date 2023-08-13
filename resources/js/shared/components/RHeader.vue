@@ -4,12 +4,15 @@
 
     <h2 class="my-4 ml-7 text-white">
       Посмотри отзывы на
-      <br>
+      <br />
       выбранную квартиру
     </h2>
 
     <div class="relative mx-4 flex items-center justify-between rounded-[8px] bg-white">
-      <search-icon class="absolute left-3.5 z-10" />
+      <search-icon
+        class="absolute left-3.5 z-10"
+        :color="magnifierColor"
+      />
 
       <dropdown
         v-model="searchValue"
@@ -22,6 +25,7 @@
 </template>
 
 <script setup lang="ts">
+import tailwindConfig from '@/utils/tailwindConfig';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
 import { ref, watch } from 'vue';
 import debounce from '@/utils/debounce';
@@ -30,6 +34,8 @@ import { router } from '@inertiajs/vue3';
 import ApplicationLogo from '@/shared/icon/ApplicationLogo.vue';
 import type { ISuggestions } from '@/types/suggestions';
 import { getAddressHints } from '@/requests/getAddressHints';
+
+const magnifierColor = tailwindConfig.theme.accentColor['soft-blue'];
 
 const searchValue = ref('');
 const suggestions = ref<ISuggestions[]>([]);
