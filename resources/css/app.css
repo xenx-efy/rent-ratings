@@ -3,46 +3,57 @@
 @tailwind utilities;
 
 @layer base {
-  h1 {
-    @apply text-[28px];
-    @apply font-extrabold;
-    @apply leading-none;
-    font-family: "Nunito Sans", sans-serif;
-  }
+    h1 {
+        @apply text-[28px];
+        @apply font-extrabold;
+        @apply leading-none;
+        font-family: "Nunito Sans", sans-serif;
+    }
 
-  h2 {
-    @apply text-xl;
-    @apply font-extrabold;
-    @apply leading-none;
-    font-family: "Nunito Sans", sans-serif;
-  }
+    h2 {
+        @apply text-xl;
+        @apply font-extrabold;
+        @apply leading-none;
+        font-family: "Nunito Sans", sans-serif;
+    }
 
-  h3 {
-    @apply font-extrabold;
-    @apply leading-none;
-    @apply font-normal;
-    font-family: "Nunito Sans", sans-serif;
-  }
+    h3 {
+        @apply font-extrabold;
+        @apply leading-none;
+        @apply font-normal;
+        font-family: "Nunito Sans", sans-serif;
+    }
 
-  h4 {
-    font-size: 1.5rem;
-  }
+    h4 {
+        font-size: 1.5rem;
+    }
 
-  p {
-    @apply text-cloud-burst;
-  }
+    p {
+        @apply text-cloud-burst;
+    }
 }
 
 @layer components {
-  .btn-secondary-outlined {
-    @apply block border border-silver text-center text-soft-blue font-medium bg-white py-2.5 w-full rounded-[8px] transition duration-100 active:ring active:ring-2 active:ring-soft-blue active:bg-periwinkle focus-visible:outline-soft-blue;
-  }
+    .btn-secondary-outlined {
+        @apply block border border-silver text-center text-soft-blue font-medium bg-white py-2.5 w-full rounded-[8px] transition duration-100 active:ring active:ring-2 active:ring-soft-blue active:bg-periwinkle focus-visible:outline-soft-blue w-max px-4;
+    }
 
-  .btn-secondary {
-    @apply block text-center text-cloud-burst font-medium bg-white py-2.5 w-full rounded-[8px] transition duration-100 active:ring active:ring-2 active:ring-cloud-burst;
-  }
+    .btn-secondary {
+        @apply block text-center text-cloud-burst font-medium bg-white py-2.5 w-full rounded-[8px] transition duration-100 active:ring active:ring-2 active:ring-cloud-burst w-max px-4;
+    }
 
-  .btn-primary {
-    @apply block text-center text-white font-medium bg-soft-blue py-2.5 w-full rounded-[8px] transition duration-100 active:bg-[#4663B8] focus-visible:outline-[#4663B8];
-  }
+    .btn-primary {
+        @apply block text-center text-white font-medium bg-soft-blue py-2.5 w-full rounded-[8px] transition duration-100 active:bg-[#4663B8] focus-visible:outline-[#4663B8] w-max px-4;
+    }
 }
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.3s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+

@@ -1,51 +1,48 @@
 <template>
-  <div class="flex justify-between pb-4">
+  <div class="flex justify-between py-4">
     <div class="flex space-x-2">
       <p :class="{ 'w-min': title.length > 15 }">
         {{ title }}
       </p>
 
-      <button class="group relative flex">
-        <question-mark-icon />
-        <span
-          class="absolute -top-2 left-1/2 hidden -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-lg bg-[#252D4F] px-2 py-1 text-center text-sm text-white after:absolute after:left-1/2 after:top-[100%] after:-mt-px after:-translate-x-1/2 after:border-8 after:border-x-transparent after:border-b-transparent after:border-t-[#252D4F] after:content-[''] group-hover:flex"
-        >
-          {{ tooltipText }}
-        </span>
-      </button>
+      <template v-if="tooltip.length">
+        <r-tooltip :criterion="tooltip" />
+      </template>
     </div>
 
-    <div class="flex items-start">
-      <r-rating
-        class="mt-0.5"
-        :can-select="true"
-        :rating="rating"
-        @click="changeRating"
-      />
-    </div>
+    <r-rating
+      v-model="rating"
+      class="mt-0.5 items-start"
+      :can-select="true"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import QuestionMarkIcon from '@/shared/icon/QuestionMarkIcon.vue';
-import RRating from '@/components/RRating.vue';
+import RRating from '@/shared/ui/RRating.vue';
+import { computed } from 'vue';
+import RTooltip from '@/shared/ui/RTooltip.vue';
 
 interface Props {
+  modelValue: number;
   title: string;
-  rating: number;
-  tooltipText: string;
+  tooltip?: string[];
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
+  modelValue: 0,
   title: '',
-  rating: 0,
-  tooltipText: '',
+  tooltip: () => [],
 });
 
-const emits = defineEmits(['changeRating']);
+const emits = defineEmits(['update:modelValue']);
 
-// Прокидывание рейтинга в родительский компонент
-const changeRating = (rating: number) => {
-  emits('changeRating', rating);
-};
+const rating = computed({
+  get() {
+    return props.modelValue;
+  },
+  set(value: number) {
+    emits('update:modelValue', value);
+  },
+});
 </script>

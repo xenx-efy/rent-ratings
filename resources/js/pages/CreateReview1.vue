@@ -2,49 +2,70 @@
   <address-header
     :address="'Ул. Гая, 3, кв. 87'"
     :enable-search="false"
-    :theme="'Light'"
+    :theme="AddressHeaderTheme.Light"
   />
 
-  <step-progress :step="step" />
+  <div class="m-4 flex flex-col gap-4">
+    <r-step-progress
+      :step="currentStep"
+      :steps-length="FROM_STEP.__LENGTH"
+    />
 
-  <div class="mx-4">
-    <r-apartment-info-form v-if="step === 1" />
-    <r-apartment-estimation-form v-if="step === 2" />
-    <r-review-form v-if="step === 3" />
+    <component :is="stepComponent" />
 
     <div class="flex justify-between">
-      <button
-        v-if="step > 1"
-        class="btn-secondary-outlined mt-4 w-32"
-        @click="step--"
-      >
-        Назад
-      </button>
-      <button
-        v-if="step !== 3"
-        class="btn-primary ml-auto mt-4 w-32"
-        @click="step++"
-      >
-        Далее
-      </button>
-      <button
-        v-if="step === 3"
-        class="btn-primary ml-auto mt-4 w-48"
-        @click="step++"
-      >
-        Отправить отзыв
-      </button>
+      <template v-if="currentStep > INFO">
+        <button
+          class="btn-secondary-outlined"
+          @click="currentStep -= 1"
+        >
+          Назад
+        </button>
+      </template>
+
+      <template v-if="currentStep !== ESTIMATION">
+        <button
+          class="btn-primary ml-auto"
+          @click="currentStep += 1"
+        >
+          Далее
+        </button>
+      </template>
+
+      <template v-if="currentStep === ESTIMATION">
+        <button
+          class="btn-primary ml-auto"
+          @click="handleSubmitForm"
+        >
+          Отправить отзыв
+        </button>
+      </template>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import AddressHeader from '@/shared/components/RAddressHeader.vue';
-import StepProgress from '@/components/RStepProgress.vue';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import RApartmentInfoForm from '@/components/review-forms/RApartmentInfoForm.vue';
 import RApartmentEstimationForm from '@/components/review-forms/RApartmentEstimationForm.vue';
-import RReviewForm from '@/components/review-forms/RReviewForm.vue';
+import { AddressHeaderTheme, FROM_STEP } from '@/types/enums';
+import RStepProgress from '@/components/RStepProgress.vue';
+import RApartmentReviewForm from '@/components/review-forms/RApartmentReviewForm.vue';
 
-const step = ref(1);
+const { INFO, REVIEW, ESTIMATION } = FROM_STEP;
+
+const currentStep = ref<FROM_STEP>(INFO);
+
+const stepComponent = computed(() => {
+  return {
+    [INFO]: RApartmentInfoForm,
+    [REVIEW]: RApartmentReviewForm,
+    [ESTIMATION]: RApartmentEstimationForm,
+  }[currentStep.value];
+});
+
+const handleSubmitForm = () => {
+  return;
+};
 </script>

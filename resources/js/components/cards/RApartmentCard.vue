@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import RRating from '@/components/RRating.vue';
+import RRating from '@/shared/ui/RRating.vue';
 import { Link } from '@inertiajs/vue3';
 
 interface Props {
