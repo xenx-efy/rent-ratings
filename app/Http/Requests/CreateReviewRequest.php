@@ -25,7 +25,7 @@ class CreateReviewRequest extends FormRequest
             'apartmentId' => ['required_without:buildingId', 'missing_with:buildingId', 'integer'],
 
             'buildingId' => ['required_without:apartmentId', 'required_with:apartmentNumber', 'missing_with:apartmentId', 'integer'],
-            'apartmentNumber' => ['required_with:apartmentId', 'missing_with:apartmentId', 'integer'],
+            'apartmentNumber' => ['required_with:buildingId', 'missing_with:apartmentId', 'integer'],
 
             # Apartment Meta
             'apartmentMeta' => ['array'],

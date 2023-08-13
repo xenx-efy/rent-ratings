@@ -8,7 +8,6 @@ use App\Models\ReviewMeta;
 use App\Models\ReviewRating;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Foundation\Application;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -17,22 +16,22 @@ class CreateReviewAction
 {
     use AsAction;
 
-    public function handle($reviewRequestParameters): void
+    public function handle($reviewParameters): void
     {
         # TODO refactor to DTO (laravel-data package)
-        DB::transaction(function () use ($reviewRequestParameters) {
+        DB::transaction(function () use ($reviewParameters) {
             # Create review
             $review = Review::create([
-                'apartment_id' => $reviewRequestParameters['apartmentId'],
-                'title' => $reviewRequestParameters['review']['title'],
-                'pros' => $reviewRequestParameters['review']['pros'],
-                'cons' => $reviewRequestParameters['review']['cons'],
-                'advice_to_owner' => $reviewRequestParameters['review']['adviceToOwner'],
-                'rating' => $this->calculateAvgRating($reviewRequestParameters['evaluationCriteriaItems'])
+                'apartment_id' => $reviewParameters['apartmentId'],
+                'title' => $reviewParameters['review']['title'],
+                'pros' => $reviewParameters['review']['pros'],
+                'cons' => $reviewParameters['review']['cons'],
+                'advice_to_owner' => $reviewParameters['review']['adviceToOwner'],
+                'rating' => $this->calculateAvgRating($reviewParameters['evaluationCriteriaItems'])
             ]);
 
             # Fill review evaluation criteria
-            foreach ($reviewRequestParameters['evaluationCriteriaItems'] as $criteriaItem) {
+            foreach ($reviewParameters['evaluationCriteriaItems'] as $criteriaItem) {
                 ReviewRating::create([
                     'review_id' => $review->id,
                     'evaluation_criteria_id' => $criteriaItem['id'],
@@ -41,20 +40,20 @@ class CreateReviewAction
             }
 
             # Fill review meta
-            if (isset($reviewRequestParameters['apartmentMeta'])) {
-                if (isset($reviewRequestParameters['apartmentMeta']['floor'])) {
+            if (isset($reviewParameters['apartmentMeta'])) {
+                if (isset($reviewParameters['apartmentMeta']['floor'])) {
                     ReviewMeta::create([
                         'review_id' => $review->id,
                         'name' => 'floor',
-                        'value' => $reviewRequestParameters['apartmentMeta']['floor']
+                        'value' => $reviewParameters['apartmentMeta']['floor']
                     ]);
                 }
 
-                if (isset($reviewRequestParameters['apartmentMeta']['amountOfRooms'])) {
+                if (isset($reviewParameters['apartmentMeta']['amountOfRooms'])) {
                     ReviewMeta::create([
                         'review_id' => $review->id,
                         'name' => 'amountOfRooms',
-                        'value' => $reviewRequestParameters['apartmentMeta']['amountOfRooms']
+                        'value' => $reviewParameters['apartmentMeta']['amountOfRooms']
                     ]);
                 }
             }
@@ -70,10 +69,23 @@ class CreateReviewAction
     {
         $requestParams = $request->validated();
 
-        $this->handle($requestParams);
+        if ($request->has('apartmentId')) {
+            $this->handle($requestParams);
+        }
+
+        // TODO Разнести эти проверки по разным классам
+        if ($request->has(['buildingId', 'apartmentNumber'])) {
+            $apartment = CreateApartmentAction::run($request->get('buildingId'), $request->get('apartmentNumber'));
+
+            unset($requestParams['buildingId'], $requestParams['apartmentNumber']);
+            $requestParams['apartmentId'] = $apartment->id;
+
+            $this->handle($requestParams);
+        }
 
         return response(null, 201);
     }
+
 
     private function calculateAvgRating(array $evaluationCriteria): string
     {

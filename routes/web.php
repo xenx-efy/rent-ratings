@@ -1,5 +1,6 @@
 <?php
 
+use App\Actions\v1\CreateReviewAction;
 use App\Actions\v1\FindOrCreateHouse;
 use App\Actions\v1\GetApartmentAction;
 use App\Actions\v1\GetHouseApartments;
@@ -35,6 +36,7 @@ Route::get('/create-review-1', static function () {
     return Inertia::render('CreateReview1');
 });
 
+Route::post('/reviews', CreateReviewAction::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
