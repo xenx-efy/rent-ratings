@@ -24,11 +24,12 @@ Route::get('/', static function () {
 })->name('home');
 
 Route::post('/house', FindOrCreateHouse::class);
+
 Route::get('/house', GetHouseApartments::class)->name('house');
 
 Route::get('/apartment/{id}', GetApartmentAction::class)->name('apartment');
 
-Route::get('/house-search', static function () {
+Route::get('/address-search', static function () {
     return Inertia::render('HouseSearch');
 });
 
