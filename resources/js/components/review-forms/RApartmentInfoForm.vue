@@ -1,20 +1,25 @@
 <template>
-  <p class="mx-auto mt-4 max-w-[220px] text-center text-2xl font-medium leading-normal">
+  <p class="mx-auto text-center text-2xl font-medium leading-normal">
     Информация о квартире
   </p>
 
-  <input-label required>
-    Этаж
-  </input-label>
-  <text-input />
+  <r-input
+    v-model="a"
+    label="Этаж"
+    required
+    type="number"
+  />
 
-  <input-label required>
-    Количество комнат
-  </input-label>
-  <text-input />
+  <r-input
+    v-model="a"
+    label="Количество комнат"
+    required
+  />
 </template>
 
 <script setup lang="ts">
-import InputLabel from '@/components/RInputLabel.vue';
-import TextInput from '@/components/RTextInput.vue';
+import RInput from '@/shared/ui/RInput.vue';
+import { ref } from 'vue';
+
+const a = ref('');
 </script>

@@ -1,26 +1,27 @@
 <template>
-  <div class="mx-auto mt-4 flex w-3/4 justify-around space-x-1">
+  <div class="mx-auto flex w-3/4 justify-around space-x-1">
     <div
-      class="h-1 w-3/4 rounded-l-full"
-      :class="[step === 1 ? 'bg-soft-blue' : 'bg-link-water']"
-    />
-    <div
+      v-for="currentStep in stepsLength"
+      :key="currentStep"
       class="h-1 w-3/4"
-      :class="[step === 2 ? 'bg-soft-blue' : 'bg-link-water']"
-    />
-    <div
-      class="h-1 w-3/4 rounded-r-full"
-      :class="[step === 3 ? 'bg-soft-blue' : 'bg-link-water']"
+      :class="[
+        currentClass(currentStep - 1),
+        { 'rounded-l-full': currentStep === 1, 'rounded-r-full': currentStep === stepsLength },
+      ]"
     />
   </div>
 </template>
 
 <script setup lang="ts">
 interface Props {
-  step: 1 | 2 | 3;
+  // Хрен знает чего ругается на enum, по этому принимает ток number
+  step: any;
+  stepsLength: number;
 }
 
-withDefaults(defineProps<Props>(), {
-  step: 1,
-});
+const props = defineProps<Props>();
+
+const currentClass = (currentStep: number) => {
+  return props.step >= currentStep ? 'bg-soft-blue' : 'bg-link-water';
+};
 </script>

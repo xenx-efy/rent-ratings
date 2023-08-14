@@ -1,7 +1,18 @@
-<script setup>
+<template>
+  <div>
+    <h1>{{ title }}</h1>
+    <div>{{ description }}</div>
+  </div>
+</template>
+
+<script setup lang="ts">
 import { computed } from 'vue';
 
-const props = defineProps({ status: Number });
+interface Props {
+  status: number;
+}
+
+const props = defineProps<Props>();
 
 const title = computed(() => {
   return {
@@ -21,10 +32,3 @@ const description = computed(() => {
   }[props.status];
 });
 </script>
-
-<template>
-  <div>
-    <h1>{{ title }}</h1>
-    <div>{{ description }}</div>
-  </div>
-</template>

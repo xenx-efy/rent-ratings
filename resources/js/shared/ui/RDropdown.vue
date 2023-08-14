@@ -10,7 +10,7 @@
       @blur="exit()"
       @input="(e) => emits('update:modelValue', e.target.value)"
     >
-    <Transition>
+    <transition>
       <div
         v-if="optionsShown"
         :ref="optionList"
@@ -32,7 +32,7 @@
           </div>
         </template>
       </div>
-    </Transition>
+    </transition>
   </div>
 </template>
 
@@ -78,15 +78,3 @@ const exit = () => {
   optionsShown.value = false;
 };
 </script>
-
-<style scoped>
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-</style>

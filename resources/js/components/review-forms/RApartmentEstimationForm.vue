@@ -1,59 +1,19 @@
 <template>
-  <p class="mx-auto mt-4 max-w-[220px] text-center text-2xl font-medium leading-normal">
+  <p class="text-center text-2xl font-medium">
     Оценка квартиры
   </p>
 
-  <p class="mx-auto mt-4 max-w-[220px] text-center text-base leading-normal">
+  <p class="mx-auto max-w-[220px] text-center">
     Как вы оцениваете квартиру по следующим критериям?
   </p>
 
-  <div class="mt-12 divide-y px-5">
+  <div class="mt-8 divide-y">
     <r-apartment-criteria
-      :title="'Чистота'"
-      :tooltip-text="'1 грязно - 5 чисто'"
-      :rating="estimations.cleanliness"
-      @change-rating="(val) => (estimations.cleanliness = val)"
-    />
-
-    <r-apartment-criteria
-      class="pt-4"
-      :title="'Соседи'"
-      :tooltip-text="'1 шумные - 5 дружелюбные'"
-      :rating="estimations.neighbours"
-      @change-rating="(val) => (estimations.neighbours = val)"
-    />
-
-    <r-apartment-criteria
-      class="pt-4"
-      :title="'Отопление'"
-      :tooltip-text="'1 не работает - 5 работает'"
-      :rating="estimations.heating"
-      @change-rating="(val) => (estimations.heating = val)"
-    />
-
-    <r-apartment-criteria
-      class="pt-4"
-      :title="'Уровень шума'"
-      :tooltip-text="'1 очень шумно - 5 тихо'"
-      :rating="estimations.loudLevel"
-      @change-rating="(val) => (estimations.loudLevel = val)"
-    />
-
-    <r-apartment-criteria
-      class="pt-4"
-      :title="'Тараканы'"
-      :tooltip-text="'1 много - 5 отсутствуют'"
-      :rating="estimations.insects"
-      @change-rating="(val) => (estimations.insects = val)"
-    />
-
-    <!--   TODO: Исправить отображение при переносе -->
-    <r-apartment-criteria
-      class="pt-4"
-      :title="'Отзывчивость хозяев'"
-      :tooltip-text="'1 никакая - 5 своевременная'"
-      :rating="estimations.landlordEstimation"
-      @change-rating="(val) => (estimations.landlordEstimation = val)"
+      v-for="criterion in criterionList"
+      :key="criterion.title"
+      v-model="estimations[criterion.rating]"
+      :title="criterion.title"
+      :tooltip="criterion.tooltip"
     />
   </div>
 </template>
@@ -61,7 +21,7 @@
 <script setup lang="ts">
 import RApartmentCriteria from '@/components/RApartmentCriteria.vue';
 
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 
 const estimations = reactive({
   cleanliness: 0,
@@ -71,4 +31,38 @@ const estimations = reactive({
   insects: 0,
   landlordEstimation: 0,
 });
+
+const criterionList = ref([
+  {
+    title: 'Чистота',
+    tooltip: ['грязно', 'чисто'],
+    rating: 'cleanliness',
+  },
+  {
+    title: 'Соседи',
+    tooltip: ['шумные', 'дружелюбные'],
+    rating: 'neighbours',
+  },
+  {
+    title: 'Отопление',
+    tooltip: ['не работает', 'работает'],
+    rating: 'heating',
+  },
+  {
+    title: 'Уровень шума',
+    tooltip: ['очень шумно', ' тихо'],
+    rating: 'loudLevel',
+  },
+  {
+    title: 'Тараканы',
+    tooltip: ['много', ' отсутствуют'],
+    rating: 'insects',
+  },
+  // TODO: Исправить отображение при переносе
+  {
+    title: 'Отзывчивость хозяев',
+    tooltip: ['никакая', ' своевременная'],
+    rating: 'landlordEstimation',
+  },
+]);
 </script>
