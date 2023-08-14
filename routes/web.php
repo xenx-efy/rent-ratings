@@ -28,12 +28,12 @@ Route::get('/house', GetHouseApartments::class)->name('house');
 
 Route::get('/apartment/{id}', GetApartmentAction::class)->name('apartment');
 
-Route::get('/create-review', static function () {
-    return Inertia::render('CreateReview');
+Route::get('/house-search', static function () {
+    return Inertia::render('HouseSearch');
 });
 
-Route::get('/create-review-1', static function () {
-    return Inertia::render('CreateReview1');
+Route::get('/create-review', static function () {
+    return Inertia::render('CreateReview');
 });
 
 Route::post('/reviews', CreateReviewAction::class);
