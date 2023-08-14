@@ -4,14 +4,14 @@
 
     <h2 class="my-4 ml-7 text-white">
       Посмотри отзывы на
-      <br />
+      <br>
       выбранную квартиру
     </h2>
 
     <div class="relative mx-4 flex items-center justify-between rounded-[8px] bg-white">
       <search-icon
         class="absolute left-3.5 z-10"
-        :color="magnifierColor"
+        :color="`${magnifierColor}`"
       />
 
       <dropdown
