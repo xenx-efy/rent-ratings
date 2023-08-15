@@ -3,6 +3,7 @@
 namespace App\Actions\v1;
 
 use App\Models\Building;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -18,7 +19,7 @@ class FindOrCreateHouse
     }
 
     /** @group Show Apartments */
-    public function asController(Request $request): \Illuminate\Http\RedirectResponse
+    public function asController(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'address' => ['required', 'string']

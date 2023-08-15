@@ -1,32 +1,71 @@
 <template>
-  <header class="relative z-20 flex flex-col rounded-b-[24px] bg-soft-blue pb-4 drop-shadow-lg">
-    <application-logo />
+  <address-header
+    :address="'Ул. Гая, 3, кв. 87'"
+    :enable-search="false"
+    :theme="AddressHeaderTheme.Light"
+  />
 
-    <h2 class="my-4 ml-7 text-white">
-      Напиши отзыв на квартиру
-    </h2>
+  <div class="m-4 flex flex-col gap-4">
+    <r-step-progress
+      :step="currentStep"
+      :steps-length="FROM_STEP.__LENGTH"
+    />
 
-    <div class="mx-4 flex items-center justify-between overflow-hidden rounded-[8px] bg-white pl-[14px]">
-      <search-icon />
+    <component :is="stepComponent" />
 
-      <input
-        class="font-cloud-burst w-full border-0 px-4 py-[10px] text-black focus:ring-0"
-        type="text"
-        placeholder="Введите адрес"
-      >
+    <div class="flex justify-between">
+      <template v-if="currentStep > INFO">
+        <button
+          class="btn-secondary-outlined"
+          @click="currentStep -= 1"
+        >
+          Назад
+        </button>
+      </template>
+
+      <template v-if="currentStep !== ESTIMATION">
+        <button
+          class="btn-primary ml-auto"
+          @click="currentStep += 1"
+        >
+          Далее
+        </button>
+      </template>
+
+      <template v-if="currentStep === ESTIMATION">
+        <button
+          class="btn-primary ml-auto"
+          @click="handleSubmitForm"
+        >
+          Отправить отзыв
+        </button>
+      </template>
     </div>
-  </header>
-
-  <div class="mr-8 flex flex-1 items-center">
-    <img
-      class=""
-      src="../../images/create-review/magnifier-with-map.webp"
-      alt="Лупа увеличивающая карту"
-    >
   </div>
 </template>
 
-<script setup>
-import ApplicationLogo from '@/shared/icon/ApplicationLogo.vue';
-import SearchIcon from '@/shared/icon/SearchIcon.vue';
+<script setup lang="ts">
+import AddressHeader from '@/shared/components/RAddressHeader.vue';
+import { computed, ref } from 'vue';
+import RApartmentInfoForm from '@/components/review-forms/RApartmentInfoForm.vue';
+import RApartmentEstimationForm from '@/components/review-forms/RApartmentEstimationForm.vue';
+import { AddressHeaderTheme, FROM_STEP } from '@/types/enums';
+import RStepProgress from '@/components/RStepProgress.vue';
+import RApartmentReviewForm from '@/components/review-forms/RApartmentReviewForm.vue';
+
+const { INFO, REVIEW, ESTIMATION } = FROM_STEP;
+
+const currentStep = ref<FROM_STEP>(INFO);
+
+const stepComponent = computed(() => {
+  return {
+    [INFO]: RApartmentInfoForm,
+    [REVIEW]: RApartmentReviewForm,
+    [ESTIMATION]: RApartmentEstimationForm,
+  }[currentStep.value];
+});
+
+const handleSubmitForm = () => {
+  return;
+};
 </script>
