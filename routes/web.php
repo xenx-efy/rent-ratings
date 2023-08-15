@@ -34,7 +34,8 @@ Route::get('/address-search', static function () {
     return Inertia::render('HouseSearch');
 });
 
-Route::get('/create-review', [CreateReviewController::class, 'get']);
+Route::post('/create-review', [CreateReviewController::class, 'post']);
+Route::get('/create-review', [CreateReviewController::class, 'get'])->name('createReview');
 
 Route::post('/reviews', CreateReviewAction::class);
 
