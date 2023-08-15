@@ -4,6 +4,7 @@ use App\Actions\v1\CreateReviewAction;
 use App\Actions\v1\FindOrCreateHouse;
 use App\Actions\v1\GetApartmentAction;
 use App\Actions\v1\GetHouseApartments;
+use App\Http\Controllers\CreateReviewController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -33,9 +34,7 @@ Route::get('/address-search', static function () {
     return Inertia::render('HouseSearch');
 });
 
-Route::get('/create-review', static function () {
-    return Inertia::render('CreateReview');
-});
+Route::get('/create-review', [CreateReviewController::class, 'get']);
 
 Route::post('/reviews', CreateReviewAction::class);
 
