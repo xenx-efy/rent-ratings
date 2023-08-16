@@ -1,48 +1,27 @@
 <?php
 
 use App\Actions\v1\CreateReviewAction;
-use App\Actions\v1\FindOrCreateHouse;
-use App\Actions\v1\GetApartmentAction;
-use App\Actions\v1\GetHouseApartments;
-use App\Http\Controllers\CreateReviewController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ApartmentPageController;
+use App\Http\Controllers\CreateReviewPageController;
+use App\Http\Controllers\HousePageController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', static function () {
     return Inertia::render('Home');
 })->name('home');
 
-Route::post('/house', FindOrCreateHouse::class);
+Route::post('/house', [HousePageController::class, 'post']);
 
-Route::get('/house', GetHouseApartments::class)->name('house');
+Route::get('/house', [HousePageController::class, 'get'])->name('house');
 
-Route::get('/apartment/{id}', GetApartmentAction::class)->name('apartment');
+Route::get('/apartment/{id}', [ApartmentPageController::class, 'get'])->name('apartment');
 
 Route::get('/address-search', static function () {
     return Inertia::render('HouseSearch');
-});
+})->name('addressSearch');
 
-Route::post('/create-review', [CreateReviewController::class, 'post']);
-Route::get('/create-review', [CreateReviewController::class, 'get'])->name('createReview');
+Route::post('/create-review', [CreateReviewPageController::class, 'post']);
+Route::get('/create-review', [CreateReviewPageController::class, 'get'])->name('createReview');
 
 Route::post('/reviews', CreateReviewAction::class);
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-require __DIR__ . '/auth.php';

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @method static firstOrCreate(int[] $array)
+ * @method static findOrFail(int $id)
  */
 class Apartment extends Model
 {

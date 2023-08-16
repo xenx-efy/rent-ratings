@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\v1\FindOrCreateHouse;
 use App\Models\Building;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class CreateReviewController extends Controller
+class HousePageController extends Controller
 {
     public function get(Request $request): Response
     {
@@ -19,7 +18,7 @@ class CreateReviewController extends Controller
 
         $house = Building::where('address', $validated['address'])->firstOrFail();
 
-        return Inertia::render('CreateReview', ['address' => $house->address, 'houseId' => $house->id]);
+        return Inertia::render('House', ['address' => $house->address, 'houseId' => $house->id]);
     }
 
     public function post(Request $request): RedirectResponse
@@ -29,8 +28,11 @@ class CreateReviewController extends Controller
             'address' => ['required', 'string']
         ]);
 
-        $house = FindOrCreateHouse::run($validated['address']);
+        $house = Building::firstOrCreate([
+            'address' => $validated['address']
+        ]);
 
-        return to_route('createReview', ['address' => $house->address, 'houseId' => $house->id]);
+        return to_route('house', ['address' => $house->address, 'houseId' => $house->id]);
     }
+
 }
