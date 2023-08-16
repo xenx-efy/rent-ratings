@@ -18,7 +18,7 @@ class HousePageController extends Controller
 
         $house = Building::where('address', $validated['address'])->firstOrFail();
 
-        return Inertia::render('House', ['address' => $house->address, 'houseId' => $house->id]);
+        return Inertia::render('House', ['address' => $house->address]);
     }
 
     public function post(Request $request): RedirectResponse
@@ -32,7 +32,7 @@ class HousePageController extends Controller
             'address' => $validated['address']
         ]);
 
-        return to_route('house', ['address' => $house->address, 'houseId' => $house->id]);
+        return to_route('house', ['address' => $house->address]);
     }
 
 }

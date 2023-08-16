@@ -4,7 +4,7 @@
 
     <h2 class="my-4 ml-7 text-white">
       Посмотри отзывы на
-      <br />
+      <br>
       выбранную квартиру
     </h2>
 
@@ -63,6 +63,7 @@ const handleSearch = debounce(() => {
 const handleSelect = (option: any) => {
   if (option.data?.house) {
     router.visit('house', {
+      method: 'post',
       data: { address: option.value },
     });
     controller.abort();
