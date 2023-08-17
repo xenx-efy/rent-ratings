@@ -62,7 +62,7 @@ const handleSearch = debounce(() => {
 
 const handleSelect = (option: any) => {
   if (option.data?.house) {
-    router.visit('house', {
+    router.visit('create-review', {
       method: 'post',
       data: { address: option.value },
     });
