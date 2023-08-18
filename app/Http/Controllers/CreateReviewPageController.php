@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Building;
+use App\Models\EvaluationCriteria;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -18,7 +19,10 @@ class CreateReviewPageController extends Controller
 
         $house = Building::where('address', $validated['address'])->firstOrFail();
 
-        return Inertia::render('CreateReview', ['address' => $house->address, 'houseId' => $house->id]);
+        $evaluationCriteria = EvaluationCriteria::all(['id', 'name']);
+
+
+        return Inertia::render('CreateReview', ['address' => $house->address, 'houseId' => $house->id, 'hola' => 'asdf', 'evaluationCriteria' => $evaluationCriteria]);
     }
 
     public function post(Request $request): RedirectResponse
