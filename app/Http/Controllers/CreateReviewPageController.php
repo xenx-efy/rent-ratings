@@ -19,10 +19,10 @@ class CreateReviewPageController extends Controller
 
         $house = Building::where('address', $validated['address'])->firstOrFail();
 
-        $evaluationCriteria = EvaluationCriteria::all(['id', 'name']);
+        $evaluationCriteria = EvaluationCriteria::all(['id', 'name', 'description']);
 
 
-        return Inertia::render('CreateReview', ['address' => $house->address, 'houseId' => $house->id, 'hola' => 'asdf', 'evaluationCriteria' => $evaluationCriteria]);
+        return Inertia::render('CreateReview', ['address' => $house->address, 'houseId' => $house->id, 'evaluationCriteria' => $evaluationCriteria]);
     }
 
     public function post(Request $request): RedirectResponse
