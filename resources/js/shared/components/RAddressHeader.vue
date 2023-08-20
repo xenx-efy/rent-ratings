@@ -3,7 +3,10 @@
     class="relative z-20 flex flex-col rounded-b-[24px] pb-4 drop-shadow-lg"
     :class="headerClass"
   >
-    <application-logo :color="logoColor[theme]" />
+    <application-logo
+      class="mx-auto mt-2 block"
+      :color="logoColor[theme]"
+    />
 
     <div class="flex justify-between px-5 pt-5">
       <button @click="goBack">
