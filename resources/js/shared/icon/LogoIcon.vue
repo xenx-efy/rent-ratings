@@ -4,7 +4,7 @@
     :width="width"
     :height="height"
     viewBox="0 0 113 34"
-    fill="none"
+    :fill="color"
   >
     <path
       :fill="color"
