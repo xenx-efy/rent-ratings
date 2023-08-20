@@ -1,25 +1,18 @@
 <?php
 
-namespace App\Actions\v1;
+namespace App\Http\Controllers;
 
+use App\Actions\v1\GetApartmentReviewsAction;
 use App\Http\Resources\ApartmentResource;
 use App\Models\Apartment;
 use Inertia\Inertia;
-use Lorisleiva\Actions\Concerns\AsAction;
+use Inertia\Response;
 
-class GetApartmentAction
+class ApartmentPageController extends Controller
 {
-    use AsAction;
-
-    public function handle(int $apartmentId)
+    public function get(int $id): Response
     {
-        return Apartment::findOrFail($apartmentId);
-    }
-
-    /** @group Show Reviews */
-    public function asController(int $id): \Inertia\Response
-    {
-        $apartment = $this->handle($id);
+        $apartment = Apartment::findOrFail($id);
 
         return Inertia::render('Apartment', [
             'apartment' => new ApartmentResource($apartment),

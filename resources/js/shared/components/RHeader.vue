@@ -1,10 +1,10 @@
 <template>
   <header class="relative z-20 flex flex-col rounded-b-[24px] bg-soft-blue pb-4 drop-shadow-lg">
-    <application-logo />
+    <application-logo class="mx-auto mt-2 block" />
 
     <h2 class="my-4 ml-7 text-white">
       Посмотри отзывы на
-      <br />
+      <br>
       выбранную квартиру
     </h2>
 
@@ -62,7 +62,8 @@ const handleSearch = debounce(() => {
 
 const handleSelect = (option: any) => {
   if (option.data?.house) {
-    router.visit('house', {
+    router.visit('create-review', {
+      method: 'post',
       data: { address: option.value },
     });
     controller.abort();

@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             BuildingSeeder::class,
             ApartmentSeeder::class,
             ReviewSeeder::class,
+            EvaluationCriteriaSeeder::class
         ]);
 
         // \App\Models\User::factory(10)->create();
