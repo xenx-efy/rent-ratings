@@ -1,18 +1,26 @@
 export interface CreateReview {
-  buildingId: number;
+  houseId: number;
   apartmentNumber: number;
   apartmentMeta: {
     floor: number;
     amountOfRooms: number;
   };
-  evaluationCriteriaItems: {
-    id: number;
-    rating: number;
-  }[];
+  evaluationCriteriaItems: EvaluationCriteriaItems[];
   review: {
     title: string;
     pros: string;
     cons: string;
     adviceToOwner: string;
   };
+}
+
+export interface EvaluationCriteriaItems {
+  id: number;
+  rating: number;
+}
+
+export interface EvaluationCriteria {
+  id: number;
+  name: string;
+  description: string;
 }

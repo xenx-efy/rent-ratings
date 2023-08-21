@@ -12,7 +12,7 @@ const useFetch = (
     signal?: AbortSignal;
   },
 ) => {
-  const { headers, mode, signal } = params;
+  const { headers = {}, mode, signal } = params || {};
 
   return fetch(url, {
     method,
@@ -26,7 +26,10 @@ const useFetch = (
     body: JSON.stringify(body),
   })
     .then((response) => response.text())
-    .then((response) => JSON.parse(response));
+    .then((response) => JSON.parse(response))
+    .catch((error) => {
+      throw error;
+    });
 };
 
 export default useFetch;

@@ -20,21 +20,23 @@ export const getAddressHints = (value, abortSignal) => {
     headers: {
       Authorization: `Token ${import.meta.env.VITE_APP_DADATA_API_KEY}`,
     },
-  }).then((result: ISearchRequest) => {
-    const optionNameList = [];
-    const suggestionsList = [];
+  })
+    .then((result: ISearchRequest) => {
+      const optionNameList = [];
+      const suggestionsList = [];
 
-    result.suggestions.forEach((option) => {
-      // Убираем одинаковые адреса
-      if (!optionNameList.includes(option.value)) {
-        optionNameList.push(option.value);
-        // Убираем адрес совпадающий с полной улицей
-        if (option.value !== value) {
-          suggestionsList.push(option);
+      result.suggestions.forEach((option) => {
+        // Убираем одинаковые адреса
+        if (!optionNameList.includes(option.value)) {
+          optionNameList.push(option.value);
+          // Убираем адрес совпадающий с полной улицей
+          if (option.value !== value) {
+            suggestionsList.push(option);
+          }
         }
-      }
-    });
+      });
 
-    return suggestionsList;
-  });
+      return suggestionsList;
+    })
+    .catch(() => []);
 };

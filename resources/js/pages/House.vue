@@ -37,7 +37,6 @@
 <script setup lang="ts">
 import ApartmentCard from '@/components/cards/RApartmentCard.vue';
 import AddressHeader from '@/shared/components/RAddressHeader.vue';
-import { defineProps } from 'vue';
 
 interface Apartment {
   id: number;

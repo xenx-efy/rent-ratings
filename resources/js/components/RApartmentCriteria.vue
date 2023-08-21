@@ -5,8 +5,8 @@
         {{ title }}
       </p>
 
-      <template v-if="tooltip.length">
-        <r-tooltip :criterion="tooltip" />
+      <template v-if="tooltip">
+        <r-tooltip :tooltip="tooltip" />
       </template>
     </div>
 
@@ -26,13 +26,13 @@ import RTooltip from '@/shared/ui/RTooltip.vue';
 interface Props {
   modelValue: number;
   title: string;
-  tooltip?: string[];
+  tooltip?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   modelValue: 0,
   title: '',
-  tooltip: () => [],
+  tooltip: '',
 });
 
 const emits = defineEmits(['update:modelValue']);
