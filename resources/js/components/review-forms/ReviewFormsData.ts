@@ -1,7 +1,6 @@
 import { ref } from 'vue';
 import { FROM_STEP } from '@/types/enums';
-import type { CreateReview, EvaluationCriteriaItems } from '@/types/review';
-import useFetch from '@/utils/useFetch';
+import { router } from '@inertiajs/vue3';
 
 const { INFO, ESTIMATION, REVIEW } = FROM_STEP;
 
@@ -30,7 +29,8 @@ export const handleSetReviewPage = (currentStep: FROM_STEP) => {
   const data = ReviewFormsData.value;
 
   // Устанавливаем время блокировки (текущее время + 1 час)
-  localStorage.setItem('cleanTimer', String(+new Date() + 3600 * 1000));
+  const hour = 3600 * 1000;
+  localStorage.setItem('cleanTimer', String(+new Date() + hour));
 
   return {
     [INFO]: () => {
@@ -45,42 +45,43 @@ export const handleSetReviewPage = (currentStep: FROM_STEP) => {
       localStorage.setItem('adviceToOwner', data[REVIEW]?.adviceToOwner);
     },
     [ESTIMATION]: () => {
-      const evaluationCriteriaItems = [];
-      Object.entries(data[ESTIMATION]).forEach(([key, value]) => {
-        evaluationCriteriaItems.push({
-          id: key,
-          rating: value,
-        });
-      });
-
-      localStorage.setItem('evaluationCriteriaItems', JSON.stringify(evaluationCriteriaItems));
+      localStorage.setItem('evaluationCriteriaItems', JSON.stringify(data[ESTIMATION]));
     },
   }[currentStep]();
 };
 
 export const submitForm = (houseId: number) => {
-  const data = ReviewFormsData.value;
+  const formData = ReviewFormsData.value;
 
-  const body: CreateReview = {
-    houseId: houseId,
-    apartmentNumber: data[INFO].apartmentNumber,
+  const evaluationCriteriaItems = Object.entries(formData[ESTIMATION]).map(([key, value]) => {
+    return {
+      id: +key,
+      rating: value,
+    };
+  });
+
+  const data = {
+    apartmentId: houseId,
+    apartmentNumber: formData[INFO].apartmentNumber,
     apartmentMeta: {
-      floor: data[INFO].floor,
-      amountOfRooms: data[INFO].amountOfRooms,
+      floor: formData[INFO].floor,
+      amountOfRooms: formData[INFO].amountOfRooms,
     },
-    evaluationCriteriaItems: data[ESTIMATION],
-    review: data[REVIEW],
+    evaluationCriteriaItems: evaluationCriteriaItems,
+    review: formData[REVIEW],
   };
 
-  useFetch('POST', '/reviews', body).then(() => {
-    data[INFO] = initFormData[INFO];
-    data[REVIEW] = initFormData[REVIEW];
-    data[ESTIMATION] = initFormData[ESTIMATION];
-    localStorage.clear();
+  router.post('/reviews', data, {
+    onSuccess: () => {
+      formData[INFO] = initFormData[INFO];
+      formData[REVIEW] = initFormData[REVIEW];
+      formData[ESTIMATION] = initFormData[ESTIMATION];
+      localStorage.clear();
+    },
   });
 };
 
-export const getReviewFormsDataFromLocalstorage = (props: any) => {
+export const getReviewFormsDataFromLocalstorage = (props?: any) => {
   const cleanTimer = localStorage.getItem('cleanTimer');
   if (+new Date() >= parseInt(cleanTimer)) {
     localStorage.clear();
@@ -95,15 +96,7 @@ export const getReviewFormsDataFromLocalstorage = (props: any) => {
   ReviewFormsData.value[REVIEW].title = localStorage.getItem('title') || '';
   ReviewFormsData.value[REVIEW].adviceToOwner = localStorage.getItem('adviceToOwner') || '';
 
-  const evaluationCriteriaItems = localStorage.getItem('evaluationCriteriaItems');
-  if (evaluationCriteriaItems) {
-    const items = JSON.parse(evaluationCriteriaItems);
-    items?.forEach((item: EvaluationCriteriaItems) => {
-      ReviewFormsData.value[ESTIMATION][item.id] = item.rating;
-    });
-  } else {
-    props.evaluationCriteria?.forEach((item) => {
-      ReviewFormsData.value[ESTIMATION][item.id] = 0;
-    });
-  }
+  props.evaluationCriteria?.forEach((item) => {
+    ReviewFormsData.value[ESTIMATION][item.id] = 0;
+  });
 };
