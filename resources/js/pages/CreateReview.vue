@@ -71,6 +71,7 @@ import { AddressHeaderTheme, FROM_STEP } from '@/types/enums';
 import RStepProgress from '@/components/RStepProgress.vue';
 import RApartmentReviewForm from '@/components/review-forms/RApartmentReviewForm.vue';
 import type { EvaluationCriteria } from '@/types/review';
+
 import {
   getReviewFormsDataFromLocalstorage,
   handleSetReviewPage,
@@ -89,6 +90,7 @@ interface Props {
 }
 
 const props = defineProps<Props>();
+const showSuccessModal = ref<boolean>(false);
 
 provide('evaluationCriteria', props.evaluationCriteria);
 
@@ -128,6 +130,7 @@ const steps = computed(() => {
 
 const handleSubmitForm = () => {
   handleSetReviewPage(currentStep.value);
-  submitForm(props.houseId);
+  showSuccessModal.value = submitForm(props.houseId);
+  console.log(showSuccessModal.value);
 };
 </script>

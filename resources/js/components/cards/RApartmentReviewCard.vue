@@ -6,7 +6,7 @@
 
     <r-rating
       class="py-2"
-      :rating="rating"
+      :model-value="rating"
     />
 
     <div class="w-full border-t border-silver" />

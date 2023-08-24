@@ -25,18 +25,20 @@
       </p>
     </div>
 
-    <a
-      class="btn-secondary sticky bottom-2 mt-4 w-11/12 self-center bg-soft-blue text-white"
-      href="#"
+    <!--  eslint-disable-next-line -->
+    <Link
+      class="btn-primary sticky bottom-2 mt-4 w-11/12 self-center"
+      :href="$route('createReview', { address: address })"
     >
       Оставить отзыв
-    </a>
+    </Link>
   </div>
 </template>
 
 <script setup lang="ts">
 import ApartmentCard from '@/components/cards/RApartmentCard.vue';
 import AddressHeader from '@/shared/components/RAddressHeader.vue';
+import { Link } from '@inertiajs/vue3';
 
 interface Apartment {
   id: number;
@@ -52,6 +54,7 @@ interface Props {
     data: Apartment[] | [];
   };
   address: string;
+  houseId: number;
 }
 
 withDefaults(defineProps<Props>(), {

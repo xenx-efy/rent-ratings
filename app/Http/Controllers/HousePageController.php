@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ApartmentCollection;
 use App\Models\Building;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Inertia\Response;
 
 class HousePageController extends Controller
 {
-    public function get(Request $request): Response
+    public function get(Request $request)
     {
         $validated = $request->validate([
             'address' => ['required', 'string']
@@ -18,7 +18,7 @@ class HousePageController extends Controller
 
         $house = Building::where('address', $validated['address'])->firstOrFail();
 
-        return Inertia::render('House', ['address' => $house->address]);
+        return Inertia::render('House', ['address' => $house->address, 'apartments' => new ApartmentCollection($house->apartments)]);
     }
 
     public function post(Request $request): RedirectResponse
