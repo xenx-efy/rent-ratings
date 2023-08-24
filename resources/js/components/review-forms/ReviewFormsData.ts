@@ -61,7 +61,7 @@ export const submitForm = (houseId: number) => {
   });
 
   const data = {
-    apartmentId: houseId,
+    buildingId: houseId,
     apartmentNumber: formData[INFO].apartmentNumber,
     apartmentMeta: {
       floor: formData[INFO].floor,

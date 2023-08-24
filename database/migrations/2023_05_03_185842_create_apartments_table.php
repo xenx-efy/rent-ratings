@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -16,8 +15,8 @@ return new class extends Migration
             $table->unique(['building_id', 'number']);
             $table->foreignId('building_id');
             $table->unsignedInteger('number')->comment('Number of apartment in building.');
-            $table->unsignedInteger('amount_of_rooms')->comment('Amount of rooms in the apartment.');
-            $table->unsignedInteger('floor')->comment('The floor on which the apartment is located');
+            $table->unsignedInteger('amount_of_rooms')->nullable()->comment('Amount of rooms in the apartment.');
+            $table->unsignedInteger('floor')->nullable()->comment('The floor on which the apartment is located');
             $table->timestamps();
         });
     }
