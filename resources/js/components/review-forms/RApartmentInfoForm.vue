@@ -1,25 +1,39 @@
 <template>
-  <p class="mx-auto text-center text-2xl font-medium leading-normal">
-    Информация о квартире
-  </p>
-
   <r-input
-    v-model="a"
-    label="Этаж"
+    v-model="ReviewFormsData[stepName].apartmentNumber"
+    label="Номер квартиры"
+    placeholder="Введите номер квартиры"
     required
     type="number"
+    inputmode="numeric"
   />
 
   <r-input
-    v-model="a"
-    label="Количество комнат"
+    v-model="ReviewFormsData[stepName].floor"
+    label="Этаж"
+    placeholder="Введите количество комнат"
     required
+    type="number"
+    inputmode="numeric"
+  />
+
+  <r-input
+    v-model="ReviewFormsData[stepName].amountOfRooms"
+    label="Количество комнат"
+    placeholder="Введите количество комнат"
+    required
+    type="number"
+    inputmode="numeric"
   />
 </template>
 
 <script setup lang="ts">
 import RInput from '@/shared/ui/RInput.vue';
-import { ref } from 'vue';
+import { ReviewFormsData } from '@/components/review-forms/ReviewFormsData.js';
 
-const a = ref('');
+interface Props {
+  stepName: number;
+}
+
+defineProps<Props>();
 </script>

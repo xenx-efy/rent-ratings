@@ -6,9 +6,7 @@ use App\Http\Requests\CreateReviewRequest;
 use App\Models\Review;
 use App\Models\ReviewMeta;
 use App\Models\ReviewRating;
-use Illuminate\Contracts\Routing\ResponseFactory;
-use Illuminate\Foundation\Application;
-use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Lorisleiva\Actions\Concerns\AsAction;
 
@@ -63,9 +61,9 @@ class CreateReviewAction
     /**
      * @group Create Review
      * @param CreateReviewRequest $request
-     * @return Application|Response|\Illuminate\Contracts\Foundation\Application|ResponseFactory
+     * @return RedirectResponse
      */
-    public function asController(CreateReviewRequest $request): Application|Response|\Illuminate\Contracts\Foundation\Application|ResponseFactory
+    public function asController(CreateReviewRequest $request): \Illuminate\Http\RedirectResponse
     {
         $requestParams = $request->validated();
 
@@ -83,7 +81,7 @@ class CreateReviewAction
             $this->handle($requestParams);
         }
 
-        return response(null, 201);
+        return to_route('home');
     }
 
 

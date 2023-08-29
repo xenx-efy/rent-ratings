@@ -15,6 +15,8 @@ class Apartment extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['building_id', 'number'];
+
     public function building(): BelongsTo
     {
         return $this->belongsTo(Building::class);

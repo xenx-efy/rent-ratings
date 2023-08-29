@@ -10,7 +10,7 @@
 
       <div class="ml-4 flex flex-col">
         <r-rating
-          :rating="rating"
+          :model-value="rating"
           :count="reviewsCount"
         />
 

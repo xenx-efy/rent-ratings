@@ -1,99 +1,91 @@
 <template>
-  <r-header />
+  <r-header
+    search-placeholder="Найди квартиру в Гродно"
+    redirect-path="house"
+  >
+    <template #title>
+      Посмотри отзывы на
+      <br>
+      выбранную квартиру
+    </template>
+  </r-header>
 
-  <div class="relative -mt-7 flex flex-col">
-    <img
-      class="min-h-0"
-      src="../../images/home/map.webp"
-      alt="карта города Гродно"
-    >
-    <search-icon
-      class="scale-y-1 absolute left-[-20px] top-[23%] scale-x-[-1]"
-      color="#5786FF"
-      width="182"
-      height="182"
+  <section class="relative -mt-7 flex flex-col">
+    <div class="absolute left-[-20px] top-[23%] scale-x-[-1]">
+      <search-icon
+        color="#5786FF"
+        width="182"
+        height="182"
+      />
+    </div>
+
+    <r-info-card
+      title="Найди квартиру по адресу"
+      :img="MapImage"
+      description=" Введи адрес дома, найди интересующую квартиру и посмотри отзывы на неё. Если отзывов нет, вы можете его создать 😉"
+      :theme="InfoCardTheme.default"
     />
-    <div class="bg-white p-7 text-cloud-burst">
-      <h2>Найди квартиру по адресу</h2>
-      <p class="mt-3">
-        Введи адрес дома, найди интересующую квартиру и посмотри отзывы на неё. Если отзывов нет, вы можете его создать
-        😉
-      </p>
-    </div>
-  </div>
+  </section>
 
-  <div class="relative flex flex-col">
-    <img
-      class="min-h-0"
-      src="../../images/home/phone.webp"
-      alt="телефон с открытой страницей заполнения отзыва"
-    >
-    <div class="bg-soft-blue p-7 text-white">
-      <h2>Напиши анонимный отзыв о жилье</h2>
-      <p class="mt-3 text-white">
-        Найди квартиру по адресу и анонимно поделись своими впечатлениями
-      </p>
+  <r-info-card
+    title="Напиши анонимный отзыв о жилье"
+    :img="PhoneImage"
+    description="Найди квартиру по адресу и анонимно поделись своими впечатлениями"
+    :theme="InfoCardTheme.blue"
+    button="Оставить отзыв"
+    @click="openAddressSearch"
+  />
 
-      <a
-        class="btn-secondary mt-6"
-        href="#"
-      >
-        Оставить отзыв
-      </a>
-    </div>
-  </div>
-
-  <div class="flex flex-col">
-    <h2 class="mx-auto my-8 block text-2xl">
+  <section>
+    <h2 class="my-8 text-center text-2xl">
       Для чего этот сайт?
     </h2>
 
-    <div class="flex flex-col">
-      <img
-        class="min-h-0"
-        src="../../images/home/wood-houses.webp"
-        alt="карта города Гродно"
-      >
-      <div class="px-7 pb-8 pt-5">
-        <h2>Поиск жилья</h2>
-        <p class="mt-2">
-          Определись с выбором аренды по отзывам
-        </p>
-      </div>
-    </div>
-    <div class="flex flex-col">
-      <img
-        class="min-h-0"
-        src="../../images/home/cat.webp"
-        alt="карта города Гродно"
-      >
-      <div class="bg-soft-blue px-7 pb-8 pt-5 text-white">
-        <h2>Выражения мнений</h2>
-        <p class="mt-2 text-white">
-          Поделись впечатлениями
-          <br>
-          о проживании
-        </p>
-      </div>
-    </div>
-    <div class="flex flex-col">
-      <img
-        class="min-h-0"
-        src="../../images/home/wall-with-paint.webp"
-        alt="карта города Гродно"
-      >
-      <div class="px-7 pb-8 pt-5">
-        <h2>Улучшения аренды</h2>
-        <p class="mt-2">
-          Улучши условия проживания на основе мнений
-        </p>
-      </div>
-    </div>
-  </div>
+    <r-info-card
+      v-for="card in aboutCardArray"
+      :key="card.title"
+      :title="card.title"
+      :img="card.img"
+      :description="card.description"
+      :theme="card.theme"
+    />
+  </section>
 </template>
 
 <script setup lang="ts">
 import 'vue-dadata/dist/style.css';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
 import RHeader from '@/shared/components/RHeader.vue';
+import CatImage from '../../images/home/cat.webp';
+import WoodHouseSImage from '../../images/home/wood-houses.webp';
+import WallWithPaintImage from '../../images/home/wall-with-paint.webp';
+import PhoneImage from '../../images/home/phone.webp';
+import MapImage from '../../images/home/map.webp';
+import RInfoCard, { InfoCardTheme } from '@/components/cards/RInfoCard.vue';
+import { router } from '@inertiajs/vue3';
+
+const aboutCardArray = [
+  {
+    title: 'Поиск жилья',
+    description: 'Определись с выбором аренды по отзывам',
+    img: WoodHouseSImage,
+    theme: InfoCardTheme.default,
+  },
+  {
+    title: 'Выражения мнений',
+    description: 'Поделись впечатлениями о проживании',
+    img: CatImage,
+    theme: InfoCardTheme.blue,
+  },
+  {
+    title: 'Улучшения аренды',
+    description: '    Улучши условия проживания на основе мнений',
+    img: WallWithPaintImage,
+    theme: InfoCardTheme.default,
+  },
+];
+
+const openAddressSearch = () => {
+  router.visit('/address-search');
+};
 </script>

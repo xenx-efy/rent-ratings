@@ -4,7 +4,7 @@
   <div class="relative m-2 flex flex-1 flex-col">
     <div class="flex flex-col items-center pb-4 pt-2">
       <r-rating
-        :rating="apartment.rating"
+        :model-value="apartment.rating"
         :count="apartment.reviewsCount"
       />
     </div>
@@ -49,7 +49,6 @@
 <script setup lang="ts">
 import 'vue-dadata/dist/style.css';
 import RRating from '@/shared/ui/RRating.vue';
-import { defineProps } from 'vue';
 import ApartmentReviewCard from '@/components/cards/RApartmentReviewCard.vue';
 import AddressHeader from '@/shared/components/RAddressHeader.vue';
 

@@ -25,6 +25,7 @@ export default {
         'silver-chalice': '#A9A9A9',
         'link-water': '#D8E5FF',
         grapefruit: '#DC362E',
+        mercury: '#E3E3E3',
       },
       fontSize: {
         sm: '0.8rem',

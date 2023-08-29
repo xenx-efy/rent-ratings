@@ -34,16 +34,28 @@
 }
 
 @layer components {
+    .custom-btn {
+        @apply block text-center font-medium rounded-[8px] transition duration-100 w-max py-2.5 px-4;
+        @apply active:ring-2;
+        @apply disabled:bg-mercury disabled:text-silver-chalice
+    }
+
     .btn-secondary-outlined {
-        @apply block border border-silver text-center text-soft-blue font-medium bg-white py-2.5 w-full rounded-[8px] transition duration-100 active:ring active:ring-2 active:ring-soft-blue active:bg-periwinkle focus-visible:outline-soft-blue w-max px-4;
+        @apply custom-btn;
+        @apply border border-silver text-soft-blue bg-white;
+        @apply active:ring-soft-blue active:bg-periwinkle focus-visible:outline-soft-blue;
     }
 
     .btn-secondary {
-        @apply block text-center text-cloud-burst font-medium bg-white py-2.5 w-full rounded-[8px] transition duration-100 active:ring active:ring-2 active:ring-cloud-burst w-max px-4;
+        @apply custom-btn;
+        @apply text-cloud-burst bg-white;
+        @apply active:ring-cloud-burst
     }
 
     .btn-primary {
-        @apply block text-center text-white font-medium bg-soft-blue py-2.5 w-full rounded-[8px] transition duration-100 active:bg-[#4663B8] focus-visible:outline-[#4663B8] w-max px-4;
+        @apply custom-btn;
+        @apply text-white bg-soft-blue;
+        @apply active:bg-[#4663B8] focus-visible:outline-[#4663B8]
     }
 }
 

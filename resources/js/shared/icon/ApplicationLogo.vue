@@ -15,8 +15,6 @@
 import { Link } from '@inertiajs/vue3';
 import LogoIcon from '@/shared/icon/LogoIcon.vue';
 
-import { defineProps, withDefaults } from 'vue';
-
 interface Props {
   color?: string;
   width?: number | string;
