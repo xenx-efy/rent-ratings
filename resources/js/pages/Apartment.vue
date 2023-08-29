@@ -9,12 +9,13 @@
       />
     </div>
 
-    <a
+    <!--  eslint-disable-next-line -->
+    <Link
       class="btn-secondary w-3/4 self-center bg-soft-blue text-white"
-      href="#"
+      :href="$route('createReview', { address: address })"
     >
       Оставить отзыв
-    </a>
+    </Link>
 
     <p class="mt-5 pl-5 text-xl font-bold">
       Отзывы
