@@ -47,7 +47,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   address: '',
-  enableSearch: true,
+  enableSearch: false,
   theme: AddressHeaderTheme.Blue,
 });
 
