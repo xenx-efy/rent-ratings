@@ -9,7 +9,7 @@
     </template>
 
     <input
-      class="w-full rounded-lg border border-silver-chalice px-4 py-2.5 placeholder:text-silver-chalice focus:outline-soft-blue"
+      class="w-full rounded-lg border border-silver-chalice px-4 py-2.5 placeholder:text-silver-chalice"
       min="1"
       :type="type"
       :value="modelValue"
