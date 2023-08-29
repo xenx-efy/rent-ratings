@@ -26,7 +26,7 @@
 
       <template v-if="button">
         <button
-          class="mt-6"
+          class="mt-6 w-full"
           :class="{ 'btn-secondary ': isBlueTheme, 'btn-primary': isDefaultTheme }"
           @click="(e) => emits('click', e)"
         >

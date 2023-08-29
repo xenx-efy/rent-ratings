@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col rounded-2xl border-2 border-silver p-[5px] px-4 py-3.5">
+  <div class="flex flex-col rounded-2xl border border-silver p-[5px] px-4 py-3.5">
     <p class="sans text-2xl font-medium leading-none">
       {{ title }}
     </p>

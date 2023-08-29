@@ -1,7 +1,7 @@
 <template>
   <!--  eslint-disable-next-line -->
   <Link :href="$route('apartment', id)">
-    <div class="mt-2 flex rounded-2xl border-2 border-silver p-[5px]">
+    <div class="mt-2 flex rounded-2xl border border-silver p-[5px]">
       <div class="flex h-20 w-20 items-center justify-center rounded-corner bg-link-water">
         <p class="text-xl font-bold">
           Кв. {{ number }}

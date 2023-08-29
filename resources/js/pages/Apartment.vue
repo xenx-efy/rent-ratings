@@ -52,6 +52,7 @@ import 'vue-dadata/dist/style.css';
 import RRating from '@/shared/ui/RRating.vue';
 import ApartmentReviewCard from '@/components/cards/RApartmentReviewCard.vue';
 import AddressHeader from '@/shared/components/RAddressHeader.vue';
+import { Link } from '@inertiajs/vue3';
 
 defineProps({
   apartment: Object,
