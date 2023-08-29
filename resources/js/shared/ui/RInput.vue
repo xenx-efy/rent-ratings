@@ -39,7 +39,7 @@ withDefaults(defineProps<Props>(), {
   label: '',
   required: false,
   placeholder: '',
-  inputmode: 'none',
+  inputmode: 'text',
   minlength: null,
   maxlength: null,
 });
