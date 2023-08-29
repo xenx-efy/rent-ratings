@@ -15,7 +15,7 @@
             width: getWidth(star),
           }"
         >
-          <star-icon color="#FFD80F" />
+          <star-icon color="fill-candlelight" />
         </span>
       </button>
     </div>

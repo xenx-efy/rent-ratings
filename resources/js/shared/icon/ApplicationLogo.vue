@@ -5,7 +5,7 @@
     :class="{ 'pointer-events-none': $page.component === 'Home' }"
   >
     <logo-icon
-      :color="color"
+      :class="color"
       :width="width"
       :height="height"
     />
@@ -22,7 +22,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  color: '#fff',
+  color: 'fill-white',
   width: 113,
   height: 34,
 });

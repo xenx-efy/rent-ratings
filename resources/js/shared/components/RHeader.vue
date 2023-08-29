@@ -9,7 +9,7 @@
     <div class="relative mx-4 flex items-center justify-between rounded-[8px] bg-white">
       <search-icon
         class="absolute left-3.5 z-10"
-        :color="`${magnifierColor}`"
+        color="fill-soft-blue"
       />
 
       <dropdown
@@ -23,7 +23,6 @@
 </template>
 
 <script setup lang="ts">
-import tailwindConfig from '@/utils/tailwindConfig';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
 import { ref, watch } from 'vue';
 import debounce from '@/utils/debounce';
@@ -39,8 +38,6 @@ interface Props {
 }
 
 const props = defineProps<Props>();
-
-const magnifierColor = tailwindConfig.theme.accentColor['soft-blue'];
 
 const searchValue = ref('');
 const suggestions = ref<ISuggestions[]>([]);

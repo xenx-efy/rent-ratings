@@ -1,7 +1,7 @@
 <template>
   <application-logo
     class="mx-auto mt-4"
-    color="#000"
+    color="fill-black"
     :width="147"
     :height="45"
   />

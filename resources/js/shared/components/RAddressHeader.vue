@@ -10,7 +10,7 @@
 
     <div class="flex justify-between px-5 pt-5">
       <button @click="goBack">
-        <arrow-icon color="#B8E5FF" />
+        <arrow-icon color="fill-link-water" />
       </button>
 
       <h2
@@ -24,7 +24,7 @@
       <div>
         <search-icon
           v-if="enableSearch"
-          color="#D8E5FF"
+          color="fill-link-water"
         />
       </div>
     </div>
@@ -53,8 +53,8 @@ const props = withDefaults(defineProps<Props>(), {
 
 const logoColor = computed(() => {
   return {
-    [AddressHeaderTheme.Blue]: '#FFF',
-    [AddressHeaderTheme.Light]: '#252D4F',
+    [AddressHeaderTheme.Blue]: 'fill-white',
+    [AddressHeaderTheme.Light]: 'fill-cloud-burst',
   };
 });
 
