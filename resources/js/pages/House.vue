@@ -27,7 +27,7 @@
 
     <!--  eslint-disable-next-line -->
     <Link
-      class="btn-primary sticky bottom-2 mt-4 w-11/12 self-center"
+      class="btn-white sticky bottom-2 mt-4 w-11/12 self-center"
       :href="$route('createReview', { address: address })"
     >
       Оставить отзыв

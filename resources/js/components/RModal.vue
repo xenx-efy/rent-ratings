@@ -53,7 +53,7 @@ import { Link } from '@inertiajs/vue3';
 
           <!--  eslint-disable-next-line -->
           <Link
-            class="btn-primary mx-auto mt-5"
+            class="btn-white mx-auto mt-5"
             :href="$route('home')"
           >
             На главную

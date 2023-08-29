@@ -40,19 +40,19 @@
         @apply disabled:bg-mercury disabled:text-silver-chalice
     }
 
-    .btn-secondary-outlined {
+    .btn-blue-outlined {
         @apply custom-btn;
         @apply border border-silver text-soft-blue bg-white;
         @apply active:ring-soft-blue active:bg-periwinkle focus-visible:outline-soft-blue;
     }
 
-    .btn-secondary {
+    .btn-blue {
         @apply custom-btn;
         @apply text-cloud-burst bg-white;
         @apply active:ring-cloud-burst
     }
 
-    .btn-primary {
+    .btn-white {
         @apply custom-btn;
         @apply text-white bg-soft-blue;
         @apply active:bg-[#4663B8] focus-visible:outline-[#4663B8]

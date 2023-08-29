@@ -11,7 +11,7 @@
 
     <!--  eslint-disable-next-line -->
     <Link
-      class="btn-secondary w-3/4 self-center bg-soft-blue text-white"
+      class="btn-blue w-3/4 self-center bg-soft-blue text-white"
       :href="$route('createReview', { address: address })"
     >
       Оставить отзыв
@@ -39,7 +39,7 @@
     </div>
 
     <a
-      class="btn-secondary-outlined mt-2"
+      class="btn-blue-outlined mt-2"
       href="#"
     >
       Ещё

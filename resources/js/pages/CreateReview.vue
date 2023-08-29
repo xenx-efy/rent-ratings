@@ -33,7 +33,7 @@
     <div class="flex justify-between">
       <template v-if="currentStep > INFO">
         <button
-          class="btn-secondary-outlined"
+          class="btn-blue-outlined"
           @click.prevent="currentStep -= 1"
         >
           Назад
@@ -41,7 +41,7 @@
       </template>
       <template v-if="currentStep !== ESTIMATION">
         <button
-          class="btn-primary ml-auto"
+          class="btn-white ml-auto"
           :disabled="disabledNextBtn"
           @click.prevent="handleNextPage"
         >
@@ -51,7 +51,7 @@
 
       <template v-if="currentStep === ESTIMATION">
         <button
-          class="btn-primary ml-auto"
+          class="btn-white ml-auto"
           :disabled="disabledNextBtn"
           @click="handleSubmitForm"
         >

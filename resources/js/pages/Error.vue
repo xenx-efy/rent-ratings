@@ -17,7 +17,7 @@
     <Link
       v-if="[404, 403].includes(status)"
       :href="$route('home')"
-      class="btn-primary mt-8 w-full"
+      class="btn-white mt-8 w-full"
     >
       На главную
     </Link>

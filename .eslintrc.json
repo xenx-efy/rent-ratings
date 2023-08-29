@@ -38,9 +38,9 @@
       // Тут кастомные классы
       "whitelist": [
         "font-cloud-burst",
-        "btn-primary",
-        "btn-secondary",
-        "btn-secondary-outlined"
+        "btn-white",
+        "btn-blue",
+        "btn-blue-outlined"
       ],
       "tags": [],
       "classRegex": "^class(Name)?$"
