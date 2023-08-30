@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import { Link } from '@inertiajs/vue3';
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <!-- Success modal -->
@@ -51,13 +49,12 @@ import { Link } from '@inertiajs/vue3';
             Ваш отзыв успешно опубликован!
           </p>
 
-          <!--  eslint-disable-next-line -->
-          <Link
+          <inertia-link
             class="btn-white mx-auto mt-5"
-            :href="$route('home')"
+            href="/"
           >
             На главную
-          </Link>
+          </inertia-link>
         </div>
       </div>
     </div>

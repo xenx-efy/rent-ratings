@@ -25,20 +25,18 @@
       </p>
     </div>
 
-    <!--  eslint-disable-next-line -->
-    <Link
+    <inertia-link
       class="btn-white sticky bottom-2 mt-4 w-11/12 self-center"
-      :href="$route('createReview', { address: address })"
+      :href="'/create-review?address=' + address"
     >
       Оставить отзыв
-    </Link>
+    </inertia-link>
   </div>
 </template>
 
 <script setup lang="ts">
 import ApartmentCard from '@/components/cards/RApartmentCard.vue';
 import AddressHeader from '@/shared/components/RAddressHeader.vue';
-import { Link } from '@inertiajs/vue3';
 
 interface Apartment {
   id: number;

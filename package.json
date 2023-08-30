@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr",
     "format": "prettier ./resources/js/ --write"
   },
   "devDependencies": {
@@ -31,6 +31,7 @@
     "vue-tsc": "^1.8.8"
   },
   "dependencies": {
+    "@vue/server-renderer": "^3.3.4",
     "cssnano": "^6.0.1",
     "vue-dadata": "^3.0.0-beta.13",
     "ziggy": "^2.4.0"

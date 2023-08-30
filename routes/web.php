@@ -15,13 +15,13 @@ Route::post('/house', [HousePageController::class, 'post']);
 
 Route::get('/house', [HousePageController::class, 'get'])->name('house');
 
-Route::get('/apartment/{id}', [ApartmentPageController::class, 'get'])->name('apartment');
+Route::get('/apartment/{id}', [ApartmentPageController::class, 'get']);
 
 Route::get('/address-search', static function () {
     return Inertia::render('HouseSearch');
 })->name('addressSearch');
 
 Route::post('/create-review', [CreateReviewPageController::class, 'post']);
-Route::get('/create-review', [CreateReviewPageController::class, 'get'])->name('createReview');
+Route::get('/create-review', [CreateReviewPageController::class, 'get']);
 
 Route::post('/reviews', CreateReviewAction::class);

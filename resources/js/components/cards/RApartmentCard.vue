@@ -1,6 +1,5 @@
 <template>
-  <!--  eslint-disable-next-line -->
-  <Link :href="$route('apartment', id)">
+  <inertia-link :href="'/apartment/' + id">
     <div class="mt-2 flex rounded-2xl border border-silver p-[5px]">
       <div class="flex h-20 w-20 items-center justify-center rounded-corner bg-link-water">
         <p class="text-xl font-bold">
@@ -22,12 +21,11 @@
         </p>
       </div>
     </div>
-  </Link>
+  </inertia-link>
 </template>
 
 <script setup lang="ts">
 import RRating from '@/shared/ui/RRating.vue';
-import { Link } from '@inertiajs/vue3';
 
 interface Props {
   id: number;

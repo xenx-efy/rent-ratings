@@ -13,14 +13,13 @@
     <p class="mt-2">
       {{ description }}
     </p>
-    <!--  eslint-disable-next-line -->
-    <Link
+    <inertia-link
       v-if="[404, 403].includes(status)"
-      :href="$route('home')"
+      href="/"
       class="btn-white mt-8 w-full"
     >
       На главную
-    </Link>
+    </inertia-link>
   </div>
 </template>
 
@@ -31,7 +30,6 @@ import Icon500 from '@/shared/icon/Icon500.vue';
 import Icon404 from '@/shared/icon/Icon404.vue';
 import Icon403 from '@/shared/icon/Icon403.vue';
 import ApplicationLogo from '@/shared/icon/ApplicationLogo.vue';
-import { Link } from '@inertiajs/vue3';
 
 interface Props {
   status: number;

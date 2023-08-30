@@ -9,13 +9,12 @@
       />
     </div>
 
-    <!--  eslint-disable-next-line -->
-    <Link
+    <inertia-link
       class="btn-blue w-3/4 self-center bg-soft-blue text-white"
-      :href="$route('createReview', { address: address })"
+      :href="'/create-review?address=' + address"
     >
       Оставить отзыв
-    </Link>
+    </inertia-link>
 
     <p class="mt-5 pl-5 text-xl font-bold">
       Отзывы
@@ -52,7 +51,6 @@ import 'vue-dadata/dist/style.css';
 import RRating from '@/shared/ui/RRating.vue';
 import ApartmentReviewCard from '@/components/cards/RApartmentReviewCard.vue';
 import AddressHeader from '@/shared/components/RAddressHeader.vue';
-import { Link } from '@inertiajs/vue3';
 
 defineProps({
   apartment: Object,
