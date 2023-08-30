@@ -32,8 +32,6 @@
   },
   "dependencies": {
     "@vue/server-renderer": "^3.3.4",
-    "cssnano": "^6.0.1",
-    "vue-dadata": "^3.0.0-beta.13",
-    "ziggy": "^2.4.0"
+    "cssnano": "^6.0.1"
   }
 }
