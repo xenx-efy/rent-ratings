@@ -47,7 +47,6 @@
 </template>
 
 <script setup lang="ts">
-import 'vue-dadata/dist/style.css';
 import RRating from '@/shared/ui/RRating.vue';
 import ApartmentReviewCard from '@/components/cards/RApartmentReviewCard.vue';
 import AddressHeader from '@/shared/components/RAddressHeader.vue';

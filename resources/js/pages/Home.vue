@@ -53,7 +53,6 @@
 </template>
 
 <script setup lang="ts">
-import 'vue-dadata/dist/style.css';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
 import RHeader from '@/shared/components/RHeader.vue';
 import CatImage from '../../images/home/cat.webp';
