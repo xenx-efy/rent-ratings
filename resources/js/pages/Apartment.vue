@@ -44,13 +44,23 @@
       Ещё
     </a>
   </div>
+  <r-modal :opened="openModal()" />
 </template>
 
 <script setup lang="ts">
 import RRating from '@/shared/ui/RRating.vue';
 import ApartmentReviewCard from '@/components/cards/RApartmentReviewCard.vue';
 import AddressHeader from '@/shared/components/RAddressHeader.vue';
+import RModal from '@/components/RModal.vue';
 
+const openModal = () => {
+  let queryString = window.location.search;
+  let urlParams = new URLSearchParams(queryString);
+
+  return urlParams.has('success');
+};
+
+// TODO: refactor to use interface
 defineProps({
   apartment: Object,
   reviews: Object,

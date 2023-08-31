@@ -1,16 +1,19 @@
-<script setup lang="ts"></script>
-
 <template>
   <!-- Success modal -->
-  <div class="fixed inset-x-0 top-0 z-50 h-[calc(100%-1rem)] max-h-full overflow-y-auto overflow-x-hidden p-4">
-    <div class="relative left-1/2 top-1/2 max-h-full w-64 -translate-x-1/2 -translate-y-1/2">
+  <div
+    v-if="openState"
+    class="fixed inset-x-0 top-0 z-30 h-[calc(100%)] max-h-full overflow-y-auto overflow-x-hidden bg-black/40 p-4"
+    @click.self="closeModal"
+  >
+    <div class="relative left-1/2 top-1/2 z-50 max-h-full w-56 -translate-x-1/2 -translate-y-1/2">
       <!-- Modal content -->
-      <div class="relative rounded-3xl bg-white shadow">
+      <div class="relative rounded-3xl bg-white opacity-100 shadow">
         <!-- Modal header -->
         <div class="flex items-start justify-between rounded-t px-4 pt-4">
           <button
             type="button"
-            class="ml-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-soft-blue hover:bg-gray-200 hover:text-gray-900"
+            class="ml-auto inline-flex h-4 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-soft-blue hover:bg-gray-200 hover:text-gray-900"
+            @click.stop="closeModal"
           >
             <svg
               class="h-3 w-3"
@@ -31,7 +34,7 @@
           </button>
         </div>
         <!-- Modal body -->
-        <div class="px-12 py-6">
+        <div class="px-8 py-6">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="60"
@@ -49,16 +52,34 @@
             Ваш отзыв успешно опубликован!
           </p>
 
-          <inertia-link
-            class="btn-white mx-auto mt-5"
-            href="/"
-          >
-            На главную
-          </inertia-link>
+          <!--          <inertia-link-->
+          <!--            class="btn-white mx-auto mt-5"-->
+          <!--            href="/"-->
+          <!--          >-->
+          <!--            На главную-->
+          <!--          </inertia-link>-->
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped></style>
+<script setup lang="ts">
+import { onMounted, ref } from 'vue';
+
+interface Props {
+  opened: boolean;
+}
+
+const props = withDefaults(defineProps<Props>(), { opened: false });
+
+const openState = ref(false);
+
+onMounted(() => {
+  openState.value = props.opened;
+});
+
+const closeModal = () => {
+  openState.value = false;
+};
+</script>
