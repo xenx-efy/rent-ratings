@@ -22,6 +22,6 @@ Route::get('/address-search', static function () {
 })->name('addressSearch');
 
 Route::post('/create-review', [CreateReviewPageController::class, 'post']);
-Route::get('/create-review', [CreateReviewPageController::class, 'get']);
+Route::get('/create-review', [CreateReviewPageController::class, 'get'])->name('createReview');
 
 Route::post('/reviews', CreateReviewAction::class);
