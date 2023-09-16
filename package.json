@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@vue/server-renderer": "^3.3.4",
-    "cssnano": "^6.0.1"
+    "cssnano": "^6.0.1",
+    "mitt": "^3.0.1"
   }
 }

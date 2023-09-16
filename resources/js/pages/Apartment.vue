@@ -44,21 +44,29 @@
       Ещё
     </a>
   </div>
-  <r-modal :opened="openModal()" />
 </template>
 
 <script setup lang="ts">
 import RRating from '@/shared/ui/RRating.vue';
 import ApartmentReviewCard from '@/components/cards/RApartmentReviewCard.vue';
 import AddressHeader from '@/shared/components/RAddressHeader.vue';
-import RModal from '@/components/RModal.vue';
+import { computed, onMounted } from 'vue';
+import { useModal } from '@/hooks/useModal';
 
-const openModal = () => {
-  let queryString = window.location.search;
-  let urlParams = new URLSearchParams(queryString);
+const { openModal } = useModal();
+
+const isOpenModal = computed(() => {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
 
   return urlParams.has('success');
-};
+});
+
+onMounted(() => {
+  if (isOpenModal.value) {
+    openModal();
+  }
+});
 
 // TODO: refactor to use interface
 defineProps({
