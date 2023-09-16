@@ -30,7 +30,7 @@ import RRating from '@/shared/ui/RRating.vue';
 interface Props {
   id: number;
   number: number;
-  rating: number;
+  rating: string | number;
   floor: number | string;
   roomsAmount: number | string;
   reviewsCount: number;
