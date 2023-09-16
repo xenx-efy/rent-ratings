@@ -26,7 +26,7 @@
 
       <component
         :is="steps.component"
-        :step-name="steps.stepName"
+        :step-name="currentStep"
       />
     </div>
 
@@ -71,7 +71,6 @@ import { AddressHeaderTheme, FROM_STEP } from '@/types/enums';
 import RStepProgress from '@/components/RStepProgress.vue';
 import RApartmentReviewForm from '@/components/review-forms/RApartmentReviewForm.vue';
 import type { EvaluationCriteria } from '@/types/review';
-
 import {
   getReviewFormsDataFromLocalstorage,
   handleSetReviewPage,
@@ -90,7 +89,6 @@ interface Props {
 }
 
 const props = defineProps<Props>();
-const showSuccessModal = ref<boolean>(false);
 
 provide('evaluationCriteria', props.evaluationCriteria);
 
@@ -108,19 +106,16 @@ const handleNextPage = () => {
 const steps = computed(() => {
   return {
     [INFO]: {
-      stepName: INFO,
       title: 'Информация о квартире',
       subtitle: '',
       component: RApartmentInfoForm,
     },
     [REVIEW]: {
-      stepName: REVIEW,
       subtitle: '',
       title: 'Отзыв',
       component: RApartmentReviewForm,
     },
     [ESTIMATION]: {
-      stepName: ESTIMATION,
       title: 'Оценка квартиры',
       subtitle: 'Как вы оцениваете квартиру по следующим критериям?',
       component: RApartmentEstimationForm,
@@ -130,7 +125,6 @@ const steps = computed(() => {
 
 const handleSubmitForm = () => {
   handleSetReviewPage(currentStep.value);
-  showSuccessModal.value = submitForm(props.houseId);
-  console.log(showSuccessModal.value);
+  submitForm(props.houseId);
 };
 </script>

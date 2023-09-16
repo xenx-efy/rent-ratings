@@ -15,7 +15,7 @@ Route::post('/house', [HousePageController::class, 'post']);
 
 Route::get('/house', [HousePageController::class, 'get'])->name('house');
 
-Route::get('/apartment/{id}', [ApartmentPageController::class, 'get']);
+Route::get('/apartment/{id}', [ApartmentPageController::class, 'get'])->name('apartment');
 
 Route::get('/address-search', static function () {
     return Inertia::render('HouseSearch');

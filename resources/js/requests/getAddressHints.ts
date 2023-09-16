@@ -1,4 +1,4 @@
-import useFetch from '@/utils/useFetch';
+import useFetch from '@/hooks/useFetch';
 import type { ISearchRequest } from '@/types/suggestions';
 
 export const getAddressHints = (value, abortSignal) => {
