@@ -9,7 +9,7 @@
 
       <div class="ml-4 flex flex-col">
         <r-rating
-          :model-value="rating"
+          :v-model="rating"
           :count="reviewsCount"
         />
 
@@ -30,7 +30,7 @@ import RRating from '@/shared/ui/RRating.vue';
 interface Props {
   id: number;
   number: number;
-  rating: string | number;
+  rating: number;
   floor: number | string;
   roomsAmount: number | string;
   reviewsCount: number;

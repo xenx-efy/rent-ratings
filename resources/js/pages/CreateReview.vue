@@ -83,7 +83,7 @@ const { INFO, REVIEW, ESTIMATION } = FROM_STEP;
 const currentStep = ref<FROM_STEP>(INFO);
 
 interface Props {
-  houseId: number;
+  houseId?: number;
   address: string;
   evaluationCriteria: EvaluationCriteria[];
 }
