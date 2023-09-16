@@ -35,7 +35,7 @@ import StarIcon from '@/shared/icon/StarIcon.vue';
 interface Props {
   canSelect?: boolean;
   count?: number;
-  modelValue?: number;
+  modelValue?: number | string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -45,10 +45,10 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const getWidth = (star: number) => {
-  const fractionalPart = +(props.modelValue % 1).toFixed(2);
-  if (star <= props.modelValue) {
+  const fractionalPart = +(+props.modelValue % 1).toFixed(2);
+  if (star <= +props.modelValue) {
     return '100%';
-  } else if (+(star - props.modelValue).toFixed(2) > 1 - fractionalPart) {
+  } else if (+(star - +props.modelValue).toFixed(2) > 1 - fractionalPart) {
     return '0%';
   } else {
     const residue = fractionalPart * 100;

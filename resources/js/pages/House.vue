@@ -2,7 +2,7 @@
   <address-header :address="address" />
 
   <div class="relative m-2 mb-3 flex flex-1 flex-col">
-    <template v-if="apartments.data.length > 0">
+    <template v-if="apartments?.data?.length">
       <div
         v-for="ap in apartments.data"
         :key="ap.id"
@@ -52,13 +52,7 @@ interface Props {
     data: Apartment[] | [];
   };
   address: string;
-  houseId: number;
 }
 
-withDefaults(defineProps<Props>(), {
-  apartments: {
-    data: [],
-  },
-  address: '',
-});
+defineProps<Props>();
 </script>

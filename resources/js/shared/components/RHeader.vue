@@ -59,7 +59,6 @@ const handleSearch = debounce(
 const handleSelect = (option: any) => {
   if (option.data?.house) {
     router.visit(props.redirectPath, {
-      method: 'post',
       data: { address: option.value },
     });
     controller.abort();

@@ -1,7 +1,7 @@
 <template>
   <r-header
     search-placeholder="Введите адрес"
-    redirect-path="/create-review"
+    redirect-path="create-review"
   >
     <template #title>
       Посмотри отзывы на интересующую квартиру
