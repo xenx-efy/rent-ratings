@@ -22,6 +22,6 @@ interface Props {
 const props = defineProps<Props>();
 
 const currentClass = (currentStep: number) => {
-  return props.step >= currentStep ? 'bg-soft-blue' : 'bg-link-water';
+  return props.step >= currentStep ? 'bg-blue-400' : 'bg-slate-200';
 };
 </script>

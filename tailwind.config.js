@@ -16,17 +16,25 @@ export default {
         sans: ['Roboto', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        'cloud-burst': '#252D4F', // text color
-        'soft-blue': '#5786FF', // main color
-        periwinkle: '#B8D0FF',
-        'shadow-green': '#A3BBC3',
-        'titan-white': '#E6F1F9',
-        silver: '#CACACA',
-        'silver-chalice': '#A9A9A9',
-        'link-water': '#D8E5FF',
-        candlelight: '#FFD80F',
-        grapefruit: '#DC362E',
-        mercury: '#E3E3E3',
+        blue: {
+          400: '#5786FF',
+          950: '#252D4F',
+        },
+        slate: {
+          200: '#D8E5FF',
+          300: '#B8D0FF',
+        },
+        gray: {
+          200: '#E3E3E3',
+          300: '#CACACA',
+          400: '#A9A9A9',
+        },
+        yellow: {
+          400: '#FFD80F',
+        },
+        red: {
+          600: '#DC362E',
+        },
       },
       fontSize: {
         sm: '0.8rem',
@@ -40,6 +48,7 @@ export default {
       borderRadius: {
         corner: '0.625rem', // 10px
       },
+      boxShadow: { custom: '0px 4px 6px 0px #00000040' },
     },
   },
 

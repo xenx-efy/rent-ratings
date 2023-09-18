@@ -7,6 +7,7 @@
     viewBox="0 0 14 14"
   >
     <path
+      :class="color"
       stroke="currentColor"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -26,6 +27,6 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   width: 14,
   height: 14,
-  color: '#5786FF',
+  color: 'blue-400',
 });
 </script>

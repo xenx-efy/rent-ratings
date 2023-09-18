@@ -1,15 +1,15 @@
 <template>
-  <div class="flex flex-col rounded-2xl border border-silver p-[5px] px-4 py-3.5">
+  <div class="flex flex-col rounded-2xl border border-gray-300 p-[5px] px-4 py-3.5">
     <p class="sans text-2xl font-medium leading-none">
       {{ title }}
     </p>
 
     <r-rating
       class="py-2"
-      :model-value="rating"
+      :v-model="rating"
     />
 
-    <div class="w-full border-t border-silver" />
+    <div class="w-full border-t border-gray-300" />
 
     <p class="mt-2.5 font-medium leading-none">
       Плюсы
@@ -47,7 +47,7 @@
       </p>
       <button
         v-if="isNeedCollapse"
-        class="text-sm leading-none text-soft-blue"
+        class="text-sm leading-none text-blue-400"
         @click="expanded = !expanded"
       >
         {{ expanded ? 'Свернуть' : 'Развернуть' }}

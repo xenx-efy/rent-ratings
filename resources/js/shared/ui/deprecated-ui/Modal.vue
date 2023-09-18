@@ -4,16 +4,16 @@ import { computed, onMounted, onUnmounted, watch } from 'vue';
 const props = defineProps({
   show: {
     type: Boolean,
-    default: false
+    default: false,
   },
   maxWidth: {
     type: String,
-    default: '2xl'
+    default: '2xl',
   },
   closeable: {
     type: Boolean,
-    default: true
-  }
+    default: true,
+  },
 });
 
 const emit = defineEmits(['close']);
@@ -26,7 +26,7 @@ watch(
     } else {
       document.body.style.overflow = null;
     }
-  }
+  },
 );
 
 const close = () => {
@@ -35,7 +35,7 @@ const close = () => {
   }
 };
 
-const closeOnEscape = e => {
+const closeOnEscape = (e) => {
   if (e.key === 'Escape' && props.show) {
     close();
   }
@@ -54,7 +54,7 @@ const maxWidthClass = computed(() => {
     md: 'sm:max-w-md',
     lg: 'sm:max-w-lg',
     xl: 'sm:max-w-xl',
-    '2xl': 'sm:max-w-2xl'
+    '2xl': 'sm:max-w-2xl',
   }[props.maxWidth];
 });
 </script>
@@ -77,7 +77,7 @@ const maxWidthClass = computed(() => {
         >
           <div
             v-show="show"
-            class="fixed inset-0 transform transition-all"
+            class="fixed inset-0 transition-all"
             @click="close"
           >
             <div class="absolute inset-0 bg-gray-500 opacity-75" />
@@ -94,7 +94,7 @@ const maxWidthClass = computed(() => {
         >
           <div
             v-show="show"
-            class="mb-6 transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:mx-auto sm:w-full"
+            class="mb-6 overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:mx-auto sm:w-full"
             :class="maxWidthClass"
           >
             <slot v-if="show" />

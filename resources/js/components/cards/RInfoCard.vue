@@ -10,10 +10,10 @@
 
     <div
       class="px-7 pb-8 pt-6"
-      :class="{ 'text-white': isBlueTheme, 'bg-soft-blue': isBlueTheme }"
+      :class="{ 'text-white': isBlueTheme, 'bg-blue-400': isBlueTheme }"
     >
       <template v-if="title">
-        <h3 class="text-xl text-inherit">
+        <h3 class="text-xl">
           {{ title }}
         </h3>
       </template>

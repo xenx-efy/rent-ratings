@@ -5,11 +5,11 @@
     </template>
 
     <template v-if="required">
-      <span class="text-grapefruit">&nbsp;*</span>
+      <span class="text-red-600">&nbsp;*</span>
     </template>
 
     <textarea
-      class="min-h-[46px] w-full rounded-lg border border-silver-chalice px-4 py-2.5 placeholder:text-silver-chalice"
+      class="min-h-[46px] w-full rounded-lg border border-gray-400 px-4 py-2.5 placeholder:text-gray-400"
       :value="modelValue"
       :placeholder="placeholder"
       :minlength="minlength"

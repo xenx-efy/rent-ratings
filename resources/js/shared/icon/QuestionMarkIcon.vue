@@ -22,6 +22,6 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   width: 24,
   height: 25,
-  color: 'fill-silver-chalice',
+  color: 'fill-gray-400',
 });
 </script>

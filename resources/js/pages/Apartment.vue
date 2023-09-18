@@ -10,7 +10,7 @@
     </div>
 
     <inertia-link
-      class="btn-blue w-3/4 self-center bg-soft-blue text-white"
+      class="btn-blue w-3/4 self-center bg-blue-400 text-white"
       :href="'/create-review?address=' + address"
     >
       Оставить отзыв

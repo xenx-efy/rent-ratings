@@ -1,7 +1,7 @@
 <template>
   <inertia-link :href="'/apartment/' + id">
-    <div class="mt-2 flex rounded-2xl border border-silver p-[5px]">
-      <div class="flex h-20 w-20 items-center justify-center rounded-corner bg-link-water">
+    <div class="mt-2 flex rounded-2xl border border-gray-300 p-[5px]">
+      <div class="flex h-20 w-20 items-center justify-center rounded-corner bg-slate-200">
         <p class="text-xl font-bold">
           Кв. {{ number }}
         </p>

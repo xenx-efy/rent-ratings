@@ -10,7 +10,7 @@
 
     <div class="flex justify-between px-5 pt-5">
       <button @click="goBack">
-        <arrow-icon color="fill-link-water" />
+        <arrow-icon color="fill-slate-200" />
       </button>
 
       <h2
@@ -24,7 +24,7 @@
       <div>
         <search-icon
           v-if="enableSearch"
-          color="fill-link-water"
+          color="fill-slate-200"
         />
       </div>
     </div>
@@ -54,13 +54,13 @@ const props = withDefaults(defineProps<Props>(), {
 const logoColor = computed(() => {
   return {
     [AddressHeaderTheme.Blue]: 'fill-white',
-    [AddressHeaderTheme.Light]: 'fill-cloud-burst',
+    [AddressHeaderTheme.Light]: 'fill-blue-950',
   };
 });
 
 const headerClass = computed(() => {
   return {
-    'bg-soft-blue': props.theme === AddressHeaderTheme.Blue,
+    'bg-blue-400': props.theme === AddressHeaderTheme.Blue,
     'bg-white': props.theme === AddressHeaderTheme.Light,
   };
 });
@@ -69,7 +69,7 @@ const headerTextClass = computed(() => {
   return {
     'text-base': props.address.length > 25,
     'text-white': props.theme === AddressHeaderTheme.Blue,
-    'cloud-burst': props.theme === AddressHeaderTheme.Light,
+    'blue-950': props.theme === AddressHeaderTheme.Light,
   };
 });
 
