@@ -2,7 +2,7 @@
   <div class="relative w-full">
     <input
       ref="dropdownInput"
-      class="font-cloud-burst w-full rounded-[8px] border-0 py-[10px] pl-11 pr-4 text-black outline-0 focus:ring-0"
+      class="font-blue-950 w-full rounded-[8px] border-0 py-[10px] pl-11 pr-4 outline-0 focus:ring-0"
       :value="modelValue"
       :disabled="disabled"
       :placeholder="placeholder"
@@ -20,14 +20,14 @@
           <div
             v-for="(option, index) in options"
             :key="index"
-            class="w-full border-t border-gray-200 p-2 pl-4"
+            class="border-gray-200 w-full border-t p-2 pl-4"
             @mousedown="selectOption(option)"
           >
             {{ option.value }}
           </div>
         </template>
         <template v-else-if="modelValue.length">
-          <div class="w-full border border-gray-200 p-2 pl-4">
+          <div class="border-gray-200 w-full border p-2 pl-4">
             Адрес не найден
           </div>
         </template>

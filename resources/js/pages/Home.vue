@@ -13,7 +13,7 @@
   <section class="relative -mt-7 flex flex-col">
     <div class="absolute left-[-20px] top-[23%] scale-x-[-1]">
       <search-icon
-        color="fill-soft-blue"
+        color="fill-blue-400"
         width="182"
         height="182"
       />

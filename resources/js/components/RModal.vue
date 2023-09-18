@@ -6,7 +6,7 @@
   >
     <!--  Background  -->
     <div
-      class="fixed h-full w-full bg-black/40 backdrop-blur"
+      class="bg-black/40 fixed h-full w-full backdrop-blur"
       @click="closeModal"
     />
 
@@ -17,7 +17,7 @@
         <div class="flex items-start justify-between rounded-t px-4 pt-4">
           <button
             type="button"
-            class="ml-auto inline-flex h-4 w-4 items-center justify-center rounded-lg bg-transparent text-sm text-soft-blue hover:bg-gray-200 hover:text-gray-900"
+            class="bg-transparent hover:bg-gray-200 hover:text-gray-900 ml-auto inline-flex h-4 w-4 items-center justify-center rounded-lg text-sm text-blue-400"
             @click.stop="closeModal"
           >
             <close-icon class="h-3 w-3" />

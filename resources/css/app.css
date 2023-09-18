@@ -29,7 +29,7 @@
     }
 
     p {
-        @apply text-cloud-burst;
+        @apply text-blue-950;
     }
 }
 
@@ -37,24 +37,24 @@
     .custom-btn {
         @apply block text-center font-medium rounded-[8px] transition duration-100 w-max py-2.5 px-4;
         @apply active:ring-2;
-        @apply disabled:bg-mercury disabled:text-silver-chalice
+        @apply disabled:bg-gray-200 disabled:text-gray-400
     }
 
     .btn-blue-outlined {
         @apply custom-btn;
-        @apply border border-silver text-soft-blue bg-white;
-        @apply active:ring-soft-blue active:bg-periwinkle focus-visible:outline-soft-blue;
+        @apply border border-gray-300 text-blue-400 bg-white;
+        @apply active:ring-blue-400 active:bg-slate-300 focus-visible:outline-blue-400;
     }
 
     .btn-blue {
         @apply custom-btn;
-        @apply text-cloud-burst bg-white;
-        @apply active:ring-cloud-burst
+        @apply text-blue-950 bg-white;
+        @apply active:ring-blue-950
     }
 
     .btn-white {
         @apply custom-btn;
-        @apply text-white bg-soft-blue;
+        @apply text-white bg-blue-400;
         @apply active:bg-[#4663B8] focus-visible:outline-[#4663B8]
     }
 }

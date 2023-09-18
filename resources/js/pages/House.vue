@@ -20,7 +20,7 @@
     </template>
 
     <div class="ml-4 mt-4 flex">
-      <p class="flex before:mr-2 before:block before:h-full before:w-2 before:rounded-full before:bg-soft-blue">
+      <p class="flex before:mr-2 before:block before:h-full before:w-2 before:rounded-full before:bg-blue-400">
         Если отзывов на интересующую вас квартиру нет, вы можете написать его 😉
       </p>
     </div>

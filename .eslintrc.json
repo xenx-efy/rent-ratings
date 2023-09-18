@@ -37,7 +37,6 @@
       "skipClassAttribute": false,
       // Тут кастомные классы
       "whitelist": [
-        "font-cloud-burst",
         "btn-white",
         "btn-blue",
         "btn-blue-outlined"

@@ -1,5 +1,5 @@
 <template>
-  <header class="relative z-20 flex flex-col rounded-b-[24px] bg-soft-blue pb-4 drop-shadow-lg">
+  <header class="relative z-20 flex flex-col rounded-b-[24px] bg-blue-400 pb-4 drop-shadow-lg">
     <application-logo class="mx-auto mt-2 block" />
 
     <h2 class="my-4 ml-7 text-white">
@@ -9,7 +9,7 @@
     <div class="relative mx-4 flex items-center justify-between rounded-[8px] bg-white">
       <search-icon
         class="absolute left-3.5 z-10"
-        color="fill-soft-blue"
+        color="fill-blue-400"
       />
 
       <dropdown
