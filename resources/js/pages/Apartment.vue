@@ -20,11 +20,10 @@
       Отзывы
     </p>
 
-    <div class="flex flex-col space-y-1.5">
+    <div class="mb-10 flex flex-col space-y-1.5">
       <div
         v-for="r in reviews.data"
         :key="r.id"
-        class=""
       >
         <apartment-review-card
           :title="r.title"
@@ -36,13 +35,6 @@
         />
       </div>
     </div>
-
-    <a
-      class="btn-blue-outlined mt-2"
-      href="#"
-    >
-      Ещё
-    </a>
   </div>
 </template>
 
