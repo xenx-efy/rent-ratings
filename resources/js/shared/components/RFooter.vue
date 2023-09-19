@@ -1,5 +1,5 @@
 <template>
-  <footer class="mt-auto flex flex-col items-center bg-blue-400 px-5 py-6">
+  <footer class="flex flex-col items-center bg-blue-400 px-5 py-6">
     <div class="flex items-center justify-center">
       <mail-icon class="mr-2" />
       <a
