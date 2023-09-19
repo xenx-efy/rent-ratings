@@ -58,17 +58,9 @@
 <script setup lang="ts">
 import RRating from '@/shared/ui/RRating.vue';
 import { computed, ref } from 'vue';
+import type { IReview } from '@/types/review';
 
-interface Props {
-  title: string;
-  pros: string;
-  cons: string;
-  adviceToOwner?: string;
-  rating: string | number;
-  date: string;
-}
-
-const props = defineProps<Props>();
+const props = defineProps<IReview>();
 
 const expanded = ref(false);
 

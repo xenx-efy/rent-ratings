@@ -69,7 +69,7 @@ import RApartmentInfoForm from '@/components/review-forms/RApartmentInfoForm.vue
 import RApartmentEstimationForm from '@/components/review-forms/RApartmentEstimationForm.vue';
 import RApartmentReviewForm from '@/components/review-forms/RApartmentReviewForm.vue';
 import RStepProgress from '@/components/RStepProgress.vue';
-import type { EvaluationCriteria } from '@/types/review';
+import type { IEvaluationCriteria } from '@/types/review';
 import { AddressHeaderTheme, FROM_STEP } from '@/types/enums';
 import {
   getReviewFormsDataFromLocalstorage,
@@ -85,7 +85,7 @@ const currentStep = ref<FROM_STEP>(INFO);
 interface Props {
   houseId?: number;
   address: string;
-  evaluationCriteria: EvaluationCriteria[];
+  evaluationCriteria: IEvaluationCriteria[];
 }
 
 const props = defineProps<Props>();

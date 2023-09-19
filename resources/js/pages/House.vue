@@ -37,19 +37,11 @@
 <script setup lang="ts">
 import ApartmentCard from '@/components/cards/RApartmentCard.vue';
 import AddressHeader from '@/shared/components/RAddressHeader.vue';
-
-interface Apartment {
-  id: number;
-  number: number;
-  floor: number;
-  rating: string;
-  amountOfRooms: number;
-  reviewsCount: number;
-}
+import type { IApartment } from '@/types/review';
 
 interface Props {
   apartments: {
-    data: Apartment[] | [];
+    data: IApartment[] | [];
   };
   address: string;
 }
