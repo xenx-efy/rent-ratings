@@ -10,12 +10,15 @@
       >
         <star-icon />
         <span
-          class="absolute left-0 top-0 w-0 overflow-hidden"
+          class="absolute left-0 top-0 h-full w-0 overflow-hidden"
           :style="{
             width: getWidth(star),
           }"
         >
-          <star-icon color="fill-yellow-400" />
+          <star-icon
+            color="fill-yellow-400"
+            :height="22"
+          />
         </span>
       </button>
     </div>
@@ -46,6 +49,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const getWidth = (star: number) => {
   const fractionalPart = +(+props.modelValue % 1).toFixed(2);
+  console.log(star, +props.modelValue);
   if (star <= +props.modelValue) {
     return '100%';
   } else if (+(star - +props.modelValue).toFixed(2) > 1 - fractionalPart) {
