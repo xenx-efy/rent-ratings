@@ -4,7 +4,7 @@
       <button
         v-for="star in 5"
         :key="star"
-        class="relative"
+        class="relative h-max"
         :disabled="!canSelect"
         @click="setRating(star)"
       >
@@ -17,7 +17,7 @@
         >
           <star-icon
             color="fill-yellow-400"
-            :height="22"
+            :height="20"
           />
         </span>
       </button>
