@@ -49,7 +49,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const getWidth = (star: number) => {
   const fractionalPart = +(+props.modelValue % 1).toFixed(2);
-  console.log(star, +props.modelValue);
+
   if (star <= +props.modelValue) {
     return '100%';
   } else if (+(star - +props.modelValue).toFixed(2) > 1 - fractionalPart) {
