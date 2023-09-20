@@ -1,11 +1,11 @@
 <template>
   <address-header
-    :address="address"
+    :address="fullAddress"
     :enable-search="false"
     :theme="AddressHeaderTheme.Light"
   />
 
-  <div class="mx-4 my-8">
+  <div class="mx-4 my-8 mb-auto">
     <r-step-progress
       :step="currentStep"
       :steps-length="FROM_STEP.__LENGTH"
@@ -63,14 +63,14 @@
 </template>
 
 <script setup lang="ts">
-import AddressHeader from '@/shared/components/RAddressHeader.vue';
 import { computed, onMounted, provide, ref } from 'vue';
+import AddressHeader from '@/shared/components/RAddressHeader.vue';
 import RApartmentInfoForm from '@/components/review-forms/RApartmentInfoForm.vue';
 import RApartmentEstimationForm from '@/components/review-forms/RApartmentEstimationForm.vue';
-import { AddressHeaderTheme, FROM_STEP } from '@/types/enums';
-import RStepProgress from '@/components/RStepProgress.vue';
 import RApartmentReviewForm from '@/components/review-forms/RApartmentReviewForm.vue';
-import type { EvaluationCriteria } from '@/types/review';
+import RStepProgress from '@/components/RStepProgress.vue';
+import type { IEvaluationCriteria } from '@/types/review';
+import { AddressHeaderTheme, FROM_STEP } from '@/types/enums';
 import {
   getReviewFormsDataFromLocalstorage,
   handleSetReviewPage,
@@ -85,10 +85,19 @@ const currentStep = ref<FROM_STEP>(INFO);
 interface Props {
   houseId?: number;
   address: string;
-  evaluationCriteria: EvaluationCriteria[];
+  evaluationCriteria: IEvaluationCriteria[];
 }
 
 const props = defineProps<Props>();
+
+const fullAddress = computed(() => {
+  const apartmentNumber = ReviewFormsData.value[INFO]?.apartmentNumber;
+
+  if (apartmentNumber) {
+    return `${props.address}, кв ${apartmentNumber}`;
+  }
+  return props.address;
+});
 
 provide('evaluationCriteria', props.evaluationCriteria);
 

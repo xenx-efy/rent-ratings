@@ -1,5 +1,5 @@
 <template>
-  <address-header :address="address" />
+  <address-header :address="fullAddress" />
 
   <div class="relative m-2 flex flex-1 flex-col">
     <div class="flex flex-col items-center pb-4 pt-2">
@@ -44,6 +44,17 @@ import ApartmentReviewCard from '@/components/cards/RApartmentReviewCard.vue';
 import AddressHeader from '@/shared/components/RAddressHeader.vue';
 import { computed, onMounted } from 'vue';
 import { useModal } from '@/hooks/useModal';
+import type { IApartment, IReview } from '@/types/review';
+
+interface Props {
+  address: string;
+  apartment: IApartment;
+  reviews: {
+    data: IReview[];
+  };
+}
+
+const props = defineProps<Props>();
 
 const { openModal } = useModal();
 
@@ -60,10 +71,7 @@ onMounted(() => {
   }
 });
 
-// TODO: refactor to use interface
-defineProps({
-  apartment: Object,
-  reviews: Object,
-  address: String,
+const fullAddress = computed(() => {
+  return `${props.address}, кв ${props.apartment.number}`;
 });
 </script>

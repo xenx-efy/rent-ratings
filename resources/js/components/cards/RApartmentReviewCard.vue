@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col rounded-2xl border border-gray-300 p-[5px] px-4 py-3.5">
-    <p class="sans text-2xl font-medium leading-none">
+    <p class="font-sans text-2xl font-medium leading-none">
       {{ title }}
     </p>
 
     <r-rating
+      :model-value="rating"
       class="py-2"
-      :v-model="rating"
     />
 
     <div class="w-full border-t border-gray-300" />
@@ -58,17 +58,9 @@
 <script setup lang="ts">
 import RRating from '@/shared/ui/RRating.vue';
 import { computed, ref } from 'vue';
+import type { IReview } from '@/types/review';
 
-interface Props {
-  title: string;
-  pros: string;
-  cons: string;
-  adviceToOwner?: string;
-  rating: string | number;
-  date: string;
-}
-
-const props = defineProps<Props>();
+const props = defineProps<IReview>();
 
 const expanded = ref(false);
 
