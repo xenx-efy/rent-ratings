@@ -91,7 +91,7 @@ interface Props {
 const props = defineProps<Props>();
 
 const fullAddress = computed(() => {
-  const apartmentNumber = ReviewFormsData.value[INFO]?.apartmentNumber;
+  const apartmentNumber = ReviewFormsData[INFO]?.apartmentNumber;
 
   if (apartmentNumber) {
     return `${props.address}, кв ${apartmentNumber}`;
@@ -104,7 +104,7 @@ provide('evaluationCriteria', props.evaluationCriteria);
 onMounted(() => getReviewFormsDataFromLocalstorage(props));
 
 const disabledNextBtn = computed(() => {
-  return !Object.values(ReviewFormsData.value[currentStep.value]).every(Boolean);
+  return !Object.values(ReviewFormsData[currentStep.value]).every(Boolean);
 });
 
 const handleNextPage = () => {

@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { reactive } from 'vue';
 import { FROM_STEP } from '@/types/enums';
 import { router } from '@inertiajs/vue3';
 
@@ -19,14 +19,14 @@ const initFormData = {
   [ESTIMATION]: [],
 };
 
-export const ReviewFormsData = ref({
+export const ReviewFormsData = reactive({
   [INFO]: { ...initFormData[INFO] },
   [REVIEW]: { ...initFormData[REVIEW] },
   [ESTIMATION]: { ...initFormData[ESTIMATION] },
 });
 
 export const handleSetReviewPage = (currentStep: FROM_STEP) => {
-  const data = ReviewFormsData.value;
+  const data = ReviewFormsData;
 
   // Устанавливаем время блокировки (текущее время + 1 час)
   const hour = 3600 * 1000;
@@ -51,7 +51,7 @@ export const handleSetReviewPage = (currentStep: FROM_STEP) => {
 };
 
 export const submitForm = (houseId: number) => {
-  const formData = ReviewFormsData.value;
+  const formData = ReviewFormsData;
 
   const evaluationCriteriaItems = Object.entries(formData[ESTIMATION]).map(([key, value]) => {
     return {
@@ -87,16 +87,16 @@ export const getReviewFormsDataFromLocalstorage = (props?: any) => {
     localStorage.clear();
   }
 
-  ReviewFormsData.value[INFO].floor = Number(localStorage.getItem('floor')) || '';
-  ReviewFormsData.value[INFO].amountOfRooms = Number(localStorage.getItem('amountOfRooms')) || '';
-  ReviewFormsData.value[INFO].apartmentNumber = Number(localStorage.getItem('apartmentNumber')) || '';
+  ReviewFormsData[INFO].floor = Number(localStorage.getItem('floor')) || '';
+  ReviewFormsData[INFO].amountOfRooms = Number(localStorage.getItem('amountOfRooms')) || '';
+  ReviewFormsData[INFO].apartmentNumber = Number(localStorage.getItem('apartmentNumber')) || '';
 
-  ReviewFormsData.value[REVIEW].pros = localStorage.getItem('pros') || '';
-  ReviewFormsData.value[REVIEW].cons = localStorage.getItem('cons') || '';
-  ReviewFormsData.value[REVIEW].title = localStorage.getItem('title') || '';
-  ReviewFormsData.value[REVIEW].adviceToOwner = localStorage.getItem('adviceToOwner') || '';
+  ReviewFormsData[REVIEW].pros = localStorage.getItem('pros') || '';
+  ReviewFormsData[REVIEW].cons = localStorage.getItem('cons') || '';
+  ReviewFormsData[REVIEW].title = localStorage.getItem('title') || '';
+  ReviewFormsData[REVIEW].adviceToOwner = localStorage.getItem('adviceToOwner') || '';
 
   props.evaluationCriteria?.forEach((item) => {
-    ReviewFormsData.value[ESTIMATION][item.id] = 0;
+    ReviewFormsData[ESTIMATION][item.id] = 0;
   });
 };
