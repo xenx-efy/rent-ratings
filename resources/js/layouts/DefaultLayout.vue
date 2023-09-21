@@ -10,10 +10,10 @@
 
   <main class="flex min-h-screen flex-col justify-between">
     <template v-if="showShimmer">
-      <slot />
+      <r-desktop-shimmer />
     </template>
     <template v-else>
-      <r-desktop-shimmer />
+      <slot />
     </template>
     <Footer />
     <r-modal />
@@ -31,7 +31,11 @@ import RDesktopShimmer from '@/components/RDesktopShimmer.vue';
 const showShimmer = ref(false);
 
 const checkShimmer = (win) => {
-  showShimmer.value = win.innerWidth < 768;
+  // TODO: Make enum for environments. Should be 3: local, staging and production.
+  const isProduction = import.meta.env.VITE_APP_ENV === 'production';
+
+  // Show shimmer when it is prod environment and windows size more than 768 px
+  showShimmer.value = isProduction && win.innerWidth > 768;
 };
 
 onMounted(() => {
