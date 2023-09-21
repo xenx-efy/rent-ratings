@@ -31,8 +31,8 @@ interface Props {
   id: number;
   number: number;
   rating: string | number;
-  floor: number | string;
-  roomsAmount: number | string;
+  floor?: number | string;
+  roomsAmount?: number | string;
   reviewsCount: number;
 }
 
