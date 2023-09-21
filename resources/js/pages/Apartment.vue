@@ -1,4 +1,12 @@
 <template>
+  <inertia-head>
+    <title>Отзывы на квартиру по адресу {{ fullAddress }}</title>
+    <meta
+      name="description"
+      :content="metaDescription"
+    >
+  </inertia-head>
+
   <address-header :address="fullAddress" />
 
   <div class="relative m-2 flex flex-1 flex-col">
@@ -57,6 +65,10 @@ interface Props {
 const props = defineProps<Props>();
 
 const { openModal } = useModal();
+
+const metaDescription = computed(() => {
+  return `Количество отзывов на квартиру: ${props.apartment.reviewsCount}`;
+});
 
 const isOpenModal = computed(() => {
   const queryString = window.location.search;

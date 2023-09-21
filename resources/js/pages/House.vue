@@ -1,4 +1,12 @@
 <template>
+  <inertia-head>
+    <title>Квартиры с отзывами по адресу {{ address }}</title>
+    <meta
+      name="description"
+      :content="metaDescription"
+    >
+  </inertia-head>
+
   <address-header :address="address" />
 
   <div class="relative m-2 mb-3 flex flex-1 flex-col">
@@ -38,6 +46,7 @@
 import ApartmentCard from '@/components/cards/RApartmentCard.vue';
 import AddressHeader from '@/shared/components/RAddressHeader.vue';
 import type { IApartment } from '@/types/review';
+import { computed } from 'vue';
 
 interface Props {
   apartments: {
@@ -46,5 +55,11 @@ interface Props {
   address: string;
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
+
+const metaDescription = computed(() => {
+  return props.apartments?.data?.length
+    ? `Количество квартир с отзывами по этому адресу: ${props.apartments?.data?.length}. Также у вас есть возможность оставить свой отзыв`
+    : 'Квартир с отзывами по этому адресу нет, однако вы можете оставить свой отзыв';
+});
 </script>
