@@ -1,7 +1,7 @@
 import '../css/app.css';
 
 import { createApp, h } from 'vue';
-import { createInertiaApp, Link, router } from '@inertiajs/vue3';
+import { createInertiaApp, Head, Link, router } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import DefaultLayout from './layouts/DefaultLayout.vue';
 
@@ -19,7 +19,7 @@ createInertiaApp({
   setup({ el, App, props, plugin }) {
     const VueApp = createApp({ render: () => h(App, props) });
 
-    VueApp.use(plugin).component('inertia-link', Link).mount(el);
+    VueApp.use(plugin).component('inertia-link', Link).component('inertia-head', Head).mount(el);
   },
   progress: {
     color: '#4B5563',

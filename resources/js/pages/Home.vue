@@ -1,4 +1,11 @@
 <template>
+  <inertia-head>
+    <title>Сервис отзывов на арендное жильё</title>
+    <meta
+      name="description"
+      content="На нашем сайте вы найдете оценки и комментарии на различные предложения аренды жилья, а также возможность оставить свой отзыв"
+    >
+  </inertia-head>
   <r-header
     search-placeholder="Найди квартиру в Гродно"
     redirect-path="house"

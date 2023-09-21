@@ -1,4 +1,13 @@
 <template>
+  <inertia-head>
+    <title>Сервис отзывов на арендное жильё</title>
+    <!--Yandex verification for webmaster site-->
+    <meta
+      name="yandex-verification"
+      content="e60bb5be6c0900d9"
+    />
+  </inertia-head>
+
   <main class="flex min-h-screen flex-col justify-between">
     <template v-if="showShimmer">
       <slot />
