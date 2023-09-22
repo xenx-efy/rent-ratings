@@ -1,5 +1,8 @@
 <template>
-  <address-header :address="address" />
+  <address-header
+    back-url="/"
+    :address="address"
+  />
 
   <div class="relative m-2 mb-3 flex flex-1 flex-col">
     <template v-if="apartments?.data?.length">

@@ -1,5 +1,8 @@
 <template>
-  <address-header :address="fullAddress" />
+  <address-header
+    :back-url="backUrl"
+    :address="fullAddress"
+  />
 
   <div class="relative m-2 flex flex-1 flex-col">
     <div class="flex flex-col items-center pb-4 pt-2">
@@ -58,7 +61,7 @@ const props = defineProps<Props>();
 
 const { openModal } = useModal();
 
-const isOpenModal = computed(() => {
+const isSuccess = computed(() => {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
 
@@ -66,9 +69,13 @@ const isOpenModal = computed(() => {
 });
 
 onMounted(() => {
-  if (isOpenModal.value) {
+  if (isSuccess.value) {
     openModal();
   }
+});
+
+const backUrl = computed(() => {
+  return isSuccess.value ? `/house?address=${props.address}` : '';
 });
 
 const fullAddress = computed(() => {
