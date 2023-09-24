@@ -1,6 +1,6 @@
 <template>
   <inertia-head>
-    <title>Сервис отзывов на арендное жильё</title>
+    <title head-key="title">Сервис отзывов на арендное жильё в Гродно - Rent Ratings</title>
     <!--Yandex verification for webmaster site-->
     <meta
       name="yandex-verification"

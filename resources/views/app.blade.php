@@ -10,7 +10,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
     <link rel="manifest" href="/site.webmanifest">
-    <title inertia>{{ config('app.name') }}</title>
+
+    {{--Для предотвращения отображения второго title в случае с ssr страницей. В данном случае это главная--}}
+    @if(!Request::is('/'))
+        <title inertia>{{ config('app.name') }}</title>
+    @endif
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=nunito-sans:800|roboto:400,500,700" rel="stylesheet" />
