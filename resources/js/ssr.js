@@ -1,4 +1,4 @@
-import { createInertiaApp, Link } from '@inertiajs/vue3';
+import { createInertiaApp, Head, Link } from '@inertiajs/vue3';
 import createServer from '@inertiajs/vue3/server';
 import { renderToString } from '@vue/server-renderer';
 import { createSSRApp, h } from 'vue';
@@ -21,6 +21,7 @@ createServer((page) =>
         render: () => h(App, props),
       })
         .component('inertia-link', Link)
+        .component('inertia-head', Head)
         .use(plugin);
     },
   }),
