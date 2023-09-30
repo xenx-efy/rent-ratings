@@ -2,9 +2,9 @@
   <header class="relative z-20 flex flex-col rounded-b-[24px] bg-blue-400 pb-4 drop-shadow-lg">
     <application-logo class="mx-auto mt-2 block" />
 
-    <h2 class="my-4 ml-7 text-white">
+    <h1 class="my-4 ml-7 text-xl text-white">
       <slot name="title" />
-    </h2>
+    </h1>
 
     <div class="relative mx-4 flex items-center justify-between rounded-[8px] bg-white">
       <search-icon

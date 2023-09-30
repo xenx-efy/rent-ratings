@@ -1,4 +1,12 @@
 <template>
+  <inertia-head>
+    <title>Отзывы на квартиру по адресу {{ fullAddress }}</title>
+    <meta
+      name="description"
+      :content="metaDescription"
+    >
+  </inertia-head>
+
   <address-header
     :back-url="backUrl"
     :address="fullAddress"
@@ -60,6 +68,10 @@ interface Props {
 const props = defineProps<Props>();
 
 const { openModal } = useModal();
+
+const metaDescription = computed(() => {
+  return `Количество отзывов на квартиру: ${props.apartment.reviewsCount}`;
+});
 
 const isSuccess = computed(() => {
   const queryString = window.location.search;

@@ -1,4 +1,12 @@
 <template>
+  <inertia-head>
+    <title>Найди квартиру в Гродно и напиши отзыв</title>
+    <meta
+      name="description"
+      content="Найди квартиру по адресу в Гродно и оставь на неё отзыв"
+    >
+  </inertia-head>
+
   <r-header
     search-placeholder="Введите адрес"
     redirect-path="create-review"
