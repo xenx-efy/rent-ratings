@@ -43,6 +43,7 @@ interface Props {
   address: string;
   enableSearch?: boolean;
   theme?: AddressHeaderTheme;
+  backUrl?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -74,6 +75,10 @@ const headerTextClass = computed(() => {
 });
 
 const goBack = () => {
+  if (props.backUrl) {
+    return router.visit(props.backUrl);
+  }
+
   // Check sessionStorage
   if (!sessionStorage.getItem('prev')) {
     // This page was navigated off-site

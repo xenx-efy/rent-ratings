@@ -5,7 +5,7 @@
     :theme="AddressHeaderTheme.Light"
   />
 
-  <div class="mx-4 my-8 mb-auto">
+  <div class="mx-4 my-8 mb-auto pb-10">
     <r-step-progress
       :step="currentStep"
       :steps-length="FROM_STEP.__LENGTH"
