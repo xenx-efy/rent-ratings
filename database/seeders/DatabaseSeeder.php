@@ -13,9 +13,16 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         if (App::environment('production')) {
-            $this->call(ProdDatabaseSeeder::class);
+            $this->call([
+                EvaluationCriteriaSeeder::class
+            ]);
         } else {
-            $this->call(DevDatabaseSeeder::class);
+            $this->call([
+                BuildingSeeder::class,
+                ApartmentSeeder::class,
+                ReviewSeeder::class,
+                EvaluationCriteriaSeeder::class
+            ]);
         }
     }
 }
