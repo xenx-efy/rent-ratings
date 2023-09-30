@@ -15,7 +15,7 @@ jobs:
           port: ${{ secrets.STAGING_PORT }}
           username: ${{ secrets.STAGING_USERNAME }}
           source: .scripts/deploy.sh
-          target: /var/www/rent-ratings/.scripts/deploy.sh
+          target: /var/www/rent-ratings/.scripts
           key: ${{ secrets.STAGING_SSHKEY }}
       - name: Deploy to server
         uses: appleboy/ssh-action@master
