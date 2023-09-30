@@ -1,4 +1,8 @@
-name: Deploy
+name: Deploy to staging
+on:
+  push:
+    branches:
+      - 'develop'
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -9,15 +13,15 @@ jobs:
         with:
           local: .scripts/deploy.sh
           remote: /var/www/html/.scripts/deploy.sh
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          port: ${{ secrets.PORT }}
-          privateKey: ${{ secrets.SSHKEY }}
+          host: ${{ secrets.STAGING_HOST }}
+          username: ${{ secrets.STAGING_USERNAME }}
+          port: ${{ secrets.STAGING_PORT }}
+          privateKey: ${{ secrets.STAGING_SSHKEY }}
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          port: ${{ secrets.PORT }}
-          key: ${{ secrets.SSHKEY }}
-          script: "cd /var/www/html && chmod +x .scripts/deploy.sh && ./.scripts/deploy.sh"
+          host: ${{ secrets.STAGING_HOST }}
+          username: ${{ secrets.STAGING_USERNAME }}
+          port: ${{ secrets.STAGING_PORT }}
+          key: ${{ secrets.STAGING_SSHKEY }}
+          script: "cd /var/www/rent-ratings && chmod +x .scripts/deploy.sh && ./.scripts/deploy.sh"
