@@ -13,7 +13,7 @@
       :class="{ 'text-white': isBlueTheme, 'bg-blue-400': isBlueTheme }"
     >
       <template v-if="title">
-        <renderTitle :level="titleLevel" />
+        <renderTitle />
       </template>
 
       <template v-if="description">
