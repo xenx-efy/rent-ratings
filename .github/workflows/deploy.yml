@@ -15,7 +15,7 @@ jobs:
           port: ${{ secrets.STAGING_PORT }}
           username: ${{ secrets.STAGING_USERNAME }}
           source: ".scripts/deploy.sh"
-          target: /var/www/rent-ratings/.scripts
+          target: /var/www/rent-ratings/.scripts/
           key: ${{ secrets.STAGING_SSHKEY }}
           overwrite: true
       - name: Deploy to server
