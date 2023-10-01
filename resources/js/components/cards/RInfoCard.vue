@@ -13,9 +13,9 @@
       :class="{ 'text-white': isBlueTheme, 'bg-blue-400': isBlueTheme }"
     >
       <template v-if="title">
-        <h3 class="text-xl">
+        <r-heading :level="titleLevel">
           {{ title }}
-        </h3>
+        </r-heading>
       </template>
 
       <template v-if="description">
@@ -49,15 +49,18 @@ interface Props {
   description: string;
   button?: string;
   theme?: InfoCardTheme;
+  titleLevel: number;
 }
 </script>
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import RHeading from '@/shared/ui/RHeading.vue';
 
 const props = withDefaults(defineProps<Props>(), {
   theme: InfoCardTheme.default,
   button: '',
+  titleLevel: 2,
 });
 
 const emits = defineEmits(['click']);
