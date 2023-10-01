@@ -17,7 +17,7 @@ git checkout staging
 git stash
 
 # Выгрузка последней версии приложения из ветки develop
-git pull origin develop
+git pull origin staging
 
 # Установка зависимостей composer
 composer install --no-interaction --prefer-dist --optimize-autoloader
