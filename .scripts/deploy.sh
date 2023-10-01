@@ -29,6 +29,10 @@ php artisan optimize
 # Run database migrations
 php artisan migrate --force
 
+whoami
+
+which npm
+
 npm install
 
 npm run build
