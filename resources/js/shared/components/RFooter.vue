@@ -1,16 +1,16 @@
 <template>
   <footer class="flex flex-col items-center bg-blue-400 px-5 py-6">
     <div class="flex items-center justify-center">
-      <mail-icon class="mr-2" />
+      <mail-icon class="mr-2 mt-1" />
       <a
         class="text-white underline"
-        href="mailto:xenx.efy@gmail.com"
+        href="mailto:xenx.efy@yandex.by"
       >
-        xenx.efy@gmail.com
+        xenx.efy@yandex.by
       </a>
     </div>
     <p class="mt-1 text-base leading-none text-white">
-      © 2023, rent-ratings
+      ❤️&nbsp;2023
     </p>
   </footer>
 </template>
