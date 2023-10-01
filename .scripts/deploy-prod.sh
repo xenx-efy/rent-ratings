@@ -11,6 +11,9 @@ eval `ssh-agent -s`
 # Добавления приватного ключа для подключения к github
 ssh-add ~/.ssh/github-actions
 
+# Обновление данных git
+git fetch
+
 # Сброс всех изменений в гите, чтобы ничего не конфликтовало
 git stash
 
