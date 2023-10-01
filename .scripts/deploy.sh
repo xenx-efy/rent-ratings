@@ -29,9 +29,8 @@ php artisan optimize
 # Run database migrations
 php artisan migrate --force
 
-whoami
-
-which npm
+export NVM_DIR=~/.nvm
+source ~/.nvm/nvm.sh
 
 npm install
 
