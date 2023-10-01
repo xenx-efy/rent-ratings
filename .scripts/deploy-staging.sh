@@ -11,10 +11,10 @@ eval `ssh-agent -s`
 # Добавления приватного ключа для подключения к github
 ssh-add ~/.ssh/github-actions
 
-git checkout staging
-
 # Сброс всех изменений в гите, чтобы ничего не конфликтовало
 git stash
+
+git checkout staging
 
 # Выгрузка последней версии приложения из ветки develop
 git pull origin staging
