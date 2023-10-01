@@ -2,19 +2,19 @@ name: Deploy to staging
 on:
   push:
     branches:
-      - 'staging'
+      - 'production'
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Copy deploy.sh file
+      - name: Copy deploy-prod.sh file
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.STAGING_HOST }}
           port: ${{ secrets.STAGING_PORT }}
           username: ${{ secrets.STAGING_USERNAME }}
-          source: ".scripts/deploy.sh"
+          source: ".scripts/deploy-prod.sh"
           target: /var/www/rent-ratings/
           key: ${{ secrets.STAGING_SSHKEY }}
           overwrite: true
@@ -25,4 +25,4 @@ jobs:
           username: ${{ secrets.STAGING_USERNAME }}
           port: ${{ secrets.STAGING_PORT }}
           key: ${{ secrets.STAGING_SSHKEY }}
-          script: "cd /var/www/rent-ratings && chmod +x .scripts/deploy.sh && ./.scripts/deploy.sh"
+          script: "cd /var/www/rent-ratings && chmod +x .scripts/deploy-prod.sh && ./.scripts/deploy-prod.sh"
