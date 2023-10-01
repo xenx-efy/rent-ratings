@@ -40,7 +40,7 @@ php artisan view:cache
 php artisan optimize
 
 # Run database migrations
-php artisan migrate --force
+php artisan migrate --seeder=EvaluationCriteriaSeeder --force
 
 # Подвказка расположения npm
 export NVM_DIR=~/.nvm
