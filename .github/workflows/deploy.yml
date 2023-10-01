@@ -17,6 +17,7 @@ jobs:
           source: ".scripts/deploy.sh"
           target: /var/www/rent-ratings/.scripts
           key: ${{ secrets.STAGING_SSHKEY }}
+          overwrite: true
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
