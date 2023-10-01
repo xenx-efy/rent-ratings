@@ -11,10 +11,10 @@ eval `ssh-agent -s`
 # Добавления приватного ключа для подключения к github
 ssh-add ~/.ssh/github-actions
 
-git checkout production
-
 # Сброс всех изменений в гите, чтобы ничего не конфликтовало
 git stash
+
+git checkout production
 
 # Выгрузка последней версии приложения из ветки develop
 git pull origin production
