@@ -7,6 +7,9 @@ echo "Deployment started ..."
 # if already is in maintenance mode
 (php artisan down) || true
 
+eval `ssh-agent -s`
+ssh-add ~/.ssh/github-actions
+
 git stash
 
 # Pull the latest version of the app
