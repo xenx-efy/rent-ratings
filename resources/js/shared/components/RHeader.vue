@@ -2,7 +2,7 @@
   <header class="relative z-20 flex flex-col rounded-b-[24px] bg-blue-400 pb-4 drop-shadow-lg">
     <application-logo class="mx-auto mt-2 block" />
 
-    <h1 class="my-4 ml-7 text-xl text-white">
+    <h1 class="my-4 ml-4 text-xl text-white">
       <slot name="title" />
     </h1>
 

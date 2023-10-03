@@ -1,0 +1,14 @@
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://rent-ratings.by/</loc>
+        <priority>1.0</priority>
+        <changefreq>never</changefreq>
+        <lastmod>2023-10-03</lastmod>
+    </url>
+    <url>
+        <loc>https://rent-ratings.by/address-search</loc>
+        <priority>0.8</priority>
+        <changefreq>never</changefreq>
+        <lastmod>2023-10-03</lastmod>
+    </url>
+</urlset>
