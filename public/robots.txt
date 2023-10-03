@@ -2,3 +2,4 @@ Sitemap: https://rent-ratings.by/sitemap.xml
 User-agent: *
 Allow: https://rent-ratings.by
 Allow: https://rent-ratings.by/address-search
+Host: rent-ratings.by
