@@ -8,18 +8,28 @@
     />
   </header>
 
-  <div class="m-auto flex px-10">
-    <mobile-tuch-icon />
-    <div class="ml-7 flex flex-col justify-between">
-      <h1 class="text-3xl">
-        Сервис доступен только в мобильной версии
-      </h1>
-      <h4>Откройте на мобильном устройстве</h4>
+  <div class="m-auto px-10">
+    <div class="m-auto flex">
+      <!--      <mobile-tuch-icon />-->
+
+      <div class="ml-7 flex flex-col justify-between">
+        <h1 class="text-center text-3xl">
+          Сервис доступен только в мобильной версии
+        </h1>
+        <h4 class="text-center">
+          Откройте на мобильном устройстве
+        </h4>
+      </div>
     </div>
+
+    <img
+      class="mx-auto w-56"
+      src="../../images/shared/cat-with-phone.webp"
+      alt="Кот держит в лапках телефон"
+    >
   </div>
 </template>
 
 <script setup>
 import ApplicationLogo from '@/shared/icon/ApplicationLogo.vue';
-import MobileTuchIcon from '@/shared/icon/MobileTuchIcon.vue';
 </script>
