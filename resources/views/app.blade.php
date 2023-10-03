@@ -30,6 +30,15 @@
 
             gtag('config', 'G-4M788TTTTE');
         </script>
+
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Сервис отзывов на арендное жильё в Гродно - Rent Ratings">
+        <meta property="og:description"
+              content="Просматривайте отзывы на квартиры или другое арендное жильё. Делитесь своим опытом проживания в нём. Rent Ratings помогает не ошибиться при выборе жилья.">
+        <meta property="og:url" content="https://rent-ratings.by">
+        <meta property="og:image" content="https://rent-ratings/by/og-image.webp">
+        <meta property="og:site_name" content="Rent Ratings">
+        <meta property="og:locale" content="ru_RU">
     @endif
 
     {{--Для предотвращения отображения второго title в случае с ssr страницей. В данном случае это главная--}}
