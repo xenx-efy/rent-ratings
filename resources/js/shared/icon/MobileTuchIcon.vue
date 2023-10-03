@@ -21,10 +21,7 @@
       />
     </mask>
     <g mask="url(#b)">
-      <path
-        fill="#5786FF"
-        d="M0 0h81v81H0z"
-      />
+      <path d="M0 0h81v81H0z" />
     </g>
     <defs>
       <pattern
@@ -58,6 +55,6 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   width: 81,
   height: 81,
-  color: 'fill-blue-400',
+  color: 'fill-blue-950',
 });
 </script>
