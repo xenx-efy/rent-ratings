@@ -9,7 +9,7 @@
     >
   </inertia-head>
   <r-header
-    search-placeholder="Введи адрес квартиры"
+    search-placeholder="Введите адрес квартиры"
     redirect-path="house"
   >
     <template #title>
