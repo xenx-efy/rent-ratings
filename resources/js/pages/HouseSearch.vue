@@ -1,18 +1,18 @@
 <template>
   <inertia-head>
-    <title>Найди квартиру в Гродно и напиши отзыв</title>
+    <title>Написать отзыв</title>
     <meta
       name="description"
-      content="Найди квартиру по адресу в Гродно и оставь на неё отзыв"
+      content="Поделись опытом проживания в арендном жилье"
     >
   </inertia-head>
 
   <r-header
-    search-placeholder="Введите адрес"
+    search-placeholder="Введите адрес квартиры"
     redirect-path="create-review"
   >
     <template #title>
-      Посмотри отзывы на интересующую квартиру
+      Напишите отзыв на квартиру
     </template>
   </r-header>
 
