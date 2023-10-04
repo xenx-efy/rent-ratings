@@ -37,7 +37,7 @@
     <meta property="og:description"
           content="Просматривайте отзывы на квартиры или другое арендное жильё. Делитесь своим опытом проживания в нём. Rent Ratings помогает не ошибиться при выборе жилья.">
     <meta property="og:url" content="https://rent-ratings.by">
-    <meta property="og:image" content="https://rent-ratings/by/og-image.webp">
+    <meta property="og:image" content="https://rent-ratings.by/og-image.webp">
     <meta property="og:site_name" content="Rent Ratings">
     <meta property="og:locale" content="ru_RU">
 
