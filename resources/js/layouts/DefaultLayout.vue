@@ -1,11 +1,6 @@
 <template>
   <inertia-head>
     <title head-key="title">Сервис отзывов на арендное жильё в Гродно - Rent Ratings</title>
-    <!--Yandex verification for webmaster site-->
-    <meta
-      name="yandex-verification"
-      content="e60bb5be6c0900d9"
-    />
   </inertia-head>
 
   <main class="flex min-h-screen flex-col justify-between">
