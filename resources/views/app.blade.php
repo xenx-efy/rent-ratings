@@ -48,7 +48,8 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=nunito-sans:800|roboto:400,500,700" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=nunito-sans:800|roboto:400,500,700&display=swap"
+          rel="stylesheet" />
     <!-- Scripts -->
     @vite(['resources/js/app.js', "resources/js/pages/{$page['component']}.vue"])
     @inertiaHead
