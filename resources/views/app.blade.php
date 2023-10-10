@@ -16,22 +16,6 @@
         <meta name="robots" content="noindex">
     @endif
 
-    @if(App::environment('production'))
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4M788TTTTE"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-
-            gtag('js', new Date());
-
-            gtag('config', 'G-4M788TTTTE');
-        </script>
-    @endif
-
     <meta property="og:type" content="website">
     <meta property="og:title" content="Сервис отзывов на арендное жильё в Гродно - Rent Ratings">
     <meta property="og:description"
@@ -53,6 +37,22 @@
     <!-- Scripts -->
     @vite(['resources/js/app.js', "resources/js/pages/{$page['component']}.vue"])
     @inertiaHead
+
+        @if(App::environment('production'))
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4M788TTTTE"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+
+            gtag('config', 'G-4M788TTTTE');
+        </script>
+    @endif
 </head>
 <body class="font-sans antialiased">
 @inertia
