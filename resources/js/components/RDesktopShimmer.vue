@@ -10,8 +10,6 @@
 
   <div class="m-auto px-10">
     <div class="m-auto flex">
-      <!--      <mobile-tuch-icon />-->
-
       <div class="ml-7 flex flex-col justify-between">
         <h1 class="text-center text-3xl">
           Сервис доступен только в мобильной версии
