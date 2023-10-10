@@ -1,6 +1,11 @@
 <template>
   <inertia-head>
     <title head-key="title">Сервис отзывов на арендное жильё в Гродно - Rent Ratings</title>
+    <meta
+      head-key="description"
+      name="description"
+      content="Просматривайте отзывы на квартиры или другое арендное жильё. Делитесь своим опытом проживания в нём. Rent Ratings помогает не ошибиться при выборе жилья."
+    />
   </inertia-head>
 
   <main class="flex min-h-screen flex-col justify-between">
