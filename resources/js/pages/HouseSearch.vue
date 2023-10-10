@@ -2,6 +2,7 @@
   <inertia-head>
     <title>Написать отзыв</title>
     <meta
+      head-key="description"
       name="description"
       content="Поделись опытом проживания в арендном жилье"
     >

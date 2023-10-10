@@ -2,6 +2,7 @@
   <inertia-head>
     <title>Квартиры с отзывами по адресу {{ address }}</title>
     <meta
+      head-key="description"
       name="description"
       :content="metaDescription"
     >
