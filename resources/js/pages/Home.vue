@@ -8,7 +8,15 @@
       name="description"
       content="Просматривайте отзывы на квартиры или другое арендное жильё. Делитесь своим опытом проживания в нём. Rent Ratings помогает не ошибиться при выборе жилья."
     >
+
+    <!--Чтобы гугл индексировал именно эту страницу, так как на ней есть канонический тег-->
+    <link
+      v-if="host === 'rent-ratings.by'"
+      rel="canonical"
+      href="https://rent-ratings.by"
+    >
   </inertia-head>
+
   <r-header
     search-placeholder="Введите адрес квартиры"
     redirect-path="house"
@@ -93,6 +101,8 @@ const aboutCardArray = [
     theme: InfoCardTheme.default,
   },
 ];
+
+defineProps<{ host: string }>();
 
 const openAddressSearch = () => {
   router.visit('/address-search');

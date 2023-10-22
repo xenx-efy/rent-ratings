@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', static function () {
-    return Inertia::render('Home');
+    return Inertia::render('Home', ['host' => request()->host()]);
 })->name('home');
 
 Route::post('/house', [HousePageController::class, 'post']);
