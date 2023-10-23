@@ -47,10 +47,6 @@ php artisan optimize
 # Run database migrations
 php artisan migrate --force
 
-# Подвказка расположения npm
-export NVM_DIR=~/.nvm
-source ~/.nvm/nvm.sh
-
 npm install
 
 npm run build
