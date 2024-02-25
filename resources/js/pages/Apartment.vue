@@ -5,7 +5,7 @@
       head-key="description"
       name="description"
       :content="metaDescription"
-    >
+    />
   </inertia-head>
 
   <address-header
@@ -20,7 +20,6 @@
         :count="apartment.reviewsCount"
       />
     </div>
-
     <inertia-link
       class="btn-blue w-3/4 self-center bg-blue-400 text-white"
       :href="'/create-review?address=' + address"
@@ -28,9 +27,7 @@
       Оставить отзыв
     </inertia-link>
 
-    <p class="mt-5 pl-5 text-xl font-bold">
-      Отзывы
-    </p>
+    <p class="mt-5 pl-5 text-xl font-bold">Отзывы</p>
 
     <div class="mb-10 flex flex-col space-y-1.5">
       <div

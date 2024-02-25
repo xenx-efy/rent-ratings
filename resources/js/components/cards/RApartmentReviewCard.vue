@@ -55,6 +55,7 @@
     </div>
   </div>
 </template>
+
 <script setup lang="ts">
 import RRating from '@/shared/ui/RRating.vue';
 import { computed, ref } from 'vue';

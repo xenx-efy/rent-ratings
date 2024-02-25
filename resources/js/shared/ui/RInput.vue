@@ -5,29 +5,28 @@
     </template>
 
     <template v-if="required">
-      <span class="text-red-600">&nbsp;*</span>
+      <span class="text-red-600"> *</span>
     </template>
 
     <input
-      v-model="value"
+      v-model="showValue"
       class="w-full rounded-lg border border-gray-400 px-4 py-2.5 placeholder:text-gray-400"
       min="1"
-      :type="type"
-      :placeholder="placeholder"
-      :inputmode="inputmode"
-      :minlength="minlength"
-      :maxlength="maxlength"
-      @input="filterValue"
-    >
+      :type
+      :placeholder
+      :inputmode
+      :minlength
+      :maxlength
+      @input="handleChange"
+    />
   </label>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue';
+import { ref } from 'vue';
 
 interface Props {
   type?: 'email' | 'number' | 'password' | 'tel' | 'text' | 'url';
-  modelValue: string | number | null;
   label?: string;
   required?: boolean;
   placeholder?: string;
@@ -46,33 +45,25 @@ const props = withDefaults(defineProps<Props>(), {
   maxlength: null,
 });
 
-const emits = defineEmits(['update:modelValue']);
+const model = defineModel<string | number | null>({
+  set(value) {
+    value = value.toString();
 
-const value = ref<string | number>('');
+    if (props.type === 'number') {
+      value = value?.replace(/\D/g, '');
+    }
 
-onMounted(() => {
-  value.value = props.modelValue;
+    if (props.maxlength !== null) {
+      value = value?.slice(0, Number(props.maxlength));
+    }
+    showValue.value = value;
+    return value;
+  },
 });
 
-const filterValue = (event) => {
-  let newValue = event.target.value;
+const showValue = ref('');
 
-  if (props.type === 'number') {
-    newValue = newValue.replace(/\D/g, '');
-  }
-
-  if (props.maxlength !== null) {
-    newValue = newValue.slice(0, props.maxlength);
-  }
-
-  value.value = newValue;
-  emits('update:modelValue', newValue);
+const handleChange = (e) => {
+  model.value = e.target.value;
 };
-
-watch(
-  () => props.modelValue,
-  (newValue) => {
-    value.value = newValue;
-  },
-);
 </script>

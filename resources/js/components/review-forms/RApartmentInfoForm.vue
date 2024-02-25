@@ -8,7 +8,7 @@
     inputmode="numeric"
     maxlength="3"
   />
-
+ 
   <r-input
     v-model="ReviewFormsData[stepName].floor"
     label="Этаж"

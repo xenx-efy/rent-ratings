@@ -47,7 +47,7 @@ interface Props {
   description: string;
   button?: string;
   theme?: InfoCardTheme;
-  titleLevel: number;
+  titleLevel?: number;
 }
 </script>
 

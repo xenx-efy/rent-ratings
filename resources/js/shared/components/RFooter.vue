@@ -10,7 +10,7 @@
       </a>
     </div>
     <p class="mt-1 text-base leading-none text-white">
-      ❤️&nbsp;2023
+      &#169; 2024, Rent-Ratings
     </p>
   </footer>
 </template>
