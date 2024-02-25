@@ -9,7 +9,7 @@
     </template>
 
     <input
-      v-model="showValue"
+      v-model="model"
       class="w-full rounded-lg border border-gray-400 px-4 py-2.5 placeholder:text-gray-400"
       min="1"
       :type
@@ -23,16 +23,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-
 interface Props {
   type?: 'email' | 'number' | 'password' | 'tel' | 'text' | 'url';
   label?: string;
   required?: boolean;
   placeholder?: string;
   inputmode?: 'none' | 'text' | 'numeric' | 'tel' | 'email' | 'url';
-  minlength?: number | string | null;
-  maxlength?: number | string | null;
+  minlength?: number | null;
+  maxlength?: number | null;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -46,24 +44,20 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const model = defineModel<string | number | null>({
-  set(value) {
-    value = value.toString();
-
-    if (props.type === 'number') {
-      value = value?.replace(/\D/g, '');
-    }
-
-    if (props.maxlength !== null) {
-      value = value?.slice(0, Number(props.maxlength));
-    }
-    showValue.value = value;
-    return value;
-  },
+  required: true,
 });
 
-const showValue = ref('');
-
 const handleChange = (e) => {
-  model.value = e.target.value;
+  let inputValue = e.target.value;
+
+  if (props.type === 'number') {
+    inputValue = inputValue?.replace(/\D/g, '');
+  }
+
+  if (props.maxlength !== null && inputValue.length > props.maxlength) {
+    model.value = inputValue.slice(0, Number(props.maxlength));
+  } else {
+    model.value = inputValue;
+  }
 };
 </script>

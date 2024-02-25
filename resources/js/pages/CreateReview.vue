@@ -6,18 +6,19 @@
   />
 
   <div class="mx-4 my-8 mb-auto pb-10">
+    <template v-if="steps.title">
+      <p class="mb-5 text-center text-2xl font-medium">
+        {{ steps.title }}
+      </p>
+    </template>
+
     <r-step-progress
+      class="mb-10"
       :step="currentStep"
       :steps-length="FROM_STEP.__LENGTH"
     />
 
     <div class="mb-8 mt-4 flex flex-col gap-4">
-      <template v-if="steps.title">
-        <p class="text-center text-2xl font-medium">
-          {{ steps.title }}
-        </p>
-      </template>
-
       <template v-if="steps.subtitle">
         <p class="text-center">
           {{ steps.subtitle }}
