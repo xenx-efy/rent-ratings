@@ -76,7 +76,10 @@ export const submitForm = (houseId: number) => {
       formData[INFO] = initFormData[INFO];
       formData[REVIEW] = initFormData[REVIEW];
       formData[ESTIMATION] = initFormData[ESTIMATION];
+    },
+    onFinish: () => {
       localStorage.clear();
+      localStorage.setItem('success', 'true');
     },
   });
 };
