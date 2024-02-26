@@ -45,22 +45,23 @@ const props = withDefaults(defineProps<Props>(), {
   canSelect: false,
 });
 
-const model = defineModel<number>({ required: true });
+const model = defineModel<number | string>({ required: true });
 
 const getWidth = (star: number): string => {
-  const value = Number(model.value);
+  const numValue = Number(model.value);
+  const strValue = String(model.value)
 
-  if (star <= value) {
+  if (star <= numValue) {
     return '100%';
   }
 
-  if (value + 1 > star) {
-    const fraction = Number(model.value.split('.')[1]);
+  if (numValue + 1 > star) {
+    const fraction = Number(strValue.split('.')[1]);
     const fullness = fraction * 10;
     return fullness + '%';
   }
 
-  if (star > value) {
+  if (star > numValue) {
     return '0%';
   }
 };
