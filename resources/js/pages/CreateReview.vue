@@ -83,13 +83,13 @@ const { INFO, REVIEW, ESTIMATION } = FROM_STEP;
 
 const currentStep = ref<FROM_STEP>(INFO);
 
-interface Props {
+export interface CreateReviewPageProps {
   houseId?: number;
   address: string;
   evaluationCriteria: IEvaluationCriteria[];
 }
-
-const props = defineProps<Props>();
+ 
+const props = defineProps<CreateReviewPageProps>();
 
 const fullAddress = computed(() => {
   const apartmentNumber = ReviewFormsData[INFO]?.apartmentNumber;

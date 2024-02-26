@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col rounded-2xl border border-gray-300 p-[5px] px-4 py-3.5">
-    <p class="font-sans text-2xl font-medium leading-none">
+    <p class="break-words font-sans text-2xl font-medium leading-none">
       {{ title }}
     </p>
 
@@ -11,35 +11,22 @@
 
     <div class="w-full border-t border-gray-300" />
 
-    <p class="mt-2.5 font-medium leading-none">
-      Плюсы
-    </p>
-    <p
-      class="mt-1 text-sm"
-      :class="{ 'line-clamp-2': !expanded }"
+    <article
+      v-for="review in reviews"
+      :key="review.title"
     >
-      {{ pros }}
-    </p>
-
-    <p class="mt-2.5 font-medium leading-none">
-      Минусы
-    </p>
-    <p
-      class="mt-1 text-sm"
-      :class="{ 'line-clamp-2': !expanded }"
-    >
-      {{ cons }}
-    </p>
-
-    <p class="mt-2.5 font-medium leading-none">
-      Совет владельцу
-    </p>
-    <p
-      class="mt-1 text-sm"
-      :class="{ 'line-clamp-2': !expanded }"
-    >
-      {{ adviceToOwner }}
-    </p>
+      <p
+        class="mt-2.5 font-medium leading-none"
+      >
+        {{ review.title }}
+      </p>
+      <p
+        class="mt-1 break-words text-sm"
+        :class="{ 'line-clamp-2': !expanded }"
+      >
+        {{ review.text }}
+      </p>
+    </article>
 
     <div class="mt-2.5 flex justify-between">
       <p class="text-sm opacity-75">
@@ -71,4 +58,19 @@ const isNeedCollapse = computed(() => {
   }
   return false;
 });
+
+const reviews = [
+  {
+    title: 'Плюсы',
+    text: props.pros,
+  },
+  {
+    title: 'Минусы',
+    text: props.cons,
+  },
+  {
+    title: 'Совет владельцу',
+    text: props.adviceToOwner,
+  },
+]
 </script>

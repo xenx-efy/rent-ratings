@@ -8,7 +8,7 @@
       </div>
 
       <div class="ml-4 flex flex-col">
-        <r-rating
+        <r-rating 
           :model-value="rating"
           :count="reviewsCount"
         />
@@ -16,7 +16,7 @@
         <p class="mt-2 block leading-none">
           Этаж: {{ floor }}
         </p>
-        
+
         <p class="mt-2 block leading-none">
           Кол-во комнат: {{ roomsAmount }}
         </p>

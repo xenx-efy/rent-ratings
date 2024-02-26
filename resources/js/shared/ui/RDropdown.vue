@@ -48,11 +48,11 @@ const props = withDefaults(defineProps<Props>(), {
   placeholder: '',
 });
 
-const model = defineModel<string>({ required: true});
+const model = defineModel<string>({ required: true });
 
 const emits = defineEmits(['select']);
 
-const selected = ref<any>({});
+const selected = ref({});
 const optionsShown = ref(false);
 const optionList = ref(null);
 const dropdownInput = ref(null);
