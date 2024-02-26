@@ -45,24 +45,28 @@ const props = withDefaults(defineProps<Props>(), {
   canSelect: false,
 });
 
-const model = defineModel<string | number>({ required: true})
+const model = defineModel<number>({ required: true });
 
 const getWidth = (star: number): string => {
-  const value = Number(model.value)
-  const fractionalPart = +(value % 1).toFixed(2);
+  const value = Number(model.value);
 
   if (star <= value) {
     return '100%';
-  } else if (+(star - value).toFixed(2) > 1 - fractionalPart) {
+  }
+
+  if (value + 1 > star) {
+    const fraction = Number(model.value.split('.')[1]);
+    const fullness = fraction * 10;
+    return fullness + '%';
+  }
+
+  if (star > value) {
     return '0%';
-  } else {
-    const residue = fractionalPart * 100;
-    return `${residue}%`;
   }
 };
 
 const setRating = (rating: number) => {
   if (!props.canSelect) return;
-  model.value = rating
+  model.value = rating;
 };
 </script>
