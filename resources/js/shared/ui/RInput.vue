@@ -18,7 +18,7 @@
       :minlength
       :maxlength
       @input="handleChange"
-    />
+    >
   </label>
 </template>
 

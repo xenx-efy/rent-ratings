@@ -5,7 +5,7 @@
       head-key="description"
       name="description"
       :content="metaDescription"
-    />
+    >
   </inertia-head>
 
   <address-header
@@ -27,12 +27,14 @@
       Оставить отзыв
     </inertia-link>
 
-    <p class="mt-5 pl-5 text-xl font-bold">Отзывы</p>
+    <p class="mt-5 pl-5 text-xl font-bold">
+      Отзывы
+    </p>
 
     <div class="mb-10 flex flex-col space-y-1.5">
       <div
         v-for="r in reviews.data"
-        :key="r.id"
+        :key="r.title"
       >
         <apartment-review-card
           :title="r.title"

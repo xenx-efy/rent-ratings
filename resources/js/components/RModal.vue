@@ -4,7 +4,7 @@
     v-if="openState"
     class="fixed inset-x-0 top-0 z-30 h-[calc(100%)] max-h-full overflow-y-auto overflow-x-hidden"
   >
-    <!--  Background  -->
+    <!--  Backdrop  -->
     <div
       class="fixed size-full bg-black/40 backdrop-blur"
       @click="closeModal"

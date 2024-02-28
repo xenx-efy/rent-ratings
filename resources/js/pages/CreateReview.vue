@@ -88,8 +88,22 @@ export interface CreateReviewPageProps {
   address: string;
   evaluationCriteria: IEvaluationCriteria[];
 }
- 
+
 const props = defineProps<CreateReviewPageProps>();
+
+provide('evaluationCriteria', props.evaluationCriteria);
+
+onMounted(() => getReviewFormsDataFromLocalstorage(props));
+
+const handleNextPage = () => {
+  handleSetReviewPage(currentStep.value);
+  currentStep.value += 1;
+};
+
+const handleSubmitForm = () => {
+  handleSetReviewPage(currentStep.value);
+  submitForm(props.houseId);
+};
 
 const fullAddress = computed(() => {
   const apartmentNumber = ReviewFormsData[INFO]?.apartmentNumber;
@@ -100,18 +114,10 @@ const fullAddress = computed(() => {
   return props.address;
 });
 
-provide('evaluationCriteria', props.evaluationCriteria);
-
-onMounted(() => getReviewFormsDataFromLocalstorage(props));
 
 const disabledNextBtn = computed(() => {
   return !Object.values(ReviewFormsData[currentStep.value]).every(Boolean);
 });
-
-const handleNextPage = () => {
-  handleSetReviewPage(currentStep.value);
-  currentStep.value += 1;
-};
 
 const steps = computed(() => {
   return {
@@ -132,9 +138,4 @@ const steps = computed(() => {
     },
   }[currentStep.value];
 });
-
-const handleSubmitForm = () => {
-  handleSetReviewPage(currentStep.value);
-  submitForm(props.houseId);
-};
 </script>

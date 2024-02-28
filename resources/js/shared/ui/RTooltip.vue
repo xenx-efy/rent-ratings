@@ -19,7 +19,7 @@ import { ref } from 'vue';
 
 const hidden = ref(true);
 
-interface Props {
+interface Props { 
   tooltip: string;
 }
 
