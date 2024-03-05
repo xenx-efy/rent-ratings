@@ -1,6 +1,7 @@
 import { reactive } from 'vue';
 import { FROM_STEP } from '@/types/enums';
 import { router } from '@inertiajs/vue3';
+import type { CreateReviewPageProps } from '@/pages/CreateReview.vue';
 
 const { INFO, ESTIMATION, REVIEW } = FROM_STEP;
 
@@ -55,7 +56,7 @@ export const submitForm = (houseId: number) => {
 
   const evaluationCriteriaItems = Object.entries(formData[ESTIMATION]).map(([key, value]) => {
     return {
-      id: +key,
+      id: +key, 
       rating: value,
     };
   });
@@ -76,12 +77,15 @@ export const submitForm = (houseId: number) => {
       formData[INFO] = initFormData[INFO];
       formData[REVIEW] = initFormData[REVIEW];
       formData[ESTIMATION] = initFormData[ESTIMATION];
+    },
+    onFinish: () => {
       localStorage.clear();
+      localStorage.setItem('success', 'true');
     },
   });
 };
 
-export const getReviewFormsDataFromLocalstorage = (props?: any) => {
+export const getReviewFormsDataFromLocalstorage = (props?: CreateReviewPageProps) => {
   const cleanTimer = localStorage.getItem('cleanTimer');
   if (+new Date() >= parseInt(cleanTimer)) {
     localStorage.clear();

@@ -6,18 +6,19 @@
   />
 
   <div class="mx-4 my-8 mb-auto pb-10">
+    <template v-if="steps.title">
+      <p class="mb-5 text-center text-2xl font-medium">
+        {{ steps.title }}
+      </p>
+    </template>
+
     <r-step-progress
+      class="mb-10"
       :step="currentStep"
       :steps-length="FROM_STEP.__LENGTH"
     />
 
     <div class="mb-8 mt-4 flex flex-col gap-4">
-      <template v-if="steps.title">
-        <p class="text-center text-2xl font-medium">
-          {{ steps.title }}
-        </p>
-      </template>
-
       <template v-if="steps.subtitle">
         <p class="text-center">
           {{ steps.subtitle }}
@@ -82,13 +83,27 @@ const { INFO, REVIEW, ESTIMATION } = FROM_STEP;
 
 const currentStep = ref<FROM_STEP>(INFO);
 
-interface Props {
+export interface CreateReviewPageProps {
   houseId?: number;
   address: string;
   evaluationCriteria: IEvaluationCriteria[];
 }
 
-const props = defineProps<Props>();
+const props = defineProps<CreateReviewPageProps>();
+
+provide('evaluationCriteria', props.evaluationCriteria);
+
+onMounted(() => getReviewFormsDataFromLocalstorage(props));
+
+const handleNextPage = () => {
+  handleSetReviewPage(currentStep.value);
+  currentStep.value += 1;
+};
+
+const handleSubmitForm = () => {
+  handleSetReviewPage(currentStep.value);
+  submitForm(props.houseId);
+};
 
 const fullAddress = computed(() => {
   const apartmentNumber = ReviewFormsData[INFO]?.apartmentNumber;
@@ -99,18 +114,10 @@ const fullAddress = computed(() => {
   return props.address;
 });
 
-provide('evaluationCriteria', props.evaluationCriteria);
-
-onMounted(() => getReviewFormsDataFromLocalstorage(props));
 
 const disabledNextBtn = computed(() => {
   return !Object.values(ReviewFormsData[currentStep.value]).every(Boolean);
 });
-
-const handleNextPage = () => {
-  handleSetReviewPage(currentStep.value);
-  currentStep.value += 1;
-};
 
 const steps = computed(() => {
   return {
@@ -131,9 +138,4 @@ const steps = computed(() => {
     },
   }[currentStep.value];
 });
-
-const handleSubmitForm = () => {
-  handleSetReviewPage(currentStep.value);
-  submitForm(props.houseId);
-};
 </script>

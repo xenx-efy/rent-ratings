@@ -39,7 +39,6 @@
       title="Найди квартиру по адресу"
       :img="MapImage"
       description="Введитe адрес дома, найдите интересующую квартиру и посмотрите отзывы на неё. Если отзывов нет, вы можете написать его 😉"
-      :theme="InfoCardTheme.default"
     />
   </section>
 
@@ -47,7 +46,7 @@
     title="Напиши анонимный отзыв о жилье"
     :img="PhoneImage"
     description="Найди квартиру по адресу и анонимно поделись своими впечатлениями о проживании в ней."
-    :theme="InfoCardTheme.blue"
+    theme="blue"
     button="Оставить отзыв"
     @click="openAddressSearch"
   />
@@ -77,7 +76,7 @@ import WoodHouseSImage from '../../images/home/wood-houses.webp';
 import WallWithPaintImage from '../../images/home/wall-with-paint.webp';
 import PhoneImage from '../../images/home/phone.webp';
 import MapImage from '../../images/home/map.webp';
-import RInfoCard, { InfoCardTheme } from '@/components/cards/RInfoCard.vue';
+import RInfoCard from '@/components/cards/RInfoCard.vue';
 import { router } from '@inertiajs/vue3';
 
 const aboutCardArray = [
@@ -85,20 +84,20 @@ const aboutCardArray = [
     title: 'Поиск жилья',
     description: 'Определись с выбором аренды по отзывам. Не совершай ошибки предыдущих арендаторов.',
     img: WoodHouseSImage,
-    theme: InfoCardTheme.default,
+    theme: 'default',
   },
   {
     title: 'Выражения мнений',
     description: 'Поделись впечатлениями о проживании в квартире. Будущие арендаторы скажут вам спасибо.',
     img: CatImage,
-    theme: InfoCardTheme.blue,
+    theme: 'blue',
   },
   {
     title: 'Улучшения аренды',
     description:
       'Улучши условия проживания на основе мнений. Посоветуй хозяевам что можно улучшить в квартире для более комфортного проживания.',
     img: WallWithPaintImage,
-    theme: InfoCardTheme.default,
+    theme: 'default',
   },
 ];
 

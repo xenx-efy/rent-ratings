@@ -9,19 +9,17 @@
     </template>
 
     <textarea
+      v-model="model"
       class="min-h-[46px] w-full rounded-lg border border-gray-400 px-4 py-2.5 placeholder:text-gray-400"
-      :value="modelValue"
       :placeholder="placeholder"
       :minlength="minlength"
       :maxlength="maxlength"
-      @input="(e) => emits('update:modelValue', e.target.value)"
     />
   </label>
 </template>
 
 <script setup lang="ts">
 interface Props {
-  modelValue: string;
   label?: string;
   required?: boolean;
   placeholder?: string;
@@ -37,5 +35,5 @@ withDefaults(defineProps<Props>(), {
   maxlength: null,
 });
 
-const emits = defineEmits(['update:modelValue']);
+const model = defineModel<string>({required: true})
 </script>
