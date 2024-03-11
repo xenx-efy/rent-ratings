@@ -13,9 +13,10 @@
 </template>
 
 <script setup lang="ts">
+import { FROM_STEP } from '@/types/enums';
+
 interface Props {
-  // Хрен знает чего ругается на enum, по этому принимает ток number
-  step: any;
+  step: FROM_STEP;
   stepsLength: number;
 }
 

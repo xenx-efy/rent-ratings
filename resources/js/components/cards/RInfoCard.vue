@@ -25,7 +25,7 @@
       <template v-if="button">
         <button
           class="mt-6 w-full"
-          :class="{ 'btn-blue ': isBlueTheme, 'btn-white': isDefaultTheme }"
+          :class="{ 'btn-blue': isBlueTheme, 'btn-white': isDefaultTheme }"
           @click="(e) => emits('click', e)"
         >
           {{ button }}
@@ -36,18 +36,13 @@
 </template>
 
 <script lang="ts">
-export enum InfoCardTheme {
-  default,
-  blue,
-}
-
 interface Props {
   img: string;
   title: string;
   description: string;
   button?: string;
-  theme?: InfoCardTheme;
-  titleLevel: number;
+  theme?: 'blue' | 'default';
+  titleLevel?: number;
 }
 </script>
 
@@ -55,7 +50,7 @@ interface Props {
 import { computed, h } from 'vue';
 
 const props = withDefaults(defineProps<Props>(), {
-  theme: InfoCardTheme.default,
+  theme: 'default',
   button: '',
   titleLevel: 2,
 });
@@ -64,6 +59,6 @@ const renderTitle = () => h(`h${props.titleLevel}`, props.title);
 
 const emits = defineEmits(['click']);
 
-const isBlueTheme = computed(() => props.theme === InfoCardTheme.blue);
-const isDefaultTheme = computed(() => props.theme === InfoCardTheme.default);
+const isBlueTheme = computed(() => props.theme === 'blue');
+const isDefaultTheme = computed(() => props.theme === 'default');
 </script>

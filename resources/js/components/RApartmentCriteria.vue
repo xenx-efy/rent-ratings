@@ -11,7 +11,7 @@
     </div>
 
     <r-rating
-      v-model="rating"
+      v-model="model"
       class="mt-0.5 items-start"
       :can-select="true"
     />
@@ -20,29 +20,17 @@
 
 <script setup lang="ts">
 import RRating from '@/shared/ui/RRating.vue';
-import { computed } from 'vue';
 import RTooltip from '@/shared/ui/RTooltip.vue';
 
 interface Props {
-  modelValue: number;
   title: string;
   tooltip?: string;
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  modelValue: 0,
+withDefaults(defineProps<Props>(), {
   title: '',
   tooltip: '',
 });
 
-const emits = defineEmits(['update:modelValue']);
-
-const rating = computed({
-  get() {
-    return props.modelValue;
-  },
-  set(value: number) {
-    emits('update:modelValue', value);
-  },
-});
+const model = defineModel<number>()
 </script>

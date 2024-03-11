@@ -4,9 +4,9 @@
     v-if="openState"
     class="fixed inset-x-0 top-0 z-30 h-[calc(100%)] max-h-full overflow-y-auto overflow-x-hidden"
   >
-    <!--  Background  -->
+    <!--  Backdrop  -->
     <div
-      class="bg-black/40 fixed h-full w-full backdrop-blur"
+      class="fixed size-full bg-black/40 backdrop-blur"
       @click="closeModal"
     />
 
@@ -17,10 +17,10 @@
         <div class="flex items-start justify-between rounded-t px-4 pt-4">
           <button
             type="button"
-            class="bg-transparent hover:bg-gray-200 hover:text-gray-900 ml-auto inline-flex h-4 w-4 items-center justify-center rounded-lg text-sm text-blue-400"
+            class="ml-auto inline-flex size-4 items-center justify-center rounded-lg bg-transparent text-sm text-blue-400 hover:bg-gray-200 hover:text-gray-900"
             @click.stop="closeModal"
           >
-            <close-icon class="h-3 w-3" />
+            <close-icon class="size-3" />
             <span class="sr-only">Close modal</span>
           </button>
         </div>
