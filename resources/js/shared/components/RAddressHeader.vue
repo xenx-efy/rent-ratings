@@ -36,7 +36,6 @@ import ArrowIcon from '@/shared/icon/ArrowIcon.vue';
 import SearchIcon from '@/shared/icon/SearchIcon.vue';
 import ApplicationLogo from '@/shared/icon/ApplicationLogo.vue';
 import { AddressHeaderTheme } from '@/types/enums';
-import { computed } from 'vue';
 import { router } from '@inertiajs/vue3';
 
 interface Props {
@@ -50,29 +49,24 @@ const props = withDefaults(defineProps<Props>(), {
   address: '',
   enableSearch: false,
   theme: AddressHeaderTheme.Blue,
+  backUrl: '',
 });
 
-const logoColor = computed(() => {
-  return {
-    [AddressHeaderTheme.Blue]: 'fill-white',
-    [AddressHeaderTheme.Light]: 'fill-blue-950',
-  };
-});
+const logoColor = {
+  [AddressHeaderTheme.Blue]: 'fill-white',
+  [AddressHeaderTheme.Light]: 'fill-blue-950',
+}
 
-const headerClass = computed(() => {
-  return {
-    'bg-blue-400': props.theme === AddressHeaderTheme.Blue,
-    'bg-white': props.theme === AddressHeaderTheme.Light,
-  };
-});
+const headerClass = {
+  'bg-blue-400': props.theme === AddressHeaderTheme.Blue,
+  'bg-white': props.theme === AddressHeaderTheme.Light,
+}
 
-const headerTextClass = computed(() => {
-  return {
-    'text-base': props.address.length > 25,
-    'text-white': props.theme === AddressHeaderTheme.Blue,
-    'blue-950': props.theme === AddressHeaderTheme.Light,
-  };
-});
+const headerTextClass = {
+  'text-base': props.address.length > 25,
+  'text-white': props.theme === AddressHeaderTheme.Blue,
+  'blue-950': props.theme === AddressHeaderTheme.Light,
+}
 
 const goBack = () => {
   if (props.backUrl) {

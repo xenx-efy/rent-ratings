@@ -2,7 +2,7 @@
   <Transition>
     <button
       v-show="showButton"
-      class="btn-blue fixed bottom-4 right-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-400 shadow-custom"
+      class="btn-blue fixed bottom-4 right-4 flex size-14 items-center justify-center rounded-full bg-blue-400 shadow-custom"
       @click="scrollToTop"
     >
       <arrow2-icon />

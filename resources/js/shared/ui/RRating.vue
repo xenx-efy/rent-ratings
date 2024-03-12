@@ -26,7 +26,7 @@
       v-if="!canSelect"
       class="ml-2"
     >
-      {{ modelValue }}
+      {{ model }}
       <span v-if="count">({{ count }})</span>
     </p>
   </div>
@@ -38,32 +38,36 @@ import StarIcon from '@/shared/icon/StarIcon.vue';
 interface Props {
   canSelect?: boolean;
   count?: number;
-  modelValue?: number | string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  modelValue: 0,
   count: 0,
   canSelect: false,
 });
 
-const getWidth = (star: number) => {
-  const fractionalPart = +(+props.modelValue % 1).toFixed(2);
+const model = defineModel<number | string>({ required: true });
 
-  if (star <= +props.modelValue) {
+const getWidth = (star: number): string => {
+  const numValue = Number(model.value);
+  const strValue = String(model.value)
+
+  if (star <= numValue) {
     return '100%';
-  } else if (+(star - +props.modelValue).toFixed(2) > 1 - fractionalPart) {
+  }
+
+  if (numValue + 1 > star) {
+    const fraction = Number(strValue.split('.')[1]);
+    const fullness = fraction * 10;
+    return fullness + '%';
+  }
+
+  if (star > numValue) {
     return '0%';
-  } else {
-    const residue = fractionalPart * 100;
-    return `${residue}%`;
   }
 };
 
-const emits = defineEmits(['update:modelValue']);
-
 const setRating = (rating: number) => {
   if (!props.canSelect) return;
-  emits('update:modelValue', rating);
+  model.value = rating;
 };
 </script>

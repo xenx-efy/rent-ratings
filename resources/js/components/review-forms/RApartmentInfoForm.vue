@@ -6,7 +6,7 @@
     required
     type="number"
     inputmode="numeric"
-    maxlength="3"
+    :maxlength="3"
   />
 
   <r-input
@@ -16,7 +16,7 @@
     required
     type="number"
     inputmode="numeric"
-    maxlength="2"
+    :maxlength="2"
   />
 
   <r-input
@@ -26,7 +26,7 @@
     required
     type="number"
     inputmode="numeric"
-    maxlength="2"
+    :maxlength="2"
   />
 </template>
 

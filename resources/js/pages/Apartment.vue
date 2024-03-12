@@ -20,7 +20,6 @@
         :count="apartment.reviewsCount"
       />
     </div>
-
     <inertia-link
       class="btn-blue w-3/4 self-center bg-blue-400 text-white"
       :href="'/create-review?address=' + address"
@@ -35,7 +34,7 @@
     <div class="mb-10 flex flex-col space-y-1.5">
       <div
         v-for="r in reviews.data"
-        :key="r.id"
+        :key="r.title"
       >
         <apartment-review-card
           :title="r.title"
@@ -74,24 +73,21 @@ const metaDescription = computed(() => {
   return `Количество отзывов на квартиру: ${props.apartment.reviewsCount}`;
 });
 
-const isSuccess = computed(() => {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-
-  return urlParams.has('success');
-});
-
-onMounted(() => {
-  if (isSuccess.value) {
-    openModal();
-  }
-});
-
 const backUrl = computed(() => {
-  return isSuccess.value ? `/house?address=${props.address}` : '';
+  return `/house?address=${props.address}`;
 });
 
 const fullAddress = computed(() => {
   return `${props.address}, кв ${props.apartment.number}`;
 });
+
+const showSuccessModal = () => {
+  const isSuccess = JSON.parse(localStorage.getItem('success'));
+  if (isSuccess) {
+    openModal();
+  }
+  localStorage.removeItem('success');
+};
+
+onMounted(showSuccessModal);
 </script>
