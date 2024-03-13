@@ -81,7 +81,7 @@ class CreateReviewAction
             $this->handle($requestParams);
         }
 
-        return to_route("apartment", ['id' => $requestParams['apartmentId']]);
+        return to_route("apartment", ['id' => $requestParams['apartmentId'], 'review_created' => true]);
     }
 
 
